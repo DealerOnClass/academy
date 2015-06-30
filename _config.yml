@@ -2,6 +2,9 @@ name: DealerOn Academy
 highlighter: pygments # or rouge or null
 exclude: ["node_modules", "gulpfile.js", "package.json"]
 
+baseurl: "/academy/" # the subpath of your site, e.g. /blog/
+url: ""
+
 # Build settings
 permalink: /:categories/:title
 markdown: redcarpet
