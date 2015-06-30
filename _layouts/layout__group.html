@@ -39,7 +39,7 @@ layout: default
         <time>{{ post.date | date: "%-d %B %Y" }}</time>&nbsp;|
         <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>&nbsp;|
         {% for tags in post.tags %}
-        <a href="{{ '/tags/#' | append: tags | remove:' ' }}">{{ tags }}</a>
+        <a href="{{ '/tags/#' | append: tags | prepend: site.baseurl | remove:' ' }}">{{ tags }}</a>
         {% endfor %}
     <div>
     {% endif %}

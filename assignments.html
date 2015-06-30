@@ -24,8 +24,8 @@ permalink: /assignments/
                     <li>
                         <span>{{ post.group }}</span>&nbsp;|
                         <time>{{ post.date | date: "%-d %B %Y" }}</time>&nbsp;|
-                        <a href="{{ post.url }}">{{ post.title }}</a>&nbsp;|
-                        <a href="{{ post.url }}">{{ post.assignment }}</a>
+                        <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>&nbsp;|
+                        <a href="{{ post.url | prepend: site.baseurl }}">{{ post.assignment }}</a>
                     </li>
                 {% endif %}
             {% endfor %}
@@ -43,8 +43,8 @@ permalink: /assignments/
                     <li>
                         <span>{{ post.group }}</span>&nbsp;|
                         <time>{{ post.date | date: "%-d %B %Y" }}</time>&nbsp;|
-                        <a href="{{ post.url }}">{{ post.title }}</a>&nbsp;|
-                        <a href="{{ post.url }}">{{ post.assignment }}</a>
+                        <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>&nbsp;|
+                        <a href="{{ post.url | prepend: site.baseurl }}">{{ post.assignment }}</a>
                     </li>
                 {% endif %}
             {% endfor %}

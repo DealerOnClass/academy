@@ -17,7 +17,7 @@ layout: default
         </h3>
         <ul>
         {% for tags in page.tags %}
-            <li><a href="{{ '/tags/#' | append: tags | remove:' ' }}">{{ tags }}</a></li>
+            <li><a href="{{ '/tags/#' | append: tags | prepend: site.baseurl | remove:' ' }}">{{ tags }}</a></li>
         {% endfor %}
         </ul>
     </header>
@@ -27,15 +27,15 @@ layout: default
     <div>
         <h5>Assignment</h5>
         <p>
-            <a href="{{ '/assignments/#' | append: page.assignment }}">{{ page.assignment }}</a>
-            <a class="nav__right" href="/assignments/">see all</a>
+            <a href="{{ '/assignments/#' | append: page.assignment | prepend: site.baseurl }}">{{ page.assignment }}</a>
+            <a class="nav__right" href="{{ '/assignments/' | prepend: site.baseurl }}">see all</a>
         </p>
     </div>
     <div>
         <h5>Reference</h5>
         <p>
-            <a href="{{ '/references/#' | append: page.reference }}">{{ page.reference }}</a>
-            <a class="nav__right" href="/references/">see all</a>
+            <a href="{{ '/references/#' | append: page.reference | prepend: site.baseurl }}">{{ page.reference }}</a>
+            <a class="nav__right" href="{{ '/references/' | prepend: site.baseurl }}">see all</a>
         </p>
     </div>
 </div>
