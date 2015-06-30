@@ -9,7 +9,7 @@
             <a href="{{ node.url | prepend: site.baseurl }}">
                 <span class="icon icon-agenda"></span>&nbsp;Lessons
             </a>&nbsp;&nbsp;
-            <a href="{{ '/assignments/#' | append: node.title | remove:' ' }}">
+            <a href="{{ '/assignments/#' | append: node.title | prepend: site.baseurl | remove:' ' }}">
                 <span class="icon icon-pencil"></span>&nbsp;Assignments
             </a>
         </div>
