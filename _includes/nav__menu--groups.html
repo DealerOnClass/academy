@@ -1,0 +1,34 @@
+<!-- http://stackoverflow.com/questions/8340170/jekyll-automatically-highlight-current-tab-in-menu-bar -->
+<!-- <div class="grid__row"> -->
+{% for node in nav__menu--groups %}
+{% if nav__group == null or nav__group == node.nav__group %}        
+<!-- <div class="grid__col--3"> -->
+    <p class="nav">
+        <div class="nav__left nav__title">{{ node.title }}</div>
+        <div class="nav__right">
+            <a href="{{ node.url | prepend: site.baseurl }}">
+                <span class="icon icon-agenda"></span>&nbsp;Lessons
+            </a>&nbsp;&nbsp;
+            <a href="{{ '/assignments/#' | append: node.title | remove:' ' }}">
+                <span class="icon icon-pencil"></span>&nbsp;Assignments
+            </a>
+        </div>
+    </p>
+    <!-- {% for post in site.posts %}
+    {% if post.categories contains node.title %}
+    {% if post.categories contains 'recent' %}
+    <p>Progress:</p>
+    <h5>Current</h5>
+    <p>Lesson:<a class="hero__link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></p>
+    <p>Assignment:<a class="hero__link" href="{{ '/assignments/#' | append: post.assignment }}">{{ post.assignment }}</a></p>
+    <p>Reference:<a class="hero__link" href="{{ '/references/#' | append: post.reference }}">{{ post.reference }}</a></p>
+    {% endif %}
+    {% endif %}
+    {% endfor %} -->
+<!-- </div> -->
+{% endif %}
+{% endfor %}
+<!-- </div> -->
+
+{% assign nav__menu--groups = nil %}
+{% assign nav__group = nil %}

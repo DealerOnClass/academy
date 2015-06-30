@@ -1,0 +1,26 @@
+%grid__clear:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.grid__container {
+    @extend %grid__clear;
+    padding-right: $grid__gutter;
+    padding-left: $grid__gutter;
+    margin: 0 auto;
+    max-width: 40em;
+}
+.grid__row {
+    @extend %grid__clear;
+    margin-right: $grid__gutter * -1;
+    margin-left: $grid__gutter * -1;
+}
+[class^="grid__col--"] {
+    float: left;
+    padding-right: $grid__gutter;
+    padding-left: $grid__gutter;
+    @include box-sizing(border-box);
+}
+.grid__col--3 {
+    width: percentage(1/2);
+}

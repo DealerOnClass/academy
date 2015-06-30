@@ -1,0 +1,28 @@
+////////////////////////////////
+//
+//  TYPOGRAPHY
+//
+$round-to-nearest-half-line: true;  //  ensure "visually" appealing vertical rhythm
+$base-font-size: 18px;              //  assume 16px is 100% for all devices
+$base-font-ratio: 1.333;            //  line height - also ratio for font size
+$base-line-height: $base-font-size * $base-font-ratio;
+
+$h5:              $base-font-size;
+$h6:              $h5 / $base-font-ratio;
+$h4:              $h5 * $base-font-ratio;
+$h3:              $h4 * $base-font-ratio;
+$h2:              $h3 * $base-font-ratio;
+$h1:              $h2 * $base-font-ratio;
+
+////////////////////////////////
+//
+//  Body
+//
+$body__color:   #333;
+$body__bg:      #999;
+
+////////////////////////////////
+//
+//  Grid
+//
+$grid__gutter:  rhythm(1);

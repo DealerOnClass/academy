@@ -1,0 +1,12 @@
+<nav class="nav nav--primary">
+    <div class="grid__container">
+        <div class="nav__logo">
+            <a href="/">{{ site.name }}</a>
+        </div>
+        <div class="nav__menu">
+            {% assign nav__menu = site.pages %}
+            {% assign nav__group = 'navigation' %}
+            {% include nav__menu.html %}
+        </div>
+    </div>
+</nav>

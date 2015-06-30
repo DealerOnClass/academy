@@ -1,0 +1,54 @@
+---
+layout: layout__archive
+title: assignments
+permalink: /assignments/
+---
+<!-- nav__group: "navigation" -->
+<nav class="nav">
+    {% for page in site.pages %}
+        {% if page.nav__group == 'class_groups' %}
+            <a href="#{{ page.title }}">{{ page.title }}</a>
+            {% if forloop.last %}.{% else %}, {% endif %}
+        {% endif %}
+    {% endfor %}
+    <a class="nav__right" href="#allposts">see all</a>
+</nav>
+<hr>
+<div class="catbloc" id="allposts">
+    <h4>All Assignments</h4>
+    <ul>
+    {% for page in site.pages %}
+        {% if page.nav__group == 'class_groups' %}
+            {% for post in site.posts %}
+                {% if post.categories contains page.title %}
+                    <li>
+                        <span>{{ post.group }}</span>&nbsp;|
+                        <time>{{ post.date | date: "%-d %B %Y" }}</time>&nbsp;|
+                        <a href="{{ post.url }}">{{ post.title }}</a>&nbsp;|
+                        <a href="{{ post.url }}">{{ post.assignment }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+    </ul>
+</div>
+{% for page in site.pages %}
+    {% if page.nav__group == 'class_groups' %}
+        <div class="catbloc" id="{{ page.title }}">
+            <h4>All "{{ page.title }}" Assignments</h4>
+            <ul>
+            {% for post in site.posts %}
+                {% if post.categories contains page.title %}
+                    <li>
+                        <span>{{ post.group }}</span>&nbsp;|
+                        <time>{{ post.date | date: "%-d %B %Y" }}</time>&nbsp;|
+                        <a href="{{ post.url }}">{{ post.title }}</a>&nbsp;|
+                        <a href="{{ post.url }}">{{ post.assignment }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+{% endfor %}

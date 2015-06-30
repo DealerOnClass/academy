@@ -1,0 +1,48 @@
+---
+layout: layout__archive
+title: tags
+permalink: /tags/
+---
+<!-- Brilliant Solution | http://schoewilliam.fr/2015/02/10/jekyll-pro-tip-awesome-archive-page.html -->
+<nav class="nav">
+    {% for tag in site.tags %}
+        <a href="#{{ tag | first | remove:' ' }}"><strong>{{ tag | first }}</strong></a>
+        {% if forloop.last %}.{% else %}, {% endif %}
+    {% endfor %}
+    <a class="nav__right" href="#allposts">see all</a>
+</nav>
+<hr>
+<div class="catbloc" id="allposts">
+    <h4>All tags</h4>
+    <ul>
+        {% for post in site.posts %}
+            <li>
+                <span>{{ post.group }}</span>&nbsp;|
+                <time>{{ post.date | date: "%-d %B %Y" }}</time>&nbsp;|
+                <a href="{{ post.url }}">
+                    {{ post.title }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% for tag in site.tags %}
+<div class="catbloc" id="{{ tag | first | remove:' ' }}">
+    <h4>All posts with "{{ tag | first }}" tag</h4>
+    <ul>
+    {% for posts in tag %}
+        {% for post in posts %}
+            {% if post.url %}
+            <li>
+                <span>{{ post.group }}</span>&nbsp;|
+                <time>{{ post.date | date: "%-d %B %Y" }}</time>&nbsp;|
+                <a href="{{ post.url }}">
+                    {{ post.title }}
+                </a>
+            </li>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+    </ul>
+</div>
+{% endfor %}
