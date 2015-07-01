@@ -1,3 +1,13 @@
+$lesson__gutter: percentage(1/6);
+
 .lesson {
-    padding-left: rhythm(6);
+    padding-left: $lesson__gutter;
+}
+.lesson__title {
+    position: relative;
+}
+.lesson__date {
+    position: absolute;
+    left: $lesson__gutter * -1;
+    margin-left: ($grid__gutter/2) * -1;
 }

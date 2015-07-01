@@ -35,7 +35,7 @@ permalink: /assignments/
 </div>
 {% for page in site.pages %}
     {% if page.nav__group == 'class_groups' %}
-        <div class="catbloc" id="{{ page.title }}">
+        <div class="catbloc {{ page.title }}" id="{{ page.title }}">
             <h4>All "{{ page.title }}" Assignments</h4>
             <ul>
             {% for post in site.posts %}

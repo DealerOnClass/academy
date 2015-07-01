@@ -1,9 +1,13 @@
+%grid__sizing {    
+    @include box-sizing(border-box);
+}
 %grid__clear:after {
     content: "";
     clear: both;
     display: table;
 }
 .grid__container {
+    @extend %grid__sizing;
     @extend %grid__clear;
     padding-right: $grid__gutter;
     padding-left: $grid__gutter;
@@ -11,16 +15,28 @@
     max-width: 40em;
 }
 .grid__row {
+    @extend %grid__sizing;
     @extend %grid__clear;
     margin-right: $grid__gutter * -1;
     margin-left: $grid__gutter * -1;
 }
 [class^="grid__col--"] {
+    @extend %grid__sizing;
     float: left;
     padding-right: $grid__gutter;
     padding-left: $grid__gutter;
-    @include box-sizing(border-box);
+}
+.grid__col--1 {
+    width: percentage(1/6);
+}
+.grid__col--2 {
+    width: percentage(2/6);
 }
 .grid__col--3 {
-    width: percentage(1/2);
+    width: percentage(3/6);
+}
+.grid__col--table {
+    float: none;
+    width: 10000px;
+    display: table-cell;
 }

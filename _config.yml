@@ -2,6 +2,7 @@ name: DealerOn Academy
 highlighter: pygments # or rouge or null
 exclude: ["node_modules", "gulpfile.js", "package.json"]
 
+# baseurl: "" # the subpath of your site, e.g. /blog/
 baseurl: "/academy/" # the subpath of your site, e.g. /blog/
 url: ""
 

@@ -1,47 +1,78 @@
 ---
 layout: default
 ---
-<nav class="nav nav--secondary">
-    <h4 class="nav__title">{{ page.title }}
-        <a class="nav__right" href="{{ '/' | prepend: site.baseurl }}">
-            Home&nbsp;<span class="icon icon-home"></span>
-        </a>
-    </h4>
-</nav>
+<article class="{{ page.title }}">
+    <nav class="nav nav--secondary">
+        <h4 class="nav__title">{{ page.title }}
+            <a class="nav__right" href="{{ '/' | prepend: site.baseurl }}">
+                Home&nbsp;<span class="icon icon-home"></span>
+            </a>
+        </h4>
+    </nav>
 
-{{ content }}
+    {{ content }}
+    
+    <section>
+        <h5>Current</h5>
+        {% for post in site.posts %}
+        {% if post.categories contains page.title %}
+        {% if post.categories contains 'recent' %}
+        <div class="grid__row">
+            <div class="grid__col--1">Lesson:</div>
+            <div class="grid__col--table">
+                <a href="{{ post.url | prepend: site.baseurl }}"><span>{{ post.title }}</span></a>
+            </div>
+        </div>
+        <div class="grid__row">
+            <div class="grid__col--1">Tags:</div>
+            <div class="grid__col--table">
+                {% for tags in post.tags %}
+                <a href="{{ '/tags/#' | append: tags | prepend: site.baseurl | remove:' ' }}"><strong>{{ tags }}</strong></a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="grid__row">
+            <div class="grid__col--1">Summary:</div>
+            <div class="grid__col--table">
+                <a href="{{ page.summary | prepend: site.baseurl }}">{{ page.summary }}</a>
+            </div>
+        </div>
+        <div class="grid__row">
+            <div class="grid__col--1">Assignment:</div>
+            <div class="grid__col--table">
+                <a href="{{ page.assignment | prepend: site.baseurl }}">{{ page.assignment }}</a>
+            </div>
+        </div>
+        <div class="grid__row">
+            <div class="grid__col--1">Reference:</div>
+            <div class="grid__col--table">
+                <a href="{{ page.reference | prepend: site.baseurl }}">{{ page.reference }}</a>
+            </div>
+        </div>
 
-<h5>Current</h5>
-{% for post in site.posts %}
-{% if post.categories contains page.title %}
-{% if post.categories contains 'recent' %}
-<div>
-    <p>Lesson: <a href="{{ post.url | prepend: site.baseurl }}"><span>{{ post.title }}</span></a></p>
-    <p>Tags:
-    {% for tags in post.tags %}
-    <a href="{{ '/tags/#' | append: tags | prepend: site.baseurl | remove:' ' }}">{{ tags }}</a>
-    {% endfor %}
-    </p>
-    <p>Summary:<a href="{{ page.summary | prepend: site.baseurl }}">{{ page.summary }}</a></p>
-    <p>Assignment:<a href="{{ page.assignment | prepend: site.baseurl }}">{{ page.assignment }}</a></p>
-    <p>Reference:<a href="{{ page.reference | prepend: site.baseurl }}">{{ page.reference }}</a></p>
-</div>
-{% endif %}
-{% endif %}
-{% endfor %}
-
-
-<h5>All Lessons</h5>
-<div>
-    {% for post in site.posts %}
-    {% if post.categories contains page.title %}
-    <div>
-        <time>{{ post.date | date: "%-d %B %Y" }}</time>&nbsp;|
-        <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>&nbsp;|
-        {% for tags in post.tags %}
-        <a href="{{ '/tags/#' | append: tags | prepend: site.baseurl | remove:' ' }}">{{ tags }}</a>
+        {% endif %}
+        {% endif %}
         {% endfor %}
-    <div>
-    {% endif %}
-    {% endfor %}
-</div>
+    </section>
+
+    <section>
+        <h5>All Lessons</h5>
+        {% for post in site.posts %}
+        {% if post.categories contains page.title %}
+        <div class="grid__row">
+            <div class="grid__col--1">
+                <time>{{ post.date | date: "%-m/%-d" }}</time>
+            </div>
+            <div class="grid__col--table">
+                <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+                <ul class="list--inline list--commas">
+                {% for tags in post.tags %}
+                <li><a href="{{ '/tags/#' | append: tags | prepend: site.baseurl | remove:' ' }}"><strong>{{ tags }}</strong></a></li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </section>
+</article>

@@ -17,7 +17,7 @@ permalink: /tags/
     <ul>
         {% for post in site.posts %}
             <li>
-                <span>{{ post.group }}</span>&nbsp;|
+                <!-- <span>{{ post.group }}</span>&nbsp;| -->
                 <time>{{ post.date | date: "%-d %B %Y" }}</time>&nbsp;|
                 <a href="{{ post.url | prepend: site.baseurl }}">
                     {{ post.title }}
@@ -33,8 +33,8 @@ permalink: /tags/
     {% for posts in tag %}
         {% for post in posts %}
             {% if post.url %}
-            <li>
-                <span>{{ post.group }}</span>&nbsp;|
+            <li class="{{ post.group }}">
+                <!-- <span>{{ post.group }}</span>&nbsp;| -->
                 <time>{{ post.date | date: "%-d %B %Y" }}</time>&nbsp;|
                 <a href="{{ post.url | prepend: site.baseurl }}">
                     {{ post.title }}

@@ -1,0 +1,11 @@
+.list--inline {
+    > li {
+        display: inline-block;
+    }
+}
+.list--commas {
+    @extend .list--inline;
+    > li:not(:last-child):after {
+        content: ",";
+    }
+}

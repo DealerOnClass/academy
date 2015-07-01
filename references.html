@@ -35,7 +35,7 @@ nav__group: "navigation"
         {% for post in posts %}
             {% if post.url %}
                 {% if post.reference %}
-                    <li>
+                    <li class="{{ post.group }}">
                         <span>{{ post.group }}</span>&nbsp;|
                         <time>{{ post.date | date: "%-d %B %Y" }}</time>&nbsp;|
                         <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>&nbsp;|

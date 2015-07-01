@@ -24,13 +24,15 @@ h5 {
 h6, small {
     @include adjust-font-size-to($h6);
 }
-p, ul {
+p, ul, nav {
     @include margin-trailer(1);
 }
+section + section {
+    @include margin-leader(2);    
+}
 a {
-    color: cornsilk;
-    //  Remove later
-    &:hover, &:active, &:focus {
-        color: shade(cornsilk, 10%);
-    }
+    color: inherit;
+}
+strong {
+    font-weight: 600;
 }
