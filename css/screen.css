@@ -101,7 +101,8 @@ h2 {
 
 h3 {
   font-size: 1.77689em;
-  line-height: 1.12528em; }
+  line-height: 1.12528em;
+  font-weight: 300; }
 
 h4 {
   font-size: 1.333em;
@@ -115,11 +116,8 @@ h6, small {
   font-size: 0.75019em;
   line-height: 1.77689em; }
 
-p, ul, nav {
+p, header, section, .grid__row {
   margin-bottom: 1.333em; }
-
-section + section {
-  margin-top: 2.666em; }
 
 a {
   color: inherit; }
@@ -161,6 +159,9 @@ strong {
 .grid__col--3 {
   width: 50%; }
 
+.grid__col--right {
+  float: right; }
+
 .grid__col--table {
   float: none;
   width: 10000px;
@@ -182,7 +183,12 @@ strong {
   margin-bottom: 2.666em; }
 
 .nav--secondary {
-  margin-bottom: 2.666em; }
+  margin-bottom: 2.666em;
+  background-color: white;
+  padding: 0 0.6665em; }
+  .nav--secondary .nav__title, .nav--secondary a {
+    display: inline-block;
+    padding: 1.333em 0.6665em; }
 
 .nav__title {
   text-transform: capitalize; }
@@ -217,12 +223,18 @@ strong {
   padding-left: 16.66667%; }
 
 .lesson__title {
-  position: relative; }
+  position: relative;
+  text-transform: capitalize; }
 
 .lesson__date {
   position: absolute;
   left: -16.66667%;
   margin-left: -0.6665em; }
+
+.heading--secondary {
+  color: #bdbebe;
+  text-transform: uppercase;
+  letter-spacing: .1em; }
 
 .group1 a {
   color: #339ce6; }

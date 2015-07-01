@@ -11,40 +11,49 @@ nav__group: "navigation"
     {% endfor %}
     <a class="nav__right" href="#allposts">see all</a>
 </nav>
-<hr>
 <div class="catbloc" id="allposts">
     <h4>All References</h4>
-    <ul>
-    {% for post in site.posts %}
-        {% if post.reference %}
-            <li>
-                <span>{{ post.group }}</span>&nbsp;|
-                <time>{{ post.date | date: "%-d %B %Y" }}</time>&nbsp;|
-                <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>&nbsp;|
-                <a href="{{ post.reference | prepend: site.baseurl }}">{{ post.reference }}</a>
-            </li>
-        {% endif %}
-        {% endfor %}
-    </ul>
+    {% for post in site.posts reversed %}
+    {% if post.reference %}
+    <div class="grid__row {{ post.group }}">
+        <div class="grid__col--1">
+            <time>{{ post.date | date: "%-m/%-d" }}</time>
+        </div>
+        <div class="grid__col--right">            
+            <a href="{{ '/' | append: post.group | prepend: site.baseurl | remove:' ' }}">{{ post.group }}</a>
+        </div>
+        <div class="grid__col--table">
+            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a><br>
+            <a href="{{ post.reference | prepend: site.baseurl }}"><strong>{{ post.reference }}</strong></a>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
 </div>
 {% for tag in site.tags %}
 <div class="catbloc" id="{{ tag | first | remove:' ' }}">
     <h4>All References under "{{ tag | first }}" tag</h4>
-    <ul>
     {% for posts in tag %}
-        {% for post in posts %}
-            {% if post.url %}
-                {% if post.reference %}
-                    <li class="{{ post.group }}">
-                        <span>{{ post.group }}</span>&nbsp;|
-                        <time>{{ post.date | date: "%-d %B %Y" }}</time>&nbsp;|
-                        <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>&nbsp;|
-                        <a href="{{ post.reference | prepend: site.baseurl }}">{{ post.reference }}</a>
-                    </li>
-                {% endif %}
-            {% endif %}
-        {% endfor %}
+    {% for post in posts reversed %}
+    
+    {% if post.url %}
+    {% if post.reference %}
+    <div class="grid__row {{ post.group }}">
+        <div class="grid__col--1">
+            <time>{{ post.date | date: "%-m/%-d" }}</time>
+        </div>
+        <div class="grid__col--right">            
+            <a href="{{ '/' | append: post.group | prepend: site.baseurl | remove:' ' }}">{{ post.group }}</a>
+        </div>
+        <div class="grid__col--table">
+            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a><br>
+            <a href="{{ post.reference | prepend: site.baseurl }}"><strong>{{ post.reference }}</strong></a>
+        </div>
+    </div>
+    {% endif %}
+    {% endif %}
+
     {% endfor %}
-    </ul>
+    {% endfor %}
 </div>
 {% endfor %}

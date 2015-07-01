@@ -35,6 +35,9 @@
 .grid__col--3 {
     width: percentage(3/6);
 }
+.grid__col--right {
+    float: right;
+}
 .grid__col--table {
     float: none;
     width: 10000px;

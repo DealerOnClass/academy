@@ -3,17 +3,13 @@ layout: default
 ---
 <article class="{{ page.title }}">
     <nav class="nav nav--secondary">
-        <h4 class="nav__title">{{ page.title }}
-            <a class="nav__right" href="{{ '/' | prepend: site.baseurl }}">
-                Home&nbsp;<span class="icon icon-home"></span>
-            </a>
-        </h4>
-    </nav>
-
-    {{ content }}
-    
+        <h5 class="nav__title">{{ page.title }}</h5>
+        <a class="nav__right" href="{{ '/' | prepend: site.baseurl }}">
+            Home&nbsp;<span class="icon icon-home"></span>
+        </a>
+    </nav>  
     <section>
-        <h5>Current</h5>
+        <h5 class="heading--secondary">Current</h5>
         {% for post in site.posts %}
         {% if post.categories contains page.title %}
         {% if post.categories contains 'recent' %}
@@ -26,9 +22,11 @@ layout: default
         <div class="grid__row">
             <div class="grid__col--1">Tags:</div>
             <div class="grid__col--table">
+                <ul class="list--commas">
                 {% for tags in post.tags %}
-                <a href="{{ '/tags/#' | append: tags | prepend: site.baseurl | remove:' ' }}"><strong>{{ tags }}</strong></a>
+                <li><a href="{{ '/tags/#' | append: tags | prepend: site.baseurl | remove:' ' }}"><strong>{{ tags }}</strong></a></li>
                 {% endfor %}
+                </ul>
             </div>
         </div>
         <div class="grid__row">
@@ -49,14 +47,12 @@ layout: default
                 <a href="{{ page.reference | prepend: site.baseurl }}">{{ page.reference }}</a>
             </div>
         </div>
-
         {% endif %}
         {% endif %}
         {% endfor %}
     </section>
-
     <section>
-        <h5>All Lessons</h5>
+        <h5 class="heading--secondary">All Lessons</h5>
         {% for post in site.posts %}
         {% if post.categories contains page.title %}
         <div class="grid__row">

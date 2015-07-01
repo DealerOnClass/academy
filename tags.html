@@ -14,35 +14,39 @@ permalink: /tags/
 <hr>
 <div class="catbloc" id="allposts">
     <h4>All tags</h4>
-    <ul>
-        {% for post in site.posts %}
-            <li>
-                <!-- <span>{{ post.group }}</span>&nbsp;| -->
-                <time>{{ post.date | date: "%-d %B %Y" }}</time>&nbsp;|
-                <a href="{{ post.url | prepend: site.baseurl }}">
-                    {{ post.title }}
-                </a>
-            </li>
-        {% endfor %}
-    </ul>
+    {% for post in site.posts reversed %}
+    <div class="grid__row {{ post.group }}">
+        <div class="grid__col--1">
+            <time>{{ post.date | date: "%-m/%-d" }}</time>
+        </div>
+        <div class="grid__col--right">            
+            <a href="{{ '/' | append: post.group | prepend: site.baseurl | remove:' ' }}">{{ post.group }}</a>
+        </div>
+        <div class="grid__col--table">
+            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </div>
+    </div>
+    {% endfor %}
 </div>
 {% for tag in site.tags %}
 <div class="catbloc" id="{{ tag | first | remove:' ' }}">
     <h4>All posts with "{{ tag | first }}" tag</h4>
-    <ul>
     {% for posts in tag %}
         {% for post in posts %}
             {% if post.url %}
-            <li class="{{ post.group }}">
-                <!-- <span>{{ post.group }}</span>&nbsp;| -->
-                <time>{{ post.date | date: "%-d %B %Y" }}</time>&nbsp;|
-                <a href="{{ post.url | prepend: site.baseurl }}">
-                    {{ post.title }}
-                </a>
-            </li>
+            <div class="grid__row {{ post.group }}">
+                <div class="grid__col--1">
+                    <time>{{ post.date | date: "%-m/%-d" }}</time>
+                </div>
+                <div class="grid__col--right">            
+                    <a href="{{ '/' | append: post.group | prepend: site.baseurl | remove:' ' }}">{{ post.group }}</a>
+                </div>
+                <div class="grid__col--table">
+                    <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+                </div>
+            </div>
             {% endif %}
         {% endfor %}
     {% endfor %}
-    </ul>
 </div>
 {% endfor %}

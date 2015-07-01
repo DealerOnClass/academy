@@ -8,6 +8,13 @@
 }
 .nav--secondary {
     @include margin-trailer(2);
+    // cosmetics
+    background-color: white;
+    padding: 0 rhythm(.5);
+    .nav__title, a {
+        display: inline-block;
+        padding: rhythm(1) rhythm(.5);
+    }
 }
 .nav__title {
     text-transform: capitalize;

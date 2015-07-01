@@ -5,6 +5,7 @@ $lesson__gutter: percentage(1/6);
 }
 .lesson__title {
     position: relative;
+    text-transform: capitalize;
 }
 .lesson__date {
     position: absolute;

@@ -2,11 +2,10 @@
 layout: default
 ---
 <nav class="nav nav--secondary">
-    <h4 class="nav__title">{{ page.title }}
-        <a class="nav__right" href="{{ '/' | prepend: site.baseurl }}">
-            Home&nbsp;<span class="icon icon-home"></span>
-        </a>
-    </h4>
+    <h5 class="nav__title">{{ page.title }}</h5>
+    <a class="nav__right" href="{{ '/' | prepend: site.baseurl }}">
+        Home&nbsp;<span class="icon icon-home"></span>
+    </a>
 </nav>
 
 {{ content }}
