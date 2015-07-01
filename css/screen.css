@@ -2426,19 +2426,19 @@ strong {
 .group1 a {
   color: #339ce6; }
   .group1 a:hover, .group1 a:active, .group1 a:focus {
-    color: #2b85c4; }
+    color: #66b5ec; }
 
 .group2 a {
   color: #08bbbb; }
   .group2 a:hover, .group2 a:active, .group2 a:focus {
-    color: #079f9f; }
+    color: #46cccc; }
 
 .group3 a {
   color: #ff5151; }
   .group3 a:hover, .group3 a:active, .group3 a:focus {
-    color: #d94545; }
+    color: #ff7d7d; }
 
 .group4 a {
   color: #7777ff; }
   .group4 a:hover, .group4 a:active, .group4 a:focus {
-    color: #6565d9; }
+    color: #9999ff; }

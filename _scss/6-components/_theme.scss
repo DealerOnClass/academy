@@ -2,7 +2,7 @@
     a {
         color: $group1__color;
         &:hover, &:active, &:focus {
-            color: shade($group1__color, 15%);
+            color: tint($group1__color, 25%);
         }
     }
 }
@@ -11,7 +11,7 @@
     a {
         color: $group2__color;
         &:hover, &:active, &:focus {
-            color: shade($group2__color, 15%);
+            color: tint($group2__color, 25%);
         }
     }
 }
@@ -20,7 +20,7 @@
     a {
         color: $group3__color;
         &:hover, &:active, &:focus {
-            color: shade($group3__color, 15%);
+            color: tint($group3__color, 25%);
         }
     }
 }
@@ -29,7 +29,7 @@
     a {
         color: $group4__color;
         &:hover, &:active, &:focus {
-            color: shade($group4__color, 15%);
+            color: tint($group4__color, 25%);
         }
     }
 }
