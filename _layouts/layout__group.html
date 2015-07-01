@@ -19,7 +19,7 @@ layout: default
     <p>Lesson: <a href="{{ post.url | prepend: site.baseurl }}"><span>{{ post.title }}</span></a></p>
     <p>Tags:
     {% for tags in post.tags %}
-    <a href="{{ '/tags/#' | append: tags | remove:' ' }}">{{ tags }}</a>
+    <a href="{{ '/tags/#' | append: tags | prepend: site.baseurl | remove:' ' }}">{{ tags }}</a>
     {% endfor %}
     </p>
     <p>Summary:<a href="{{ page.summary | prepend: site.baseurl }}">{{ page.summary }}</a></p>
