@@ -4,7 +4,7 @@ exclude: ["node_modules", "gulpfile.js", "package.json"]
 
 # baseurl: "" # use for local
 baseurl: "/academy/" # use for github
-url: ""
+# url: ""
 
 # Build settings
 permalink: /:categories/:title
