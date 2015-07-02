@@ -4,11 +4,11 @@ title: assignments
 permalink: /assignments/
 ---
 <!-- nav__group: "navigation" -->
-<nav class="nav">
+<nav class="nav nav--secondary nav--small">
     {% for page in site.pages %}
         {% if page.nav__group == 'class_groups' %}
             <a href="#{{ page.title }}">{{ page.title }}</a>
-            {% if forloop.last %}.{% else %}, {% endif %}
+            <!-- {% if forloop.last %}.{% else %}, {% endif %} -->
         {% endif %}
     {% endfor %}
     <a class="nav__right" href="#allposts">see all</a>

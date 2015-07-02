@@ -1,35 +1,63 @@
 .group1 {
-    a {
+    .lesson__title span, a {
         color: $group1__color;
-        &:hover, &:active, &:focus {
-            color: tint($group1__color, 25%);
+    }
+    a:hover, a:active, a:focus {
+        color: tint($group1__color, 25%);
+    }
+    .nav--secondary, &.nav--secondary {
+        background-color: $group1__color;
+        color: white;
+        a {
+            color: inherit;
         }
     }
 }
 
 .group2 {
-    a {
+    .lesson__title span, a {
         color: $group2__color;
-        &:hover, &:active, &:focus {
-            color: tint($group2__color, 25%);
+    }
+    a:hover, a:active, a:focus {
+        color: tint($group2__color, 25%);
+    }
+    .nav--secondary, &.nav--secondary {
+        background-color: $group2__color;
+        color: white;
+        a {
+            color: inherit;
         }
     }
 }
 
 .group3 {
-    a {
+    .lesson__title span, a {
         color: $group3__color;
-        &:hover, &:active, &:focus {
-            color: tint($group3__color, 25%);
+    }
+    a:hover, a:active, a:focus {
+        color: tint($group3__color, 25%);
+    }
+    .nav--secondary, &.nav--secondary {
+        background-color: $group3__color;
+        color: white;
+        a {
+            color: inherit;
         }
     }
 }
 
 .group4 {
-    a {
+    .lesson__title span, a {
         color: $group4__color;
-        &:hover, &:active, &:focus {
-            color: tint($group4__color, 25%);
+    }
+    a:hover, a:active, a:focus {
+        color: tint($group4__color, 25%);
+    }
+    .nav--secondary, &.nav--secondary {
+        background-color: $group4__color;
+        color: white;
+        a {
+            color: inherit;
         }
     }
 }

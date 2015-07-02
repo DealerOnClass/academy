@@ -48,6 +48,9 @@ a {
 .icon-pencil:before {
   content: "\e051"; }
 
+.icon-profile:before {
+  content: "\e057"; }
+
 .icon-agenda:before {
   content: "\e086"; }
 
@@ -89,7 +92,7 @@ body {
   font-family: "Raleway Webfont";
   font-weight: 400;
   color: #333;
-  background-color: #e7e7e7; }
+  background-color: white; }
 
 h1 {
   font-size: 3.15733em;
@@ -184,11 +187,17 @@ strong {
 
 .nav--secondary {
   margin-bottom: 2.666em;
-  background-color: white;
+  background-color: #e7e7e7;
   padding: 0 0.6665em; }
   .nav--secondary .nav__title, .nav--secondary a {
     display: inline-block;
     padding: 1.333em 0.6665em; }
+
+.nav--small {
+  padding: 0 0.99975em; }
+  .nav--small a {
+    display: inline-block;
+    padding: 0.6665em 0.33325em; }
 
 .nav__title {
   text-transform: capitalize; }
@@ -236,22 +245,42 @@ strong {
   text-transform: uppercase;
   letter-spacing: .1em; }
 
-.group1 a {
+.group1 .lesson__title span, .group1 a {
   color: #339ce6; }
-  .group1 a:hover, .group1 a:active, .group1 a:focus {
-    color: #66b5ec; }
+.group1 a:hover, .group1 a:active, .group1 a:focus {
+  color: #66b5ec; }
+.group1 .nav--secondary, .group1.nav--secondary {
+  background-color: #339ce6;
+  color: white; }
+  .group1 .nav--secondary a, .group1.nav--secondary a {
+    color: inherit; }
 
-.group2 a {
+.group2 .lesson__title span, .group2 a {
   color: #08bbbb; }
-  .group2 a:hover, .group2 a:active, .group2 a:focus {
-    color: #46cccc; }
+.group2 a:hover, .group2 a:active, .group2 a:focus {
+  color: #46cccc; }
+.group2 .nav--secondary, .group2.nav--secondary {
+  background-color: #08bbbb;
+  color: white; }
+  .group2 .nav--secondary a, .group2.nav--secondary a {
+    color: inherit; }
 
-.group3 a {
+.group3 .lesson__title span, .group3 a {
   color: #ff5151; }
-  .group3 a:hover, .group3 a:active, .group3 a:focus {
-    color: #ff7d7d; }
+.group3 a:hover, .group3 a:active, .group3 a:focus {
+  color: #ff7d7d; }
+.group3 .nav--secondary, .group3.nav--secondary {
+  background-color: #ff5151;
+  color: white; }
+  .group3 .nav--secondary a, .group3.nav--secondary a {
+    color: inherit; }
 
-.group4 a {
+.group4 .lesson__title span, .group4 a {
   color: #7777ff; }
-  .group4 a:hover, .group4 a:active, .group4 a:focus {
-    color: #9999ff; }
+.group4 a:hover, .group4 a:active, .group4 a:focus {
+  color: #9999ff; }
+.group4 .nav--secondary, .group4.nav--secondary {
+  background-color: #7777ff;
+  color: white; }
+  .group4 .nav--secondary a, .group4.nav--secondary a {
+    color: inherit; }

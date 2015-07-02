@@ -9,11 +9,18 @@
 .nav--secondary {
     @include margin-trailer(2);
     // cosmetics
-    background-color: white;
+    background-color: #e7e7e7;
     padding: 0 rhythm(.5);
     .nav__title, a {
         display: inline-block;
         padding: rhythm(1) rhythm(.5);
+    }
+}
+.nav--small {
+    padding: 0 rhythm(.75);
+    a {
+        display: inline-block;
+        padding: rhythm(.5) rhythm(.25);
     }
 }
 .nav__title {

@@ -51,7 +51,7 @@ gulp.task('compass', function () {
 //  Watch html/md files, run jekyll & reload BrowserSync
 gulp.task('watch', function () {
     gulp.watch('_scss/**/*.scss', ['compass']);
-    gulp.watch(['*.html', '_layouts/*.html', '_posts/*', '_includes/*.html'], ['jekyll-rebuild']);
+    gulp.watch(['*.html', 'js/*.js', '_layouts/*.html', '_posts/*', '_includes/*.html'], ['jekyll-rebuild']);
 });
 
 //  Default task, running just `gulp` will compile the compass,

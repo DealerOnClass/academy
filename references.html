@@ -4,10 +4,9 @@ title: references
 permalink: /references/
 nav__group: "navigation"
 ---
-<nav class="nav">
+<nav class="nav nav--secondary nav--small">
     {% for tag in site.tags sort %}
-        <a href="#{{ tag | first | remove:' ' }}"><strong>{{ tag | first }}</strong></a>
-        {% if forloop.last %}.{% else %}, {% endif %}
+        <a href="#{{ tag | first | remove:' ' }}">{{ tag | first }}</a>
     {% endfor %}
     <a class="nav__right" href="#allposts">see all</a>
 </nav>

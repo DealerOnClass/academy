@@ -4,9 +4,12 @@
 <nav class="nav nav--secondary {{ node.title }}">
     <div class="nav__left nav__title">{{ node.title }}</div>
     <div class="nav__right">
+        <a href="{{ '/members/#' | append: node.title | prepend: site.baseurl | remove:' ' }}">
+            <span class="icon icon-profile"></span>&nbsp;Members
+        </a>
         <a href="{{ node.url | prepend: site.baseurl }}">
             <span class="icon icon-agenda"></span>&nbsp;Lessons
-        </a>&nbsp;&nbsp;
+        </a>
         <a href="{{ '/assignments/#' | append: node.title | prepend: site.baseurl | remove:' ' }}">
             <span class="icon icon-pencil"></span>&nbsp;Assignments
         </a>

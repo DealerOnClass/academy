@@ -1,20 +1,15 @@
-;(function($) {
-  'use strict';
-  var $body = $('html, body'),
-      content = $('#main').smoothState({
-        // Runs when a link has been activated
-        onStart: {
-          duration: 1000, // Duration of our animation
-          render: function (url, $container) {
-            // toggleAnimationClass() is a public method
-            // for restarting css animations with a class
-            content.toggleAnimationClass('is-exiting');
-            // Scroll user to the top
-            $body.animate({
-              scrollTop: 0
-            });
-          }
-        }
-      }).data('smoothState');
-      //.data('smoothState') makes public methods available
-})(jQuery);
+// https://css-tricks.com/snippets/jquery/smooth-scrolling/
+$(function() {
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        // return false;
+      }
+    }
+  });
+});
