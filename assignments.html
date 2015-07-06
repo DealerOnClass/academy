@@ -40,7 +40,7 @@ nav__group: "navigation"
         {% if page.nav__group == 'class_groups' %}
         <div class="catbloc {{ page.title }}" id="{{ page.title }}">
             {% for post in site.posts reversed %}
-            {% if post.group contains page.title %}
+            {% if post.groups contains page.title %}
             <div class="lesson">
                 <time>{{ post.date | date: "%-m/%-d" }}</time>
                 <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
