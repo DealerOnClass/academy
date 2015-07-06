@@ -6,6 +6,9 @@ title: DealerOn Academy
 {% for post in site.posts reversed %}
 <div class="lesson">
     <time>{{ post.date | date: "%-m/%-d" }}</time>
+    {% for group in post.groups %}
+    <span class="nav__right">{{ group }} is here.</span><br>
+    {% endfor %}
     <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
     {% for tag in post.tags %}
     <a href="{{ '/tags/#' | append: tag | prepend: site.baseurl | remove:' ' }}">{{ tag }}</a>

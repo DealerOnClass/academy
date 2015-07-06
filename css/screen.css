@@ -116,7 +116,7 @@ h6, small {
   font-size: 0.75019em;
   line-height: 1.77689em; }
 
-p {
+p, header, section {
   margin-bottom: 1.333em; }
 
 a {
