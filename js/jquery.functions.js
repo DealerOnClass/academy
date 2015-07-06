@@ -1,16 +1,20 @@
 $(function() {
+  // get page url
   var pageUrl = window.location.hash.substr(1);
-
+  // for each nav
   $('.nav__link').each(function() {
-
+    // get href
     var navUrl = $(this).attr('href').substr(1);
-
+    // compare against page url
     if ( pageUrl === navUrl ) {
+      // add active class
       $(this).addClass('active');
     }
-
+    // on click
     $(this).click(function() {
+        // add active class
         $(this).addClass('active');
+        // remove active class of siblings
         $(this).parent().siblings().children().removeClass('active');
     });
 
