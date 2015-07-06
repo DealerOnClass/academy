@@ -13,11 +13,19 @@ $(function() {
     // on click
     $(this).click(function() {
         // add active class
-        $(this).addClass('active');
         // remove active class of siblings
-        $(this).parent().siblings().children().removeClass('active');
+        $(this).addClass('active').siblings().removeClass('active');
     });
 
+  });
+
+  // on click
+  $('.lesson__tags').click(function() {
+    // get href
+    var navUrl = $(this).attr('href').split('#')[1];
+    // add active class
+    // remove active class of siblings
+    $('.nav--secondary .nav__link.' +  navUrl).addClass('active').siblings().removeClass('active');
   });
 
 });

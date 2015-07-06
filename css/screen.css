@@ -88,8 +88,8 @@ html {
 body {
   font-family: "Raleway Webfont";
   font-weight: 400;
-  color: #333;
-  background-color: white; }
+  color: #5f6368;
+  background-color: #2a2f35; }
 
 h1 {
   font-size: 3.15733em;
@@ -125,7 +125,7 @@ a {
     opacity: .7; }
 
 .active {
-  color: crimson; }
+  color: #31da88; }
 
 strong {
   font-weight: 600; }
@@ -146,9 +146,9 @@ em {
   .highlight:before {
     content: "";
     display: block;
-    width: 33em;
+    width: 49.5em;
     left: 50%;
-    margin-left: -16.5em;
+    margin-left: -24.75em;
     height: .05em;
     background-color: #d7d7d7;
     position: absolute;
@@ -422,7 +422,7 @@ em {
   padding-right: 1.333em;
   padding-left: 1.333em;
   margin: 0 auto;
-  max-width: 40em; }
+  max-width: 60em; }
 
 .grid__row {
   margin-right: -1.333em;
@@ -434,13 +434,13 @@ em {
   padding-left: 1.333em; }
 
 .grid__col--1 {
-  width: 16.66667%; }
+  width: 20%; }
 
 .grid__col--2 {
-  width: 33.33333%; }
+  width: 40%; }
 
 .grid__col--3 {
-  width: 50%; }
+  width: 60%; }
 
 .grid__col--right {
   float: right; }
@@ -461,15 +461,46 @@ em {
   clear: both;
   display: table; }
 
+.nav__left {
+  float: left; }
+
+.nav__right {
+  float: right; }
+
+.nav__logo, .nav__link {
+  display: inline-block;
+  padding-top: 0.6665em;
+  padding-bottom: 0.6665em; }
+
 .nav--primary {
   margin-top: 2.666em;
   margin-bottom: 2.666em; }
+  .nav--primary .nav__link {
+    margin-left: 1.333em; }
 
-.nav__logo, .nav__left {
-  float: left; }
+.nav--secondary {
+  counter-reset: count__group; }
+  .nav--secondary .nav__link {
+    display: block;
+    position: relative; }
+    .nav--secondary .nav__link:not(:last-child):before {
+      content: "";
+      display: block;
+      height: 1px;
+      width: 100%;
+      position: absolute;
+      background-color: #3f4449;
+      bottom: 0;
+      left: 0; }
 
-.nav__menu, .nav__right {
-  float: right; }
+.group__ghost {
+  visibility: hidden; }
+
+.group__count:before {
+  content: "Group "; }
+.group__count:after {
+  content: counter(count__group);
+  counter-increment: count__group; }
 
 .catbloc:not(:target) {
   display: none; }
@@ -493,3 +524,6 @@ em {
 
 .lesson {
   margin-bottom: 1.333em; }
+
+.lesson__title {
+  color: #b9b9b9; }

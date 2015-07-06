@@ -1,3 +1,7 @@
 .lesson {
     @include margin-trailer(1);
 }
+
+.lesson__title {
+    color: $lesson__title__color;
+}

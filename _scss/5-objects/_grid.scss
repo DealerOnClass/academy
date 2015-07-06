@@ -27,13 +27,13 @@
     padding-left: $grid__gutter;
 }
 .grid__col--1 {
-    width: percentage(1/6);
+    width: percentage(1/5);
 }
 .grid__col--2 {
-    width: percentage(2/6);
+    width: percentage(2/5);
 }
 .grid__col--3 {
-    width: percentage(3/6);
+    width: percentage(3/5);
 }
 .grid__col--right {
     float: right;

@@ -18,45 +18,24 @@ $h1:              $h2 * $base-font-ratio;
 //
 //  Body
 //
-$body__color:   #333;
-$body__bg:      white;
+$body__bg:      #2a2f35;
+$body__color:   tint($body__bg, 25%);
+// #4e5256
 
-$link__active:  crimson;
-
-////////////////////////////////
-//
-//  Grid
-//
-$grid__container__width: 40em;
-$grid__gutter:  rhythm(1);
-
-//  breakpoints
-$screen--large: $grid__container__width + 6em;
-
-////////////////////////////////
-//
-//  Groups
-//
-$base__color: hsla(206, 66%, 50%, 1);
-
-
-
-$group1__color: $base__color;
-$group2__color: $base__color;
-$group3__color: $base__color;
-$group4__color: $base__color;
-
-////////////////////////////////
-//
-//  Headings
-//
-$heading--secondary__color: #9a9a9a;
+$link__active:  #31da88;
 
 ////////////////////////////////
 //
 //  Lesson
 //
-$lesson__tag__color--hover: #9a9a9a;
+$lesson__title__color: #b9b9b9;
 
+////////////////////////////////
+//
+//  Grid
+//
+$grid__container__width: 60em;
+$grid__gutter:  rhythm(1);
 
-
+//  breakpoints
+$screen--large: $grid__container__width + 6em;

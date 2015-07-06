@@ -4,17 +4,17 @@ title: assignments
 permalink: /assignments/
 nav__group: "navigation"
 ---
-<!-- nav__group: "navigation" -->
 <div class="grid__row">
-    <nav class="grid__col--left">
-        <ul>
-        <li><a class="nav__link" href="#all">all</a></li>
+    <nav class="grid__col--1 [ nav nav--secondary ]">
+        <a class="nav__link" href="#all">all</a></li>
         {% for page in site.pages %}
         {% if page.nav__group == 'class_groups' %}
-            <li><a class="nav__link" href="#{{ page.title }}">{{ page.title }}</a></li>
+        <a class="nav__link" href="#{{ page.title }}">
+            <span class="group__count"></span>
+            <span class="group__ghost">{{ page.title }}</span>
+        </a>
         {% endif %}
         {% endfor %}
-        </ul>
     </nav>
     <div class="grid__col--table">
         <div class="catbloc" id="all">

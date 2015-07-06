@@ -5,13 +5,11 @@ permalink: /references/
 nav__group: "navigation"
 ---
 <div class="grid__row">
-    <nav class="grid__col--left">
-        <ul>
-        <li><a class="nav__link" href="#all">all</a></li>
+    <nav class="grid__col--1 [ nav nav--secondary ]">
+        <a class="nav__link" href="#all">all</a></li>
         {% for tag in site.tags sort %}
-            <li><a class="nav__link" href="#{{ tag | first | remove:' ' }}">{{ tag | first }}</a></li>
+        <a class="nav__link" href="#{{ tag | first | remove:' ' }}">{{ tag | first }}</a>
         {% endfor %}
-        </ul>
     </nav>
     <div class="grid__col--table">
         <div class="catbloc" id="all">
@@ -21,7 +19,7 @@ nav__group: "navigation"
                 <time>{{ post.date | date: "%-m/%-d" }}</time>
                 <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
                 {% for tag in post.tags %}
-                    <a href="{{ '/references/#' | append: tag | prepend: site.baseurl | remove:' ' }}">{{ tag }}</a>
+                    <a href="{{ '/tags/#' | append: tag | prepend: site.baseurl | remove:' ' }}">{{ tag }}</a>
                 {% endfor %}<br>
                 <a href="{{ '/' | append: post.assignment | prepend: site.baseurl | remove:' ' }}">
                     <span class="icon icon-pencil"></span>
@@ -46,7 +44,7 @@ nav__group: "navigation"
                 <time>{{ post.date | date: "%-m/%-d" }}</time>
                 <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
                 {% for tag in post.tags %}
-                    <a href="{{ '/references/#' | append: tag | prepend: site.baseurl | remove:' ' }}">{{ tag }}</a>
+                    <a href="{{ '/tags/#' | append: tag | prepend: site.baseurl | remove:' ' }}">{{ tag }}</a>
                 {% endfor %}<br>
                 <a href="{{ '/' | append: post.assignment | prepend: site.baseurl | remove:' ' }}">
                     <span class="icon icon-pencil"></span>

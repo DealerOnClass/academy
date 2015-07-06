@@ -1,9 +1,9 @@
 <nav class="nav nav--primary">
     <div class="grid__container">
-        <div class="nav__logo">
-            <a href="{{ '/' | prepend: site.baseurl }}">{{ site.name }}</a>
+        <div class="nav__left">
+            <a class="nav__logo" href="{{ '/' | prepend: site.baseurl }}">{{ site.name }}</a>
         </div>
-        <div class="nav__menu">
+        <div class="nav__right">
             {% assign nav__menu = site.pages %}
             {% assign nav__group = 'navigation' %}
             {% include nav__menu.html %}

@@ -6,13 +6,11 @@ nav__group: "navigation"
 ---
 <!-- Brilliant Solution | http://schoewilliam.fr/2015/02/10/jekyll-pro-tip-awesome-archive-page.html -->
 <div class="grid__row">
-    <nav class="grid__col--left">
-        <ul>
-            <li><a class="nav__link" href="#all">all</a></li>
-            {% for tag in site.tags %}
-            <li><a class="nav__link" href="#{{ tag | first | remove:' ' }}">{{ tag | first }}</a></li>
-            {% endfor %}
-        </ul>
+    <nav class="grid__col--1 [ nav nav--secondary ]">
+        <a class="nav__link" href="#all">all</a></li>
+        {% for tag in site.tags sort %}
+        <a class="nav__link {{ tag | first }}" href="#{{ tag | first | remove:' ' }}">{{ tag | first }}</a>
+        {% endfor %}
     </nav>
     <div class="grid__col--table">
         <div class="catbloc" id="all">
@@ -21,7 +19,7 @@ nav__group: "navigation"
                 <time>{{ post.date | date: "%-m/%-d" }}</time>
                 <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
                 {% for tag in post.tags %}
-                    <a class="active" href="{{ '/tags/#' | append: tag | prepend: site.baseurl | remove:' ' }}">{{ tag }}</a>
+                    <a class="lesson__tags active" href="{{ '/tags/#' | append: tag | prepend: site.baseurl | remove:' ' }}">{{ tag }}</a>
                 {% endfor %}<br>
                 <a href="{{ '/' | append: post.assignment | prepend: site.baseurl | remove:' ' }}">
                     <span class="icon icon-pencil"></span>
@@ -43,7 +41,7 @@ nav__group: "navigation"
                         <time>{{ post.date | date: "%-m/%-d" }}</time>
                         <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
                         {% for tag in post.tags %}
-                            <a class="active" href="{{ '/tags/#' | append: tag | prepend: site.baseurl | remove:' ' }}">{{ tag }}</a>
+                            <a class="lesson__tags active" href="{{ '/tags/#' | append: tag | prepend: site.baseurl | remove:' ' }}">{{ tag }}</a>
                         {% endfor %}<br>
                         <a href="{{ '/' | append: post.assignment | prepend: site.baseurl | remove:' ' }}">
                             <span class="icon icon-pencil"></span>

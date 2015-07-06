@@ -3,14 +3,51 @@
     clear: both;
     display: table;
 }
-.nav--primary {
-    @include rhythm-margins(2);
-}
-.nav__logo, .nav__left {
+.nav__left {
     float: left;
 }
-.nav__menu, .nav__right {
+.nav__right {
     float: right;
+}
+.nav__logo, .nav__link {
+    display: inline-block;
+    @include rhythm-padding(.5);
+}
+.nav--primary {
+    @include rhythm-margins(2);
+    .nav__link {
+        margin-left: rhythm(1);
+    }
+}
+.nav--secondary {
+    counter-reset: count__group;
+    .nav__link {
+        display: block;
+        position: relative;
+        &:not(:last-child):before {
+            content: "";
+            display: block;
+            height: 1px;
+            width: 100%;
+            position: absolute;
+            background-color: tint($body__bg, 10%);
+            bottom: 0;
+            left: 0;
+        }    
+    }
+}
+
+.group__ghost {
+    visibility: hidden;
+}
+.group__count {
+    &:before {
+        content: "Group ";
+    }
+    &:after {
+        content: counter(count__group);
+        counter-increment: count__group;
+    }
 }
 
 
