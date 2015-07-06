@@ -4,22 +4,22 @@ layout: default
 <article class="{{ page.title }}">
     <nav class="nav nav--secondary">
         <h5 class="nav__title">{{ page.title }}</h5>
-        <a class="nav__right" href="{{ '/' | prepend: site.baseurl }}">
+        <!-- <a class="nav__right" href="{{ '/' | append: page.title | prepend: site.baseurl }}">
             Home&nbsp;<span class="icon icon-home"></span>
-        </a>
+        </a> -->
     </nav>  
-    <section>
+    <section class="lesson__current">
         <h5 class="heading--secondary">Current</h5>
         {% for post in site.posts %}
         {% if post.categories contains page.title %}
         {% if post.categories contains 'recent' %}
-        <div class="grid__row">
+        <div class="grid__row lesson__row">
             <div class="grid__col--1">Lesson:</div>
             <div class="grid__col--table">
                 <a href="{{ post.url | prepend: site.baseurl }}"><span>{{ post.title }}</span></a>
             </div>
         </div>
-        <div class="grid__row">
+        <div class="grid__row lesson__row">
             <div class="grid__col--1">Tags:</div>
             <div class="grid__col--table">
                 <ul class="list--commas">
@@ -29,33 +29,37 @@ layout: default
                 </ul>
             </div>
         </div>
-        <div class="grid__row">
+        <div class="grid__row lesson__row">
             <div class="grid__col--1">Summary:</div>
             <div class="grid__col--table">
-                <a href="{{ page.summary | prepend: site.baseurl }}">{{ page.summary }}</a>
+                <span>{{ post.summary }}</span>
             </div>
         </div>
-        <div class="grid__row">
+        {% if post.assignment %}
+        <div class="grid__row lesson__row">
             <div class="grid__col--1">Assignment:</div>
             <div class="grid__col--table">
-                <a href="{{ page.assignment | prepend: site.baseurl }}">{{ page.assignment }}</a>
+                <a href="{{ post.assignment | prepend: site.baseurl }}">{{ post.assignment }}</a>
             </div>
         </div>
-        <div class="grid__row">
+        {% endif %}
+        {% if post.reference %}
+        <div class="grid__row lesson__row">
             <div class="grid__col--1">Reference:</div>
             <div class="grid__col--table">
-                <a href="{{ page.reference | prepend: site.baseurl }}">{{ page.reference }}</a>
+                <a href="{{ post.reference | prepend: site.baseurl }}">{{ post.reference }}</a>
             </div>
         </div>
+        {% endif %}
         {% endif %}
         {% endif %}
         {% endfor %}
     </section>
-    <section>
+    <section class="lesson__all">
         <h5 class="heading--secondary">All Lessons</h5>
-        {% for post in site.posts %}
+        {% for post in site.posts reversed %}
         {% if post.categories contains page.title %}
-        <div class="grid__row">
+        <div class="grid__row lesson__row">
             <div class="grid__col--1">
                 <time>{{ post.date | date: "%-m/%-d" }}</time>
             </div>

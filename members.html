@@ -1,5 +1,5 @@
 ---
-layout: layout__archive
+layout: default
 title: members
 permalink: /members/
 ---
@@ -16,7 +16,7 @@ permalink: /members/
     <h5 class="heading--secondary">All Members</h5>
     {% for page in site.pages %}
     {% if page.nav__group == 'class_groups' %}
-    <div class="grid__row {{ page.title }}">
+    <div class="grid__row lesson__row {{ page.title }}">
         <div class="grid__col--right">
             <a href="{{ '/' | append: page.title | prepend: site.baseurl | remove:' ' }}">{{ page.title }}</a>
         </div>
@@ -35,7 +35,7 @@ permalink: /members/
 {% if page.nav__group == 'class_groups' %}
 <div class="catbloc {{ page.title }}" id="{{ page.title }}">
     <h5 class="heading--secondary">All "{{ page.title }}" Members</h5>
-    <div class="grid__row {{ page.title }}">
+    <div class="grid__row lesson__row {{ page.title }}">
         <div class="grid__col--right">
             <a href="{{ '/' | append: page.title | prepend: site.baseurl | remove:' ' }}">{{ page.title }}</a>
         </div>

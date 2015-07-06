@@ -1,63 +1,65 @@
 ---
-layout: layout__archive
+layout: default
 title: assignments
 permalink: /assignments/
+nav__group: "navigation"
 ---
 <!-- nav__group: "navigation" -->
-<nav class="nav nav--secondary nav--small">
-    {% for page in site.pages %}
+<div class="grid__row">
+    <nav class="grid__col--left">
+        <ul>
+        <li><a class="nav__link" href="#all">all</a></li>
+        {% for page in site.pages %}
         {% if page.nav__group == 'class_groups' %}
-            <a href="#{{ page.title }}">{{ page.title }}</a>
-            <!-- {% if forloop.last %}.{% else %}, {% endif %} -->
+            <li><a class="nav__link" href="#{{ page.title }}">{{ page.title }}</a></li>
         {% endif %}
-    {% endfor %}
-    <a class="nav__right" href="#allposts">see all</a>
-</nav>
-<div class="catbloc" id="allposts">
-    <h4>All Assignments</h4>
-    {% for page in site.pages %}
-    {% if page.nav__group == 'class_groups' %}
-    <div class="{{ page.title }}">
-    {% for post in site.posts reversed %}
-    {% if post.categories contains page.title %}                    
-    <div class="grid__row">
-        <div class="grid__col--1">
-            <time>{{ post.date | date: "%-m/%-d" }}</time>
+        {% endfor %}
+        </ul>
+    </nav>
+    <div class="grid__col--table">
+        <div class="catbloc" id="all">
+            {% for post in site.posts reversed %}
+            <div class="lesson">
+                <time>{{ post.date | date: "%-m/%-d" }}</time>
+                <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
+                {% for tag in post.tags %}
+                    <a href="{{ '/tags/#' | append: tag | prepend: site.baseurl | remove:' ' }}">{{ tag }}</a>
+                {% endfor %}<br>
+                <a class="active" href="{{ '/' | append: post.assignment | prepend: site.baseurl | remove:' ' }}">
+                    <span class="icon icon-pencil"></span>
+                    {{ post.assignment }}
+                </a><br>
+                <a href="{{ post.reference }}">
+                    <span class="icon icon-share"></span>
+                    {{ post.reference | remove: 'http://www.' }}
+                </a>
+            </div>
+            {% endfor %}
         </div>
-        <div class="grid__col--right">            
-            <a href="{{ '/' | append: post.group | prepend: site.baseurl | remove:' ' }}">{{ post.group }}</a>
+        {% for page in site.pages %}
+        {% if page.nav__group == 'class_groups' %}
+        <div class="catbloc {{ page.title }}" id="{{ page.title }}">
+            {% for post in site.posts reversed %}
+            {% if post.group contains page.title %}
+            <div class="lesson">
+                <time>{{ post.date | date: "%-m/%-d" }}</time>
+                <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
+                {% for tag in post.tags %}
+                    <a href="{{ '/tags/#' | append: tag | prepend: site.baseurl | remove:' ' }}">{{ tag }}</a>
+                {% endfor %}<br>
+                <a class="active" href="{{ '/' | append: post.assignment | prepend: site.baseurl | remove:' ' }}">
+                    <span class="icon icon-pencil"></span>
+                    {{ post.assignment }}
+                </a><br>
+                <a href="{{ post.reference }}">
+                    <span class="icon icon-share"></span>
+                    {{ post.reference | remove: 'http://www.' }}
+                </a>
+            </div>
+            {% endif %}
+            {% endfor %}
         </div>
-        <div class="grid__col--table">
-            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a><br>
-            <a href="{{ post.url | prepend: site.baseurl }}"><strong>{{ post.assignment }}</strong></a>
-        </div>
+        {% endif %}
+        {% endfor %}
     </div>
-    {% endif %}
-    {% endfor %}
-    </div>
-    {% endif %}
-    {% endfor %}
 </div>
-{% for page in site.pages %}
-{% if page.nav__group == 'class_groups' %}
-<div class="catbloc {{ page.title }}" id="{{ page.title }}">
-    <h4>All "{{ page.title }}" Assignments</h4>
-    {% for post in site.posts reversed %}
-    {% if post.categories contains page.title %}
-    <div class="grid__row">
-        <div class="grid__col--1">
-            <time>{{ post.date | date: "%-m/%-d" }}</time>
-        </div>
-        <div class="grid__col--right">            
-            <a href="{{ '/' | append: post.group | prepend: site.baseurl | remove:' ' }}">{{ post.group }}</a>
-        </div>
-        <div class="grid__col--table">
-            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a><br>
-            <a href="{{ post.url | prepend: site.baseurl }}"><strong>{{ post.assignment }}</strong></a>
-        </div>
-    </div>
-    {% endif %}
-    {% endfor %}
-</div>
-{% endif %}
-{% endfor %}

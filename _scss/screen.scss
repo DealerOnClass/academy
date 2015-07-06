@@ -1,15 +1,17 @@
 @import "compass/typography/vertical_rhythm";
 @import "compass/css3/box-sizing";
 
-// @import "syntax";
 
 @import "1-settings/var";
+
+@import "2-tools/mixin";
 
 @import "3-generic/reset";
 
 @import "4-base/icon";
 @import "4-base/raleway";
 @import "4-base/typography";
+@import "4-base/syntax";
 
 @import "5-objects/grid";
 @import "5-objects/list";

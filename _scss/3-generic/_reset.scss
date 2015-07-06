@@ -5,8 +5,8 @@
 
 html, body, div, span,
 // applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p,
-// blockquote, pre, a,
+h1, h2, h3, h4, h5, h6, p, pre, a
+// blockquote,
 // abbr, acronym, address, big, cite, code, del, dfn,
 em, img,
 // ins, kbd, q, s, samp,
@@ -44,9 +44,9 @@ menu, nav, section
 // body {
 //     line-height: 1;
 // }
-// ol, ul {
-//     list-style: none;
-// }
+ol, ul {
+    list-style: none;
+}
 // blockquote, q {
 //     quotes: none;
 // }

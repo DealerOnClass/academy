@@ -3,8 +3,20 @@ layout: default
 title: DealerOn Academy
 ---
 
-<div class="scene_element scene_element--fadein">
-    {% assign nav__menu--groups = site.pages %}
-    {% assign nav__group = 'class_groups' %}
-    {% include nav__menu--groups.html %}
+{% for post in site.posts reversed %}
+<div class="lesson">
+    <time>{{ post.date | date: "%-m/%-d" }}</time>
+    <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
+    {% for tag in post.tags %}
+    <a href="{{ '/tags/#' | append: tag | prepend: site.baseurl | remove:' ' }}">{{ tag }}</a>
+    {% endfor %}<br>
+    <a href="{{ post.assignment | prepend: site.baseurl }}">
+        <span class="icon icon-pencil"></span>
+        {{ post.assignment }}
+    </a><br>
+    <a href="{{ post.reference }}">
+        <span class="icon icon-share"></span>
+        {{ post.reference | remove: 'http://www.' }}
+    </a>
 </div>
+{% endfor %}

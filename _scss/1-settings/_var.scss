@@ -21,23 +21,42 @@ $h1:              $h2 * $base-font-ratio;
 $body__color:   #333;
 $body__bg:      white;
 
+$link__active:  crimson;
+
 ////////////////////////////////
 //
 //  Grid
 //
+$grid__container__width: 40em;
 $grid__gutter:  rhythm(1);
+
+//  breakpoints
+$screen--large: $grid__container__width + 6em;
 
 ////////////////////////////////
 //
 //  Groups
 //
-$group1__color: #339ce6;
-$group2__color: #08bbbb;
-$group3__color: #ff5151;
-$group4__color: #7777ff;
+$base__color: hsla(206, 66%, 50%, 1);
+
+
+
+$group1__color: $base__color;
+$group2__color: $base__color;
+$group3__color: $base__color;
+$group4__color: $base__color;
 
 ////////////////////////////////
 //
 //  Headings
 //
-$heading--secondary__color: #bdbebe;
+$heading--secondary__color: #9a9a9a;
+
+////////////////////////////////
+//
+//  Lesson
+//
+$lesson__tag__color--hover: #9a9a9a;
+
+
+

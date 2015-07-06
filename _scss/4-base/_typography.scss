@@ -25,12 +25,21 @@ h5 {
 h6, small {
     @include adjust-font-size-to($h6);
 }
-p, header, section, .grid__row {
+p {
     @include margin-trailer(1);
 }
 a {
     color: inherit;
+    &:hover, &:active, &:focus {
+        opacity: .7;
+    }
+}
+.active {
+    color: $link__active;
 }
 strong {
     font-weight: 600;
+}
+em {
+    font-style: italic;
 }
