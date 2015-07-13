@@ -2,8 +2,13 @@ $(function() {
   // get page url
   var hashUrl = window.location.hash.substr(1);
   var pageUrlRaw = window.location.pathname;
-  var pageUrl = pageUrlRaw.substr(1, pageUrlRaw.length).split("/")[0];
-  console.log(pageUrl);  
+  if ( pageUrlRaw.toLowerCase().indexOf("academy") >= 0 ) {
+    var pageUrl = pageUrlRaw.substr(1, pageUrlRaw.length).split("/")[1];    
+  }
+  else {
+    var pageUrl = pageUrlRaw.substr(1, pageUrlRaw.length).split("/")[0];    
+  }
+  console.log(pageUrl);
   // for each nav
   $('.nav__link').each(function() {
     // get href
