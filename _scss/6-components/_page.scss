@@ -1,6 +1,11 @@
+// .home {
+//     .active,
+//     .nav--secondary .active {
+//         color: tint($body__bg, 80%);
+//     }
+// }
 .home {
-    .active,
-    .nav--secondary .active {
-        color: tint($body__bg, 80%);
+    .lesson__title {
+        color: $lesson__title__color;
     }
 }

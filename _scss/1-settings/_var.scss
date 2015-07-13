@@ -25,10 +25,11 @@ $base__color: #2a2f35;
 //  Body
 //
 $body__bg:      $base__color;
-$body__color:   tint($body__bg, 35%);
+$body__color:   tint($body__bg, 40%);
 
 // $link__active:  #31da88;
-$link__active:  #f26e5e;
+// $link__active:  #f26e5e;
+$link__active:  tint($body__bg, 90%);
 
 ////////////////////////////////
 //
