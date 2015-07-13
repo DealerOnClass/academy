@@ -3,6 +3,7 @@ $(function() {
   var hashUrl = window.location.hash.substr(1);
   var pageUrlRaw = window.location.pathname;
   var pageUrl = pageUrlRaw.substr(1, pageUrlRaw.length).split("/")[0];
+  console.log(pageUrl);  
   // for each nav
   $('.nav__link').each(function() {
     // get href
