@@ -1,13 +1,14 @@
 $(function() {
   // get page url
   var hashUrl = window.location.hash.substr(1);
-  var pageUrl = window.location.href.split("/")[3];
-  console.log(pageUrl);  
+  var pageUrlRaw = window.location.pathname;
+  var pageUrl = pageUrlRaw.substr(1, pageUrlRaw.length).split("/")[0];
   // for each nav
   $('.nav__link').each(function() {
     // get href
     var navUrl = $(this).attr('href').substr(1);
-    // compare against page url
+    // compare against page url with and without the hashtag
+    // without the hashtag for lessons pages
     if ( hashUrl === navUrl | pageUrl === navUrl ) {
       // add active class
       $(this).addClass('active');
