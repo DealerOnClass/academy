@@ -4,6 +4,15 @@
             <a class="nav__logo" href="{{ '/' | prepend: site.baseurl }}">{{ site.name }}</a>
         </div>
         <div class="nav__right">
+            {% if page.active == "home" %}
+            <a class="active" href="#">
+                <span class="icon icon-home"></span>
+            </a>
+            {% else %}
+            <a href="/">
+                <span class="icon icon-home"></span>
+            </a>
+            {% endif %}
             {% assign nav__menu = site.pages %}
             {% assign nav__group = 'navigation' %}
             {% include nav__menu.html %}

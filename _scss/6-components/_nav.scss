@@ -9,6 +9,9 @@
 .nav__right {
     float: right;
 }
+.nav__link {
+    text-transform: lowercase;
+}
 .nav__logo, .nav__link {
     display: inline-block;
     @include rhythm-padding(.5);
@@ -22,6 +25,8 @@
 .nav--secondary {
     counter-reset: count__group;
     .nav__link {
+        color: tint($body__color, 20%);
+        padding-left: rhythm(1);
         display: block;
         position: relative;
         &:not(:last-child):before {
@@ -33,7 +38,11 @@
             background-color: tint($body__bg, 10%);
             bottom: 0;
             left: 0;
-        }    
+            z-index: 30;
+        }
+        &.active {
+            color: $link__active;
+        }
     }
 }
 
@@ -55,27 +64,27 @@
 .catbloc:not(:target) {
     display: none;
 }
-.catbloc:target {
-    animation: slidedown .5s 1;
-    -webkit-animation: slidedown .5s 1;
-}
-@keyframes slidedown {
-    from {
-        opacity: 0;
-        // transform: translate(0, -50px);
-    }
-    to {
-        opacity: 1;
-        // transform: translate(0);
-    }
-}
-@-webkit-keyframes slidedown {
-    from {
-        opacity: 0;
-        // -webkit-transform: translate(0, -50px);
-    }
-    to {
-        opacity: 1;
-        // -webkit-transform: translate(0);
-    }
-}
+// .catbloc:target {
+//     animation: slidedown 3s 1;
+//     -webkit-animation: slidedown 3s 1;
+// }
+// @keyframes slidedown {
+//     from {
+//         opacity: 0;
+//         // transform: translate(0, -50px);
+//     }
+//     to {
+//         opacity: 1;
+//         // transform: translate(0);
+//     }
+// }
+// @-webkit-keyframes slidedown {
+//     from {
+//         opacity: 0;
+//         // -webkit-transform: translate(0, -50px);
+//     }
+//     to {
+//         opacity: 1;
+//         // -webkit-transform: translate(0);
+//     }
+// }

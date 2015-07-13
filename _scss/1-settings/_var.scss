@@ -20,15 +20,24 @@ $h1:              $h2 * $base-font-ratio;
 //
 $body__bg:      #2a2f35;
 $body__color:   tint($body__bg, 25%);
-// #4e5256
 
 $link__active:  #31da88;
+
+////////////////////////////////
+//
+//  Group
+//
+$group1__bg: #396db5;
+$group2__bg: #c6a67c;
+$group3__bg: #8ba892;
+$group4__bg: #b1695a;
 
 ////////////////////////////////
 //
 //  Lesson
 //
 $lesson__title__color: #b9b9b9;
+$lesson__date__gutter: percentage(1/7);
 
 ////////////////////////////////
 //

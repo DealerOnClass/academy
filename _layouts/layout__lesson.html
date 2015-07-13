@@ -1,16 +1,16 @@
 ---
 layout: default
 ---
-<article class="{{ page.group }}">
+<article>
     <div class="lesson">
         <header>
-            <h3 class="lesson__title">
-                <span>{{ page.title }}</span>
+            <div class="lesson__header">
                 <time class="lesson__date">{{ page.date | date: "%-m/%-d" }}</time>
-            </h3>
+                <h3 class="lesson__title">{{ page.title }}</h3>
+            </div>
             <ul class="list--commas">
             {% for tags in page.tags %}
-                <li><a class="lesson__tag" href="{{ '/tags/#' | append: tags | prepend: site.baseurl | remove:' ' }}">{{ tags }}</a></li>
+                <li><a href="{{ '/tags/#' | append: tags | prepend: site.baseurl | remove:' ' }}">{{ tags }}</a></li>
             {% endfor %}
             </ul>
         </header>

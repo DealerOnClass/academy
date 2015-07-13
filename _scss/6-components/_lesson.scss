@@ -1,7 +1,41 @@
 .lesson {
-    @include margin-trailer(1);
+    @include padding-trailer(1);
+    margin-left: $lesson__date__gutter;
+    position: relative;
+    &:not(:first-child) {
+        @include padding-leader(1);
+    }
+    &:not(:last-child):before {
+        content: "";
+        display: block;
+        height: 1px;
+        width: 100% + $lesson__date__gutter;
+        position: absolute;
+        background-color: tint($body__bg, 10%);
+        bottom: 0;
+        left: ($lesson__date__gutter + 2) * -1;
+        z-index: 30;
+    }
+}
+
+.lesson__header {
+    position: relative;
+}
+
+.lesson__date {
+    position: absolute;
+    bottom: 0;
+    left: ($lesson__date__gutter - 1.5) * -1;
 }
 
 .lesson__title {
     color: $lesson__title__color;
+}
+
+.lesson__reference, .lesson__assignment {
+    position: relative;
+    left: -1.35em;
+    .icon {
+        padding-right: .35em;
+    }
 }

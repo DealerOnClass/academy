@@ -26,6 +26,8 @@ ol, ul {
 a {
   color: inherit;
   text-decoration: none; }
+  a:focus {
+    outline: 0; }
 
 @font-face {
   font-family: "outlined-iconset";
@@ -44,6 +46,9 @@ a {
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
+
+.icon-home:before {
+  content: "\e02c"; }
 
 .icon-pencil:before {
   content: "\e051"; }
@@ -81,6 +86,12 @@ a {
   src: url("../fonts/raleway-bold.eot?#iefix") format("embedded-opentype"), url("../fonts/raleway-bold.woff") format("woff"), url("../fonts/raleway-bold.ttf") format("truetype"), url("../fonts/raleway-bold.svg#ralewaybold") format("svg");
   font-weight: 700;
   font-style: normal; }
+@font-face {
+  font-family: "Montserrat Webfont";
+  src: url("../fonts/montserrat-light.eot");
+  src: url("../fonts/montserrat-light.eot?#iefix") format("embedded-opentype"), url("../fonts/montserrat-light.woff2") format("woff2"), url("../fonts/montserrat-light.woff") format("woff"), url("../fonts/montserrat-light.ttf") format("truetype"), url("../fonts/montserrat-light.svg#montserratlight") format("svg");
+  font-weight: 300;
+  font-style: normal; }
 html {
   font-size: 112.5%;
   line-height: 1.333em; }
@@ -116,7 +127,7 @@ h6, small {
   font-size: 0.75019em;
   line-height: 1.77689em; }
 
-p, header, section {
+p, section {
   margin-bottom: 1.333em; }
 
 a {
@@ -132,6 +143,11 @@ strong {
 
 em {
   font-style: italic; }
+
+.overflow-ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden; }
 
 .highlight {
   background: #e7e7e7;
@@ -430,17 +446,18 @@ em {
 
 [class^="grid__col--"] {
   float: left;
+  position: relative;
   padding-right: 1.333em;
   padding-left: 1.333em; }
 
 .grid__col--1 {
-  width: 20%; }
+  width: 25%; }
 
 .grid__col--2 {
-  width: 40%; }
+  width: 50%; }
 
 .grid__col--3 {
-  width: 60%; }
+  width: 75%; }
 
 .grid__col--right {
   float: right; }
@@ -450,11 +467,104 @@ em {
   width: 10000px;
   display: table-cell; }
 
+[class^="list--"] {
+  margin-bottom: 0.6665em; }
+
 .list--inline > li, .list--commas > li {
   display: inline-block; }
 
 .list--commas > li:not(:last-child):after {
   content: ","; }
+
+.class__progress {
+  position: absolute;
+  top: 0;
+  left: -16.28571%;
+  height: 100%;
+  width: 3px;
+  border-top: 1px solid #2a2f35;
+  border-bottom: 1px solid #2a2f35;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+  .class__progress > div {
+    border-bottom: 1px solid #2a2f35;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box; }
+  .class__progress div:first-child:nth-last-child(1) {
+    height: 100%; }
+  .class__progress div:first-child:nth-last-child(2),
+  .class__progress div:first-child:nth-last-child(2) ~ div {
+    height: 50%; }
+  .class__progress div:first-child:nth-last-child(3),
+  .class__progress div:first-child:nth-last-child(3) ~ div {
+    height: 33.3333%; }
+  .class__progress div:first-child:nth-last-child(4),
+  .class__progress div:first-child:nth-last-child(4) ~ div {
+    height: 25%; }
+
+[class*="nav__group"] {
+  position: relative; }
+  [class*="nav__group"]:after {
+    border-top: 1px solid #2a2f35;
+    border-bottom: 2px solid #2a2f35;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px; }
+
+.class__group1, .nav__group1:after {
+  background-color: #396db5; }
+
+.class__group2, .nav__group2:after {
+  background-color: #c6a67c; }
+
+.class__group3, .nav__group3:after {
+  background-color: #8ba892; }
+
+.class__group4, .nav__group4:after {
+  background-color: #b1695a; }
+
+.lesson {
+  padding-bottom: 1.333em;
+  margin-left: 14.28571%;
+  position: relative; }
+  .lesson:not(:first-child) {
+    padding-top: 1.333em; }
+  .lesson:not(:last-child):before {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 114.28571%;
+    position: absolute;
+    background-color: #3f4449;
+    bottom: 0;
+    left: -16.28571%;
+    z-index: 30; }
+
+.lesson__header {
+  position: relative; }
+
+.lesson__date {
+  position: absolute;
+  bottom: 0;
+  left: -12.78571%; }
+
+.lesson__title {
+  color: #b9b9b9; }
+
+.lesson__reference, .lesson__assignment {
+  position: relative;
+  left: -1.35em; }
+  .lesson__reference .icon, .lesson__assignment .icon {
+    padding-right: .35em; }
 
 .nav:after {
   content: "";
@@ -466,6 +576,9 @@ em {
 
 .nav__right {
   float: right; }
+
+.nav__link {
+  text-transform: lowercase; }
 
 .nav__logo, .nav__link {
   display: inline-block;
@@ -481,6 +594,8 @@ em {
 .nav--secondary {
   counter-reset: count__group; }
   .nav--secondary .nav__link {
+    color: #7f8286;
+    padding-left: 1.333em;
     display: block;
     position: relative; }
     .nav--secondary .nav__link:not(:last-child):before {
@@ -491,7 +606,10 @@ em {
       position: absolute;
       background-color: #3f4449;
       bottom: 0;
-      left: 0; }
+      left: 0;
+      z-index: 30; }
+    .nav--secondary .nav__link.active {
+      color: #31da88; }
 
 .group__ghost {
   visibility: hidden; }
@@ -505,25 +623,15 @@ em {
 .catbloc:not(:target) {
   display: none; }
 
-.catbloc:target {
-  animation: slidedown .5s 1;
-  -webkit-animation: slidedown .5s 1; }
-
-@keyframes slidedown {
-  from {
-    opacity: 0; }
-  to {
-    opacity: 1; } }
-@-webkit-keyframes slidedown {
-  from {
-    opacity: 0; }
-  to {
-    opacity: 1; } }
 .footer {
   margin-top: 2.666em; }
 
-.lesson {
-  margin-bottom: 1.333em; }
+.heading--secondary {
+  font-family: "Montserrat Webfont";
+  font-size: .75em;
+  text-transform: uppercase;
+  letter-spacing: .1em; }
 
-.lesson__title {
-  color: #b9b9b9; }
+.home .active,
+.home .nav--secondary .active {
+  color: white; }

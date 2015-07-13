@@ -25,7 +25,7 @@ h5 {
 h6, small {
     @include adjust-font-size-to($h6);
 }
-p, header, section {
+p, section {
     @include margin-trailer(1);
 }
 a {
@@ -42,4 +42,9 @@ strong {
 }
 em {
     font-style: italic;
+}
+.overflow-ellipsis {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }

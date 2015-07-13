@@ -1,9 +1,12 @@
+[class^="list--"] {    
+    @include margin-trailer(.5);
+}
 .list--inline {
     > li {
         display: inline-block;
     }
 }
-.list--commas {
+.list--commas {    
     @extend .list--inline;
     > li:not(:last-child):after {
         content: ",";

@@ -10,12 +10,17 @@
 
 @import "4-base/icon";
 @import "4-base/raleway";
+@import "4-base/montserrat";
 @import "4-base/typography";
 @import "4-base/syntax";
 
 @import "5-objects/grid";
 @import "5-objects/list";
 
+@import "6-components/group";
+@import "6-components/lesson";
 @import "6-components/nav";
 @import "6-components/footer";
-@import "6-components/lesson";
+@import "6-components/heading";
+
+@import "6-components/page";

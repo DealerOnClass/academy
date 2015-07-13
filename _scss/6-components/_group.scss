@@ -1,0 +1,61 @@
+.class__progress {
+    position: absolute;
+    top: 0;
+    left: ($lesson__date__gutter + 2) * -1;
+    height: 100%;
+    width: 3px;
+    border-top: 1px solid $body__bg;
+    border-bottom: 1px solid $body__bg;
+    @include box-sizing(border-box);
+    > div {
+        border-bottom: 1px solid $body__bg;
+        @include box-sizing(border-box);
+    }
+    //lea.verou.me/2011/01/styling-children-based-on-their-number-with-css3/    
+    // one item
+    div:first-child:nth-last-child(1) {
+        height: 100%;
+    }
+    // two items
+    div:first-child:nth-last-child(2),
+    div:first-child:nth-last-child(2) ~ div {
+        height: 50%;
+    }
+    // three items
+    div:first-child:nth-last-child(3),
+    div:first-child:nth-last-child(3) ~ div {
+        height: 33.3333%;
+    }
+    // four items
+    div:first-child:nth-last-child(4),
+    div:first-child:nth-last-child(4) ~ div {
+        height: 25%;
+    }
+}
+[class*="nav__group"] {
+    position: relative;
+    &:after {
+        border-top: 1px solid $body__bg;
+        border-bottom: 2px solid $body__bg;
+        @include box-sizing(border-box);
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 3px;
+    }
+}
+.class__group1, .nav__group1:after {
+    background-color: $group1__bg;
+}
+.class__group2, .nav__group2:after {
+    background-color: $group2__bg;
+}
+.class__group3, .nav__group3:after {
+    background-color: $group3__bg;
+}
+.class__group4, .nav__group4:after {
+    background-color: $group4__bg;
+}
