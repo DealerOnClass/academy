@@ -105,7 +105,7 @@ html {
 body {
   font-family: "Raleway Webfont";
   font-weight: 400;
-  color: #5f6368;
+  color: #75787c;
   background-color: #2a2f35; }
 
 h1 {
@@ -344,7 +344,7 @@ code, pre {
     height: 1px;
     width: 114.28571%;
     position: absolute;
-    background-color: #4a4e53;
+    background-color: #35393f;
     bottom: 0;
     left: -16.28571%;
     z-index: 30; }
@@ -353,12 +353,13 @@ code, pre {
   position: relative; }
 
 .lesson__date {
+  color: #3f4449;
   position: absolute;
   bottom: 0;
   left: -12.78571%; }
 
 .lesson__title {
-  color: #b9b9b9; }
+  color: #d4d5d7; }
 
 .lesson__reference, .lesson__assignment {
   position: relative;
@@ -396,7 +397,7 @@ code, pre {
 .nav--secondary {
   counter-reset: count__group; }
   .nav--secondary .nav__link {
-    color: #7f8286;
+    color: #919396;
     padding-left: 1.333em;
     display: block;
     position: relative; }
@@ -436,4 +437,4 @@ code, pre {
 
 .home .active,
 .home .nav--secondary .active {
-  color: white; }
+  color: #d4d5d7; }

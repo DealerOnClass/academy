@@ -1,6 +1,6 @@
 .home {
     .active,
     .nav--secondary .active {
-        color: white;
+        color: tint($body__bg, 80%);
     }
 }
