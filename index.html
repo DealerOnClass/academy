@@ -5,7 +5,7 @@ active: home
 ---
 
 <div class="grid__row">
-    <nav class="grid__col--1 [ nav nav--secondary ]">
+    <nav class="grid__col--1 [ nav--secondary ]">
         <h5 class="heading--secondary">filter</h5>
         <a class="nav__link" href="#all">all</a></li>
         {% for page in site.pages %}
@@ -17,7 +17,7 @@ active: home
         {% endif %}
         {% endfor %}
     </nav>
-    <div class="grid__col--table">
+    <div class="grid__col--table [ nav--test ]">
         <div class="catbloc" id="all">
             {% for post in site.posts reversed %}
             <div class="lesson">

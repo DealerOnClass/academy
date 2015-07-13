@@ -17,7 +17,9 @@
     @include rhythm-padding(.5);
 }
 .nav--primary {
-    @include rhythm-margins(2);
+    @include rhythm-padding(2);
+    @include margin-trailer(2);
+    background-color: shade($body__bg, 10%);
     .nav__link {
         margin-left: rhythm(1);
     }

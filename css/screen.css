@@ -586,8 +586,10 @@ em {
   padding-bottom: 0.6665em; }
 
 .nav--primary {
-  margin-top: 2.666em;
-  margin-bottom: 2.666em; }
+  padding-top: 2.666em;
+  padding-bottom: 2.666em;
+  margin-bottom: 2.666em;
+  background-color: #262a30; }
   .nav--primary .nav__link {
     margin-left: 1.333em; }
 

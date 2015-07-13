@@ -1,65 +1,71 @@
 ---
 layout: default
 ---
-<article>
-    <div class="lesson">
-        <header>
-            <div class="lesson__header">
+<article class="grid__row">
+    <nav class="grid__col--1 [ nav--secondary ]">
+        <h5 class="heading--secondary">lessons</h5>
+        {% for post in site.posts reversed %}
+        <a class="nav__link overflow-ellipsis" href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        {% endfor %}
+    </nav>
+    <div class="grid__col--table">
+        <div class="lesson">
+            <header class="lesson__header">
                 <time class="lesson__date">{{ page.date | date: "%-m/%-d" }}</time>
                 <h3 class="lesson__title">{{ page.title }}</h3>
-            </div>
+            </header>
             <ul class="list--commas">
             {% for tags in page.tags %}
-                <li><a href="{{ '/tags/#' | append: tags | prepend: site.baseurl | remove:' ' }}">{{ tags }}</a></li>
+                <li><a href="{{ '/topics/#' | append: tags | prepend: site.baseurl | remove:' ' }}">{{ tags }}</a></li>
             {% endfor %}
             </ul>
-        </header>
-        <section>
-        {{ content }}
-        </section>
-        {% if page.assignment %}
-        <section>
-            <h5 class="heading--secondary">Assignment</h5>
-            <p>
-                <a href="">{{ page.assignment }}</a>
-                <a class="nav__right" href="{{ '/assignments/#all' | prepend: site.baseurl }}">see all</a>
-            </p>
-        </section>
-        {% endif %}
-        {% if page.reference %}
-        <section>
-            <h5 class="heading--secondary">Reference</h5>
-            <p>
-                <a href="{{ page.reference }}" target="_blank">{{ page.reference | remove: 'http://www.' }}</a>
-                <a class="nav__right" href="{{ '/references/#all' | prepend: site.baseurl }}">see all</a>
-            </p>
-        </section>
-        {% endif %}
+            <section>
+            {{ content }}
+            </section>
+            {% if page.assignment %}
+            <section>
+                <h5 class="heading--secondary">Assignment</h5>
+                <p>
+                    <a href="">{{ page.assignment }}</a>
+                    <a class="nav__right" href="{{ '/assignments/#all' | prepend: site.baseurl }}">see all</a>
+                </p>
+            </section>
+            {% endif %}
+            {% if page.reference %}
+            <section>
+                <h5 class="heading--secondary">Reference</h5>
+                <p>
+                    <a href="{{ page.reference }}" target="_blank">{{ page.reference | remove: 'http://www.' }}</a>
+                    <a class="nav__right" href="{{ '/references/#all' | prepend: site.baseurl }}">see all</a>
+                </p>
+            </section>
+            {% endif %}
+            <footer>
+                <nav class="nav nav--secondary">
+                {% for category in site.categories %}
+                {% assign catg_name = category.first %}
+                    {% if catg_name == page.categories.first | downcase %}
+                        {% assign catg_posts = category.last %}
+                    {% endif %}
+                {% endfor %}
+                {% for post in catg_posts %}
+                    {% if post.title == page.title %}
+                        {% unless forloop.last %}
+                            {% assign next = catg_posts[forloop.index] %}
+                            <div class="nav__left">
+                                <a href="{{ site.baseurl }}{{ next.url }}"><span class="icon icon-arrow-left"></span>&nbsp;Prev</a>
+                            </div>
+                        {% endunless %}
+                        {% unless forloop.first %}
+                            <div class="nav__right">
+                                <a href="{{ site.baseurl }}{{ prev.url }}">Next&nbsp;<span class="icon icon-arrow-right"></span></a>
+                            </div>
+                        {% endunless %}
+                    {% endif %}
+                    {% assign prev = post %}
+                {% endfor %}
+                </nav>
+            </footer>
+        </div>
     </div>
-    <footer>
-        <nav class="nav nav--secondary">
-        {% for category in site.categories %}
-        {% assign catg_name = category.first %}
-            {% if catg_name == page.categories.first | downcase %}
-                {% assign catg_posts = category.last %}
-            {% endif %}
-        {% endfor %}
-        {% for post in catg_posts %}
-            {% if post.title == page.title %}
-                {% unless forloop.last %}
-                    {% assign next = catg_posts[forloop.index] %}
-                    <div class="nav__left">
-                        <a href="{{ site.baseurl }}{{ next.url }}"><span class="icon icon-arrow-left"></span>&nbsp;Prev</a>
-                    </div>
-                {% endunless %}
-                {% unless forloop.first %}
-                    <div class="nav__right">
-                        <a href="{{ site.baseurl }}{{ prev.url }}">Next&nbsp;<span class="icon icon-arrow-right"></span></a>
-                    </div>
-                {% endunless %}
-            {% endif %}
-            {% assign prev = post %}
-        {% endfor %}
-        </nav>
-    </footer>
 </article>

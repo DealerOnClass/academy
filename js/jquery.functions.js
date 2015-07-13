@@ -1,12 +1,14 @@
 $(function() {
   // get page url
-  var pageUrl = window.location.hash.substr(1);
+  var hashUrl = window.location.hash.substr(1);
+  var pageUrl = window.location.href.split("/")[3];
+  console.log(pageUrl);  
   // for each nav
   $('.nav__link').each(function() {
     // get href
     var navUrl = $(this).attr('href').substr(1);
     // compare against page url
-    if ( pageUrl === navUrl ) {
+    if ( hashUrl === navUrl | pageUrl === navUrl ) {
       // add active class
       $(this).addClass('active');
     }
@@ -16,7 +18,6 @@ $(function() {
         // remove active class of siblings
         $(this).addClass('active').siblings().removeClass('active');
     });
-
   });
 
   // on click
@@ -31,8 +32,8 @@ $(function() {
 });
 // (function () {
 //     // get page url after the hash
-//     var pageUrl = window.location.hash.substr(1);
-//     console.log(pageUrl);
+//     var hashUrl = window.location.hash.substr(1);
+//     console.log(hashUrl);
 
 //     // get nav url
 //     var navItems = document.getElementsByClassName("nav__link");
