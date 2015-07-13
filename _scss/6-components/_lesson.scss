@@ -11,7 +11,7 @@
         height: 1px;
         width: 100% + $lesson__date__gutter;
         position: absolute;
-        background-color: tint($body__bg, 10%);
+        background-color: tint($body__bg, 15%);
         bottom: 0;
         left: ($lesson__date__gutter + 2) * -1;
         z-index: 30;
