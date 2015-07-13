@@ -106,7 +106,8 @@ body {
   font-family: "Raleway Webfont";
   font-weight: 400;
   color: #7f8286;
-  background-color: #2a2f35; }
+  background-color: #2a2f35;
+  counter-reset: lesson__count; }
 
 h1 {
   font-size: 3.15733em;
@@ -138,11 +139,9 @@ p, section {
 
 a {
   color: inherit; }
-  a:hover, a:active, a:focus {
-    opacity: .7; }
 
 .active {
-  color: #eaeaeb; }
+  color: #aaacae; }
 
 strong {
   font-weight: 600; }
@@ -304,38 +303,23 @@ code, pre {
   .class__progress div:first-child:nth-last-child(4) ~ div {
     height: 25%; }
 
-[class*="nav__group"] {
-  position: relative; }
-  [class*="nav__group"]:after {
-    border-top: 1px solid #2a2f35;
-    border-bottom: 2px solid #2a2f35;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 3px; }
-
-.class__group1, .nav__group1:after {
+.class__group1 {
   background-color: #396db5; }
 
-.class__group2, .nav__group2:after {
+.class__group2 {
   background-color: #c6a67c; }
 
-.class__group3, .nav__group3:after {
+.class__group3 {
   background-color: #8ba892; }
 
-.class__group4, .nav__group4:after {
+.class__group4 {
   background-color: #b1695a; }
 
 .lesson {
   padding-bottom: 1.333em;
   margin-left: 14.28571%;
-  position: relative; }
+  position: relative;
+  counter-increment: lesson__count; }
   .lesson:not(:first-child) {
     padding-top: 1.333em; }
   .lesson:not(:last-child):before {
@@ -352,11 +336,13 @@ code, pre {
 .lesson__header {
   position: relative; }
 
-.lesson__date {
-  color: #3f4449;
+.lesson__count {
+  color: #4a4e53;
   position: absolute;
   bottom: 0;
   left: -12.78571%; }
+  .lesson__count:after {
+    content: "0" counter(lesson__count); }
 
 .lesson__reference, .lesson__assignment {
   position: relative;
@@ -364,7 +350,7 @@ code, pre {
   .lesson__reference .icon, .lesson__assignment .icon {
     padding-right: .35em; }
 
-.nav:after {
+[class^="nav--"]:after {
   content: "";
   clear: both;
   display: table; }
@@ -375,44 +361,47 @@ code, pre {
 .nav__right {
   float: right; }
 
-.nav__link {
-  text-transform: lowercase; }
-
-.nav__logo, .nav__link {
+.nav__logo, .nav__link, .nav__home {
   display: inline-block;
   padding-top: 0.6665em;
   padding-bottom: 0.6665em; }
 
 .nav--primary {
-  padding-top: 2.666em;
-  padding-bottom: 2.666em;
-  margin-bottom: 2.666em;
-  background-color: #24282d; }
-  .nav--primary .nav__link {
-    margin-left: 1.333em; }
+  background-color: #3784f0; }
+  .nav--primary .nav__logo,
+  .nav--primary .nav__link,
+  .nav--primary .nav__home {
+    color: white; }
+  .nav--primary .nav__link, .nav--primary .nav__home {
+    float: left;
+    padding-left: 0.6665em;
+    padding-right: 0.6665em; }
+    .nav--primary .nav__link:hover, .nav--primary .nav__link:active, .nav--primary .nav__link:focus, .nav--primary .nav__link.active, .nav--primary .nav__home:hover, .nav--primary .nav__home:active, .nav--primary .nav__home:focus, .nav--primary .nav__home.active {
+      background-color: #3277d8; }
 
 .nav--secondary {
-  counter-reset: count__group; }
+  counter-reset: count__group;
+  position: relative;
+  margin-bottom: 2.666em;
+  padding-top: 1.333em;
+  padding-bottom: 1.333em; }
   .nav--secondary .nav__link {
-    color: #999b9e;
-    padding-left: 1.333em;
-    display: block;
+    color: #55595d;
+    padding: 0.33325em 0.6665em;
+    -moz-border-radius: 0.33325em;
+    -webkit-border-radius: 0.33325em;
+    border-radius: 0.33325em;
+    display: inline-block;
+    border: 0.06665em solid;
     position: relative; }
-    .nav--secondary .nav__link:not(:last-child):before {
-      content: "";
-      display: block;
-      height: 1px;
-      width: 100%;
-      position: absolute;
-      background-color: #35393f;
-      bottom: 0;
-      left: 0;
-      z-index: 30; }
-    .nav--secondary .nav__link.active {
-      color: #eaeaeb; }
+    .nav--secondary .nav__link:not(:first-child) {
+      margin-left: 0.33325em; }
+    .nav--secondary .nav__link:hover, .nav--secondary .nav__link:focus, .nav--secondary .nav__link:focus, .nav--secondary .nav__link.active {
+      color: #aaacae; }
 
 .group__ghost {
-  visibility: hidden; }
+  visibility: hidden;
+  position: absolute; }
 
 .group__count:before {
   content: "Group "; }

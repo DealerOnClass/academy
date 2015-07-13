@@ -32,30 +32,45 @@
         height: 25%;
     }
 }
-[class*="nav__group"] {
-    position: relative;
-    &:after {
-        border-top: 1px solid $body__bg;
-        border-bottom: 2px solid $body__bg;
-        @include box-sizing(border-box);
-        content: "";
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 3px;
-    }
-}
-.class__group1, .nav__group1:after {
+// [class*="nav__group"] {
+//     position: relative;
+//     &:after {
+//         border-top: 1px solid $body__bg;
+//         border-bottom: 2px solid $body__bg;
+//         @include box-sizing(border-box);
+//         content: "";
+//         display: block;
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//         height: 100%;
+//         width: 3px;
+//     }
+// }
+// [class*="nav__group"] {
+//     position: relative;
+//     &:before {
+//         content: "\2022";
+//         font-size: 2em;
+//         line-height: 0;
+//         position: relative;
+//         top: .15em;
+//     }
+// }
+// .nav__group1:before { color: $group1__bg; }
+// .nav__group2:before { color: $group2__bg; }
+// .nav__group3:before { color: $group3__bg; }
+// .nav__group4:before { color: $group4__bg; }
+
+.class__group1 {
     background-color: $group1__bg;
 }
-.class__group2, .nav__group2:after {
+.class__group2 {
     background-color: $group2__bg;
 }
-.class__group3, .nav__group3:after {
+.class__group3 {
     background-color: $group3__bg;
 }
-.class__group4, .nav__group4:after {
+.class__group4 {
     background-color: $group4__bg;
 }

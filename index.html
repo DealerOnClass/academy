@@ -3,11 +3,22 @@ layout: default
 title: home
 active: home
 ---
-
+<nav class="nav--secondary">
+    <a class="nav__link" href="#all">all lessons</a>
+    {% for page in site.pages %}
+    {% if page.nav__group == 'class_groups'%}
+    <a class="nav__right nav__link {{ page.title | prepend: 'nav__' }}" href="#{{ page.title }}">
+        <span class="group__count"></span>
+        <span class="group__ghost">{{ page.title }}</span>
+    </a>
+    {% endif %}
+    {% endfor %}
+</nav>
 <div class="grid__row">
-    <nav class="grid__col--1 [ nav--secondary ]">
-        <h5 class="heading--secondary">filter</h5>
-        <a class="nav__link" href="#all">all</a></li>
+    <!-- <nav class="grid__col--1 [ nav--secondary ]">
+        <h5 class="heading--secondary">lessons</h5>
+        <a class="nav__link" href="#all">view all</a>
+        <span>only:</span>
         {% for page in site.pages %}
         {% if page.nav__group == 'class_groups' %}
         <a class="nav__link {{ page.title | prepend: 'nav__' }}" href="#{{ page.title }}">
@@ -16,7 +27,7 @@ active: home
         </a>
         {% endif %}
         {% endfor %}
-    </nav>
+    </nav> -->
     <div class="grid__col--table [ nav--test ]">
         <div class="catbloc" id="all">
             {% for post in site.posts reversed %}
@@ -27,7 +38,7 @@ active: home
                     {% endfor %}
                 </div>
                 <header class="lesson__header">
-                    <time class="lesson__date">{{ post.date | date: "%-m/%-d" }}</time>
+                    <span class="lesson__count"></span>
                     <h3 class="lesson__title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
                 </header>
                 <ul class="list--commas">
@@ -64,7 +75,7 @@ active: home
                     {% endfor %}
                 </div>
                 <header class="lesson__header">
-                    <time class="lesson__date">{{ post.date | date: "%-m/%-d" }}</time>
+                    <span class="lesson__count"></span>
                     <h3 class="lesson__title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
                 </header>
                 <ul class="list--commas">

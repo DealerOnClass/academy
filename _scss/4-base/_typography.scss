@@ -5,6 +5,7 @@ body {
     color: $body__color;
     //  Remove later
     background-color: $body__bg;
+    counter-reset: lesson__count;
 }
 h1 {
     @include adjust-font-size-to($h1);
@@ -30,9 +31,6 @@ p, section {
 }
 a {
     color: inherit;
-    &:hover, &:active, &:focus {
-        opacity: .7;
-    }
 }
 .active {
     color: $link__active;

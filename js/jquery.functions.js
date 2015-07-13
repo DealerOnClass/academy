@@ -32,7 +32,7 @@ $(function() {
     $(this).click(function() {
         // add active class
         // remove active class of siblings
-        $(this).addClass('active').siblings().removeClass('active');
+        $(this).addClass('active').siblings().removeClass('active');          
     });
   });
 

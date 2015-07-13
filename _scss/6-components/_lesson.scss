@@ -2,6 +2,7 @@
     @include padding-trailer(1);
     margin-left: $lesson__date__gutter;
     position: relative;
+    counter-increment: lesson__count;
     &:not(:first-child) {
         @include padding-leader(1);
     }
@@ -22,11 +23,15 @@
     position: relative;
 }
 
-.lesson__date {
-    color: tint($body__bg, 10%);
+// .lesson__date, 
+.lesson__count {
+    color: tint($body__bg, 15%);
     position: absolute;
     bottom: 0;
     left: ($lesson__date__gutter - 1.5) * -1;
+    &:after {
+        content: "0" counter(lesson__count);
+    }
 }
 
 .lesson__title {

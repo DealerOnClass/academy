@@ -1,4 +1,4 @@
-.nav:after {
+[class^="nav--"]:after {
     content: "";
     clear: both;
     display: table;
@@ -9,40 +9,55 @@
 .nav__right {
     float: right;
 }
-.nav__link {
-    text-transform: lowercase;
-}
-.nav__logo, .nav__link {
+.nav__logo, .nav__link, .nav__home {
     display: inline-block;
     @include rhythm-padding(.5);
 }
 .nav--primary {
-    @include rhythm-padding(2);
-    @include margin-trailer(2);
-    background-color: shade($body__bg, 15%);
-    .nav__link {
-        margin-left: rhythm(1);
+    // @include margin-trailer(2);
+    background-color: $nav--primary__bg;
+    .nav__logo,
+    .nav__link,
+    .nav__home {
+        color: white;
+    }
+    .nav__link, .nav__home {
+        float: left;
+        padding-left: rhythm(.5);
+        padding-right: rhythm(.5);
+        &:hover, &:active, &:focus, &.active {
+            background-color: shade($nav--primary__bg, 10%);
+        }
     }
 }
 .nav--secondary {
     counter-reset: count__group;
+    position: relative;
+    @include margin-trailer(2);
+    @include rhythm-padding(1);
     .nav__link {
-        color: tint($body__color, 20%);
-        padding-left: rhythm(1);
-        display: block;
+        color: tint($body__bg, 20%);
+        padding: rhythm(.25) rhythm(.5);
+        @include border-radius(rhythm(.25));
+        display: inline-block;
+        border: rhythm(.05) solid;
+        // display: block;
         position: relative;
-        &:not(:last-child):before {
-            content: "";
-            display: block;
-            height: 1px;
-            width: 100%;
-            position: absolute;
-            background-color: tint($body__bg, 5%);
-            bottom: 0;
-            left: 0;
-            z-index: 30;
+        // &:not(:last-child):before {
+        //     content: "";
+        //     display: block;
+        //     height: 1px;
+        //     width: 100%;
+        //     position: absolute;
+        //     background-color: tint($body__bg, 5%);
+        //     bottom: 0;
+        //     left: 0;
+        //     z-index: 30;
+        // }
+        &:not(:first-child) {
+            margin-left: rhythm(.25);
         }
-        &.active {
+        &:hover, &:focus, &:focus, &.active {
             color: $link__active;
         }
     }
@@ -50,6 +65,7 @@
 
 .group__ghost {
     visibility: hidden;
+    position: absolute;
 }
 .group__count {
     &:before {

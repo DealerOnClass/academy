@@ -29,7 +29,7 @@ $body__color:   tint($body__bg, 40%);
 
 // $link__active:  #31da88;
 // $link__active:  #f26e5e;
-$link__active:  tint($body__bg, 90%);
+$link__active:  tint($body__bg, 60%);
 
 ////////////////////////////////
 //
@@ -57,3 +57,4 @@ $grid__gutter:  rhythm(1);
 //  breakpoints
 $screen--large: $grid__container__width + 6em;
 
+$nav--primary__bg: #3784f0;
