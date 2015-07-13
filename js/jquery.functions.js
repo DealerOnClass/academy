@@ -13,6 +13,7 @@ $(function() {
   $('.nav__link').each(function() {
     // get href
     var navUrl = $(this).attr('href').substr(1);
+    console.log(navUrl);
     // compare against page url with and without the hashtag
     // without the hashtag for lessons pages
     if ( hashUrl === navUrl | pageUrl === navUrl ) {
