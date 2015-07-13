@@ -3,7 +3,7 @@ $(function() {
   var hashUrl = window.location.hash.substr(1);
   var pageUrlRaw = window.location.pathname;
   if ( pageUrlRaw.toLowerCase().indexOf("academy") >= 0 ) {
-    var pageUrl = pageUrlRaw.substr(1, pageUrlRaw.length).split("/")[1];    
+    var pageUrl = pageUrlRaw.substr(1, pageUrlRaw.length).split("/")[2];
   }
   else {
     var pageUrl = pageUrlRaw.substr(1, pageUrlRaw.length).split("/")[0];    
