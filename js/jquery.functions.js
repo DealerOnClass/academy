@@ -5,6 +5,7 @@ $(function() {
   if ( pageUrlRaw.toLowerCase().indexOf("academy") >= 0 ) {
     var pageUrl = pageUrlRaw.substr(1, pageUrlRaw.length).split("/")[1];
   }
+  // default
   else {
     var pageUrl = pageUrlRaw.substr(1, pageUrlRaw.length).split("/")[0];    
   }
@@ -12,7 +13,15 @@ $(function() {
   // for each nav
   $('.nav__link').each(function() {
     // get href
-    var navUrl = $(this).attr('href').substr(1);
+    var navUrlRaw = $(this).attr('href').substr(1);
+    if ( navUrlRaw.toLowerCase().indexOf("academy") >= 0 ) {
+      var navUrl = $(this).attr('href').substr(1, pageUrlRaw.length).split("/")[1];
+    }
+    // default
+    else {
+      var navUrl = $(this).attr('href').substr(1);
+    }
+
     console.log(navUrl);
     // compare against page url with and without the hashtag
     // without the hashtag for lessons pages
