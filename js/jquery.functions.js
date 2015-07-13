@@ -7,7 +7,7 @@ $(function() {
   }
   // default
   else {
-    var pageUrl = pageUrlRaw.substr(1, pageUrlRaw.length).split("/")[0];    
+    var pageUrl = pageUrlRaw.substr(1, pageUrlRaw.length).split("/")[0];
   }
   console.log(pageUrl);
   // for each nav
@@ -21,7 +21,6 @@ $(function() {
     else {
       var navUrl = $(this).attr('href').substr(1);
     }
-
     console.log(navUrl);
     // compare against page url with and without the hashtag
     // without the hashtag for lessons pages
