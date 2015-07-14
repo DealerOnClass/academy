@@ -5,9 +5,9 @@
         </div>
         <div class="nav__right">
             {% if page.active == "home" %}
-            <a class="nav__home active" href="#">home</a>
+            <a class="nav__home active" href="{{ '/' | prepend: site.baseurl }}">home</a>
             {% else %}
-            <a class="nav__home" href="/">home</a>
+            <a class="nav__home" href="{{ '/' | prepend: site.baseurl }}">home</a>
             {% endif %}
             {% assign nav__menu = site.pages %}
             {% assign nav__group = 'navigation' %}

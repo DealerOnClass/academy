@@ -6,7 +6,7 @@ layout: default
         <h5 class="heading--secondary">lessons</h5>
         {% for post in site.posts reversed %}
         <div class="go__parent">
-            <a class="go__left nav__link overflow-ellipsis" style="width: 80%;" href="{{ post.title }}" title="{{ post.title }}">{{ post.title }}</a>
+            <a class="go__left nav__link overflow-ellipsis" style="width: 80%;" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">{{ post.title }}</a>
             {% for group in post.groups %}
             <span class="go__right {{ group | append: '__progress' }}">•</span>
             {% endfor %}
