@@ -53,6 +53,9 @@ a {
 .icon-pencil:before {
   content: "\e051"; }
 
+.icon-profile:before {
+  content: "\e057"; }
+
 .icon-share:before {
   content: "\e05e"; }
 
@@ -134,7 +137,7 @@ h6, small {
   font-size: 0.75019em;
   line-height: 1.77689em; }
 
-p, section {
+p, h5 {
   margin-bottom: 1.333em; }
 
 a {
@@ -275,128 +278,56 @@ code, pre {
 .list--commas > li:not(:last-child):after {
   content: ","; }
 
-.class__progress {
-  position: absolute;
-  top: 0;
-  left: -16.28571%;
-  height: 100%;
-  width: 3px;
-  border-top: 1px solid #2a2f35;
-  border-bottom: 1px solid #2a2f35;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box; }
-  .class__progress > div {
-    border-bottom: 1px solid #2a2f35;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box; }
-  .class__progress div:first-child:nth-last-child(1) {
-    height: 100%; }
-  .class__progress div:first-child:nth-last-child(2),
-  .class__progress div:first-child:nth-last-child(2) ~ div {
-    height: 50%; }
-  .class__progress div:first-child:nth-last-child(3),
-  .class__progress div:first-child:nth-last-child(3) ~ div {
-    height: 33.3333%; }
-  .class__progress div:first-child:nth-last-child(4),
-  .class__progress div:first-child:nth-last-child(4) ~ div {
-    height: 25%; }
+.group1__progress {
+  color: #396db5; }
 
-.class__group1 {
-  background-color: #396db5; }
+.group2__progress {
+  color: #c6a67c; }
 
-.class__group2 {
-  background-color: #c6a67c; }
+.group3__progress {
+  color: #8ba892; }
 
-.class__group3 {
-  background-color: #8ba892; }
+.group4__progress {
+  color: #b1695a; }
 
-.class__group4 {
-  background-color: #b1695a; }
-
-.lesson {
-  padding-bottom: 1.333em;
-  margin-left: 14.28571%;
-  position: relative;
-  counter-increment: lesson__count; }
-  .lesson:not(:first-child) {
-    padding-top: 1.333em; }
-  .lesson:not(:last-child):before {
-    content: "";
-    display: block;
-    height: 1px;
-    width: 114.28571%;
-    position: absolute;
-    background-color: #35393f;
-    bottom: 0;
-    left: -16.28571%;
-    z-index: 30; }
-
-.lesson__header {
-  position: relative; }
-
-.lesson__count {
-  color: #4a4e53;
-  position: absolute;
-  bottom: 0;
-  left: -12.78571%; }
-  .lesson__count:after {
-    content: "0" counter(lesson__count); }
-
-.lesson__reference, .lesson__assignment {
-  position: relative;
-  left: -1.35em; }
-  .lesson__reference .icon, .lesson__assignment .icon {
-    padding-right: .35em; }
-
-[class^="nav--"]:after {
+[class^="nav--"]:after, .clearfix {
   content: "";
   clear: both;
   display: table; }
 
-.nav__left {
+.go__parent {
+  overflow: hidden; }
+
+.nav__left, .go__left {
   float: left; }
 
-.nav__right {
+.nav__right, .go__right {
   float: right; }
 
 .nav__logo, .nav__link, .nav__home {
-  display: inline-block;
-  padding-top: 0.6665em;
-  padding-bottom: 0.6665em; }
+  display: inline-block; }
 
 .nav--primary {
-  background-color: #3784f0; }
-  .nav--primary .nav__logo,
-  .nav--primary .nav__link,
-  .nav--primary .nav__home {
-    color: white; }
+  padding-top: 1.333em;
+  padding-bottom: 1.333em;
+  margin-bottom: 2.666em; }
   .nav--primary .nav__link, .nav--primary .nav__home {
     float: left;
     padding-left: 0.6665em;
     padding-right: 0.6665em; }
-    .nav--primary .nav__link:hover, .nav--primary .nav__link:active, .nav--primary .nav__link:focus, .nav--primary .nav__link.active, .nav--primary .nav__home:hover, .nav--primary .nav__home:active, .nav--primary .nav__home:focus, .nav--primary .nav__home.active {
-      background-color: #3277d8; }
+    .nav--primary .nav__link.active, .nav--primary .nav__home.active {
+      color: white; }
+
+.count__group {
+  counter-reset: count__group; }
 
 .nav--secondary {
   counter-reset: count__group;
   position: relative;
-  margin-bottom: 2.666em;
-  padding-top: 1.333em;
-  padding-bottom: 1.333em; }
+  margin-bottom: 2.666em; }
   .nav--secondary .nav__link {
-    color: #55595d;
-    padding: 0.33325em 0.6665em;
-    -moz-border-radius: 0.33325em;
-    -webkit-border-radius: 0.33325em;
-    border-radius: 0.33325em;
-    display: inline-block;
-    border: 0.06665em solid;
-    position: relative; }
-    .nav--secondary .nav__link:not(:first-child) {
-      margin-left: 0.33325em; }
-    .nav--secondary .nav__link:hover, .nav--secondary .nav__link:focus, .nav--secondary .nav__link:focus, .nav--secondary .nav__link.active {
+    color: #55595d; }
+    .nav--secondary .nav__link.active {
       color: #aaacae; }
 
 .group__ghost {

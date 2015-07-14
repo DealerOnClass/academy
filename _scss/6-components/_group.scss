@@ -1,76 +1,12 @@
-.class__progress {
-    position: absolute;
-    top: 0;
-    left: ($lesson__date__gutter + 2) * -1;
-    height: 100%;
-    width: 3px;
-    border-top: 1px solid $body__bg;
-    border-bottom: 1px solid $body__bg;
-    @include box-sizing(border-box);
-    > div {
-        border-bottom: 1px solid $body__bg;
-        @include box-sizing(border-box);
-    }
-    //lea.verou.me/2011/01/styling-children-based-on-their-number-with-css3/    
-    // one item
-    div:first-child:nth-last-child(1) {
-        height: 100%;
-    }
-    // two items
-    div:first-child:nth-last-child(2),
-    div:first-child:nth-last-child(2) ~ div {
-        height: 50%;
-    }
-    // three items
-    div:first-child:nth-last-child(3),
-    div:first-child:nth-last-child(3) ~ div {
-        height: 33.3333%;
-    }
-    // four items
-    div:first-child:nth-last-child(4),
-    div:first-child:nth-last-child(4) ~ div {
-        height: 25%;
-    }
+.group1__progress {
+    color: $group1__bg;
 }
-// [class*="nav__group"] {
-//     position: relative;
-//     &:after {
-//         border-top: 1px solid $body__bg;
-//         border-bottom: 2px solid $body__bg;
-//         @include box-sizing(border-box);
-//         content: "";
-//         display: block;
-//         position: absolute;
-//         top: 0;
-//         left: 0;
-//         height: 100%;
-//         width: 3px;
-//     }
-// }
-// [class*="nav__group"] {
-//     position: relative;
-//     &:before {
-//         content: "\2022";
-//         font-size: 2em;
-//         line-height: 0;
-//         position: relative;
-//         top: .15em;
-//     }
-// }
-// .nav__group1:before { color: $group1__bg; }
-// .nav__group2:before { color: $group2__bg; }
-// .nav__group3:before { color: $group3__bg; }
-// .nav__group4:before { color: $group4__bg; }
-
-.class__group1 {
-    background-color: $group1__bg;
+.group2__progress {
+    color: $group2__bg;
 }
-.class__group2 {
-    background-color: $group2__bg;
+.group3__progress {
+    color: $group3__bg;
 }
-.class__group3 {
-    background-color: $group3__bg;
-}
-.class__group4 {
-    background-color: $group4__bg;
+.group4__progress {
+    color: $group4__bg;
 }

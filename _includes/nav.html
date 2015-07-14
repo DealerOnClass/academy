@@ -5,13 +5,9 @@
         </div>
         <div class="nav__right">
             {% if page.active == "home" %}
-            <a class="nav__home active" href="#">
-                <span class="icon icon-home"></span>
-            </a>
+            <a class="nav__home active" href="#">home</a>
             {% else %}
-            <a class="nav__home" href="/">
-                <span class="icon icon-home"></span>
-            </a>
+            <a class="nav__home" href="/">home</a>
             {% endif %}
             {% assign nav__menu = site.pages %}
             {% assign nav__group = 'navigation' %}

@@ -1,0 +1,31 @@
+---
+layout: default
+---
+<article class="grid__row">
+    <nav class="grid__col--1 [ nav--secondary ]">
+        <h5 class="heading--secondary">lessons</h5>
+        {% for post in site.posts reversed %}
+        <div class="go__parent">
+            <a class="go__left nav__link overflow-ellipsis" style="width: 80%;" href="{{ post.title }}" title="{{ post.title }}">{{ post.title }}</a>
+            {% for group in post.groups %}
+            <span class="go__right {{ group | append: '__progress' }}">•</span>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </nav>
+    <div class="grid__col--3">
+        <div class="lesson">
+            <div class="go__parent">
+                <h5 class="heading--secondary go__left">{{ page.title }}</h5>                
+            </div>
+            {% for post in site.posts reversed %}
+            <div>
+                <a href="{{ post.reference }}" target="_blank">
+                    <span class="icon icon-share" style="margin-right: calc(1.333em/2);"></span>
+                    {{ post.reference | remove: 'http://www.' }}
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</article>

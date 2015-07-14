@@ -1,63 +1,42 @@
-[class^="nav--"]:after {
+[class^="nav--"]:after, .clearfix {
     content: "";
     clear: both;
     display: table;
 }
-.nav__left {
+.go__parent {
+    overflow: hidden;
+}
+.nav__left, .go__left {
     float: left;
 }
-.nav__right {
+.nav__right, .go__right {
     float: right;
 }
 .nav__logo, .nav__link, .nav__home {
     display: inline-block;
-    @include rhythm-padding(.5);
 }
 .nav--primary {
-    // @include margin-trailer(2);
-    background-color: $nav--primary__bg;
-    .nav__logo,
-    .nav__link,
-    .nav__home {
-        color: white;
-    }
+    @include rhythm-padding(1);
+    @include margin-trailer(2);
     .nav__link, .nav__home {
         float: left;
         padding-left: rhythm(.5);
         padding-right: rhythm(.5);
-        &:hover, &:active, &:focus, &.active {
-            background-color: shade($nav--primary__bg, 10%);
+        &.active {
+            color: white;
         }
     }
+}
+.count__group {
+    counter-reset: count__group;
 }
 .nav--secondary {
     counter-reset: count__group;
     position: relative;
     @include margin-trailer(2);
-    @include rhythm-padding(1);
     .nav__link {
         color: tint($body__bg, 20%);
-        padding: rhythm(.25) rhythm(.5);
-        @include border-radius(rhythm(.25));
-        display: inline-block;
-        border: rhythm(.05) solid;
-        // display: block;
-        position: relative;
-        // &:not(:last-child):before {
-        //     content: "";
-        //     display: block;
-        //     height: 1px;
-        //     width: 100%;
-        //     position: absolute;
-        //     background-color: tint($body__bg, 5%);
-        //     bottom: 0;
-        //     left: 0;
-        //     z-index: 30;
-        // }
-        &:not(:first-child) {
-            margin-left: rhythm(.25);
-        }
-        &:hover, &:focus, &:focus, &.active {
+        &.active {
             color: $link__active;
         }
     }
