@@ -15,8 +15,11 @@
 .nav__link {
     display: block;
     color: $nav__link__color;
-    &:hover, &:focus, &:active, &.active {
+    &:hover, &:focus, &:active {
         color: inherit;
+    }
+    &.active {
+        color: tint($body__bg, 30%);
     }
 }
 .nav--primary {

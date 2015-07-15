@@ -103,7 +103,7 @@ a {
   font-weight: 400;
   font-style: normal; }
 html {
-  font-size: 112.5%;
+  font-size: 100%;
   line-height: 1.333em; }
 
 body {
@@ -123,7 +123,7 @@ h2 {
 
 h3 {
   font-size: 1.77689em;
-  line-height: 1.12528em;
+  line-height: 1.50038em;
   font-weight: 300; }
 
 h4 {
@@ -237,7 +237,7 @@ code, pre {
   padding-right: 1.333em;
   padding-left: 1.333em;
   margin: 0 auto;
-  max-width: 70em; }
+  max-width: 80em; }
 
 [class^="grid__col--"] {
   float: left;
@@ -247,7 +247,7 @@ code, pre {
   width: 50%; }
 
 .grid__col--current, .grid__col--sidebar {
-  width: 15em; }
+  width: 17.77778em; }
 
 .grid__col--current {
   float: right; }
@@ -334,8 +334,10 @@ code, pre {
 .nav__link {
   display: block;
   color: #9fa1a2; }
-  .nav__link:hover, .nav__link:focus, .nav__link:active, .nav__link.active {
+  .nav__link:hover, .nav__link:focus, .nav__link:active {
     color: inherit; }
+  .nav__link.active {
+    color: #5f6264; }
 
 .nav--primary {
   padding-top: 1.333em;
@@ -439,9 +441,9 @@ code, pre {
 .content, .current {
   overflow: hidden;
   background-color: #2d3034;
-  -moz-border-radius: 0.46655em;
-  -webkit-border-radius: 0.46655em;
-  border-radius: 0.46655em; }
+  -moz-border-radius: 0.33325em;
+  -webkit-border-radius: 0.33325em;
+  border-radius: 0.33325em; }
 
 .home .content,
 .lessons .content {

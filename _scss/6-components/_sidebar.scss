@@ -1,7 +1,7 @@
 %module__box {
     overflow: hidden;
     background-color: $filter__body__bg;
-    @include border-radius(rhythm(.35));
+    @include border-radius(rhythm(.25));
 }
 
 .content {

@@ -31,7 +31,7 @@
     width: 50%;
 }
 %sidebar__width {
-    width: 15em;
+    width: $grid__container__width / 4.5;
 }
 .grid__col--current {
     float: right;

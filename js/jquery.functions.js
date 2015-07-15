@@ -82,6 +82,11 @@ $(function() {
       $("#check").remove();
   };
 
+  // make sure topics page always shows something
+  var topics__url = $('.nav--primary .nav__link[href*="topics"]').attr("href");
+  var topics__url = topics__url + "#all";
+  $('.nav--primary .nav__link[href*="topics"]').attr("href", topics__url);
+
 
   // $('[data-target="group__count"]').each(function() {    
   //   var e = $(this);
