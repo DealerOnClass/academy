@@ -1,0 +1,138 @@
+%module__box {
+    overflow: hidden;
+    background-color: $sidebar__body__bg;
+    @include border-radius(rhythm(.35));
+}
+
+.content {
+    @extend %module__box;
+}
+.home .content {
+    margin-right: $grid__gutter;
+}
+
+
+
+
+
+%sidebar__padding {
+    padding: rhythm(.5) rhythm(1);
+}
+.sidebar__header {
+    @extend %sidebar__padding;
+    background-color: $sidebar__header__bg;
+}
+.sidebar__body {
+    @extend %sidebar__padding;
+    background-color: $sidebar__body__bg;
+    .nav__link {
+        overflow: hidden;
+        @include rhythm-margins(.25);
+    }
+    .nav__text {
+        float: left;
+        width: 80%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    .nav__progress {
+        float: right;
+    }
+}
+
+
+
+
+// extension to bottom when on topcis pages
+// sometimes the sidebar is taller than the 
+// lesson body
+.lesson {
+    position: relative;
+    &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 100%;
+        height: 200%;
+        width: 100%;
+        right: 0;
+        background-color: white;
+    }
+}
+%lesson__padding {
+    padding: rhythm(.5) rhythm(1);
+}
+.lesson__header {
+    @extend %lesson__padding;
+    overflow: hidden;
+    color: $lesson__header__color;
+    @include background-image(linear-gradient(to right, $lesson__header__bg--start, $lesson__header__bg--end));
+}
+.lesson__nav {
+    float: right;
+    margin-bottom: $heading--secondary__size * -1;
+    position: relative;
+    top: ($heading--secondary__size / 6) * -1;
+}
+.lesson__body {
+    @extend %lesson__padding;
+    color: $lesson__body__color;
+    background-color: $lesson__body__bg;
+    a {
+        color: $lesson__header__bg--start;
+    }
+}
+.lesson__item {
+    @include rhythm-margins(.25);
+}
+.topics {
+    .lesson__body {
+        @include padding-leader(1.75);
+    }
+}
+
+
+
+
+
+.current {
+    @extend %module__box;
+}
+%current__padding {
+    padding: rhythm(.5) rhythm(1);
+}
+.current__header {
+    @extend %current__padding;
+    overflow: hidden;
+    color: $current__header__color;
+    @include background-image(linear-gradient(to right, $current__header__bg--start, $current__header__bg--end));
+}
+.current__body {
+    @extend %current__padding;
+    color: $current__body__color;
+    background-color: $current__body__bg;
+    a {
+        &:hover, &:focus, &:active, &.active {
+            color: $body__color;
+        }
+    }
+}
+.current__item {
+    @include rhythm-margins(.25);
+    position: relative;
+    &:not(:last-child) {
+        @include padding-trailer(.35);
+        @include margin-trailer(.5);
+    }
+    &:not(:last-child):after {
+        content: "";
+        display: block;
+        position: absolute;
+        height: 1px;
+        left: $grid__gutter * -1;
+        bottom: 0;
+        width: 125%;
+        background-color: $body__bg;
+    }
+}

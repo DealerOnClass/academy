@@ -1,31 +1,37 @@
 ---
 layout: default
 ---
-<article class="grid__row">
-    <nav class="grid__col--1 [ nav--secondary ]">
-        <h5 class="heading--secondary">lessons</h5>
-        {% for post in site.posts reversed %}
-        <div class="go__parent">
-            <a class="go__left nav__link overflow-ellipsis" style="width: 80%;" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">{{ post.title }}</a>
-            {% for group in post.groups %}
-            <span class="go__right {{ group | append: '__progress' }}">•</span>
+<article class="grid__row content">
+    <nav class="grid__col--sidebar">
+        <header class="sidebar__header">
+            <h5 class="heading--secondary">lessons</h5>
+        </header>
+        <div class="sidebar__body">
+            {% for post in site.posts reversed %}
+            <a class="nav__link" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
+                <span class="nav__text">{{ post.title }}</span>
+                {% for group in post.groups %}
+                <span class="nav__progress {{ group | append: '__progress' }}">•</span>
+                {% endfor %}
+            </a>
             {% endfor %}
         </div>
-        {% endfor %}
     </nav>
-    <div class="grid__col--3">
+    <div class="grid__col--lesson">
         <div class="lesson">
-            <div class="go__parent">
-                <h5 class="heading--secondary go__left">{{ page.title }}</h5>                
+            <header class="lesson__header">
+                <h5 class="heading--secondary go__left">{{ page.title }}</h5>
+            </header>
+            <div class="lesson__body">
+                {% for post in site.posts reversed %}
+                <div class="lesson__item">
+                    <a href="{{ post.reference }}" target="_blank">
+                        <span class="icon icon-share" style="margin-right: calc(1.333em/2);"></span>
+                        {{ post.reference | remove: 'http://www.' }}
+                    </a>
+                </div>
+                {% endfor %}
             </div>
-            {% for post in site.posts reversed %}
-            <div>
-                <a href="{{ post.reference }}" target="_blank">
-                    <span class="icon icon-share" style="margin-right: calc(1.333em/2);"></span>
-                    {{ post.reference | remove: 'http://www.' }}
-                </a>
-            </div>
-            {% endfor %}
         </div>
     </div>
 </article>

@@ -12,35 +12,33 @@
 .nav__right, .go__right {
     float: right;
 }
-.nav__logo, .nav__link, .nav__home {
-    display: inline-block;
+.nav__link {
+    display: block;
+    color: $nav__link__color;
+    &:hover, &:focus, &:active, &.active {
+        color: inherit;
+    }
 }
 .nav--primary {
     @include rhythm-padding(1);
     @include margin-trailer(2);
-    .nav__link, .nav__home {
+    .nav__link {
         float: left;
-        padding-left: rhythm(.5);
         padding-right: rhythm(.5);
-        &.active {
-            color: white;
+        padding-left: rhythm(.5);
+        &:last-child {
+            padding-right: 0;
         }
     }
+    .nav__logo {
+        padding-left: 0;
+    }
 }
+
 .count__group {
     counter-reset: count__group;
 }
-.nav--secondary {
-    counter-reset: count__group;
-    position: relative;
-    @include margin-trailer(2);
-    .nav__link {
-        color: tint($body__bg, 20%);
-        &.active {
-            color: $link__active;
-        }
-    }
-}
+
 
 .group__ghost {
     visibility: hidden;

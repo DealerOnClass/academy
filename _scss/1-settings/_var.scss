@@ -18,7 +18,7 @@ $h1:              $h2 * $base-font-ratio;
 //
 //  Color
 //
-$base__color: #2a2f35;
+$base__color: #1b1e22;
 
 ////////////////////////////////
 //
@@ -35,10 +35,10 @@ $link__active:  tint($body__bg, 60%);
 //
 //  Group
 //
-$group1__bg: #396db5;
-$group2__bg: #c6a67c;
-$group3__bg: #8ba892;
-$group4__bg: #b1695a;
+$group1__bg: #3a8dff;
+$group2__bg: #dca359;
+$group3__bg: #52c66e;
+$group4__bg: #d74728;
 
 ////////////////////////////////
 //
@@ -57,4 +57,30 @@ $grid__gutter:  rhythm(1);
 //  breakpoints
 $screen--large: $grid__container__width + 6em;
 
+////////////////////////////////
+//
+//  Nav
+//
 $nav--primary__bg: #3784f0;
+$nav__link__color: tint($body__color, 30%);
+
+$sidebar__header__bg: tint($body__bg, 4%);
+$sidebar__body__bg: tint($body__bg, 8%);
+
+$lesson__header__color: white;
+$lesson__header__bg--start: #3784f0;
+$lesson__header__bg--end: #50c8f4;
+
+$lesson__body__color: tint($body__bg, 30%);
+$lesson__body__bg: white;
+
+$current__header__color: white;
+$current__header__bg--start: #9b29cb;
+$current__header__bg--end: #865bde;
+
+$current__body__color: tint($body__color, 30%);
+$current__body__bg: $sidebar__body__bg;
+
+
+
+$heading--secondary__size: .75em;

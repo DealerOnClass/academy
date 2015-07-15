@@ -26,7 +26,7 @@ h5 {
 h6, small {
     @include adjust-font-size-to($h6);
 }
-p, h5 {
+p {
     @include margin-trailer(1);
 }
 a {

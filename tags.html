@@ -5,45 +5,61 @@ permalink: /topics/
 nav__group: "navigation"
 ---
 <!-- Brilliant Solution | http://schoewilliam.fr/2015/02/10/jekyll-pro-tip-awesome-archive-page.html -->
-<div class="grid__row">
-    <nav class="grid__col--1 [ nav--secondary ]">
-        <h5 class="heading--secondary">filter</h5>
-        <a class="nav__link" href="#all">all</a><br>
-        {% for tag in site.tags sort %}
-        <a class="nav__link {{ tag | first }}" href="#{{ tag | first | remove:' ' }}">{{ tag | first }}</a><br>
-        {% endfor %}
-    </nav>
-    <div class="grid__col--table">
-        <div class="catbloc" id="all">
-            <h5 class="heading--secondary">lessons</h5>
-            {% for post in site.posts reversed %}
-            <div class="go__parent">
-                <a class="go__left" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-                <div class="go__right">
-                {% for tag in post.tags %}
-                    <a class="lesson__tags active" href="{{ '/topics/#' | append: tag | prepend: site.baseurl | remove:' ' }}" style="margin-right: calc(1.333em/2);">{{ tag }}</a>
-                {% endfor %}
-                </div>
-            </div>
+<div class="grid__row content">
+    <nav class="grid__col--sidebar">
+        <header class="sidebar__header">
+            <h5 class="heading--secondary">filter</h5>
+        </header>
+        <div class="sidebar__body">
+            <a class="nav__link" data-target="nav__isActive" href="#all">all</a>
+            {% for tag in site.tags sort %}
+            <a class="nav__link {{ tag | first }}" data-target="nav__isActive" href="#{{ tag | first | remove:' ' }}">{{ tag | first }}</a>
             {% endfor %}
         </div>
-        {% for tag in site.tags %}
-        <div class="catbloc" id="{{ tag | first | remove:' ' }}">
-            <h5 class="heading--secondary">lessons</h5>
-            {% for posts in tag %}
-            {% for post in posts reversed %}
-            {% if post.url %}
-            <div class="go__parent">
-                <a class="go__left" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-                <div class="go__right">
-                {% for tag in post.tags %}
-                    <a class="lesson__tags active" href="{{ '/topics/#' | append: tag | prepend: site.baseurl | remove:' ' }}" style="margin-right: calc(1.333em/2);">{{ tag }}</a>
-                {% endfor %}
-                </div>
+    </nav>
+    <div class="grid__col--lesson">
+        <div class="lesson" id="topics__onload">
+            <header class="lesson__header">
+                <h5 class="heading--secondary">&nbsp;</h5>
+            </header>
+            <div class="lesson__body">
+                
             </div>
-            {% endif %}
-            {% endfor %}
-            {% endfor %}
+        </div>
+        <div class="catbloc lesson" id="all">
+            <header class="lesson__header">
+                <h5 class="heading--secondary" data-target="title__isActive">lessons</h5>
+            </header>
+            <div class="lesson__body">
+                {% for post in site.posts reversed %}
+                <div class="lesson__item go__parent">
+                    <a class="nav__link go__left" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+                    {% for tag in post.tags %}
+                    <a class="nav__link go__right" data-target="lesson__isActive" href="{{ '/topics/#' | append: tag | prepend: site.baseurl | remove:' ' }}">{{ tag }}</a>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% for tag in site.tags %}
+        <div class="catbloc lesson" id="{{ tag | first | remove:' ' }}">
+            <header class="lesson__header">
+                <h5 class="heading--secondary" data-target="title__isActive">lessons</h5>
+            </header>
+            <div class="lesson__body">
+                {% for posts in tag %}
+                {% for post in posts reversed %}
+                {% if post.url %}
+                <div class="lesson__item go__parent">
+                    <a class="nav__link go__left" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+                    {% for tag in post.tags %}
+                    <a class="nav__link go__right" data-target="lesson__isActive" href="{{ '/topics/#' | append: tag | prepend: site.baseurl | remove:' ' }}">{{ tag }}</a>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {% endfor %}
+                {% endfor %}
+            </div>
         </div>
         {% endfor %}
     </div>

@@ -4,61 +4,83 @@ title: home
 active: home
 ---
 <div class="grid__row">
-    <nav class="grid__col--1 [ nav--secondary ]">
-        <h5 class="heading--secondary">Lessons</h5>
-        {% for post in site.posts reversed %}
-        <div class="go__parent">
-        <a class="go__left nav__link overflow-ellipsis" style="width: 80%;" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">{{ post.title }}</a>
-        {% for group in post.groups %}
-        <span class="go__right {{ group | append: '__progress' }}">•</span>
-        {% endfor %}
-        </div>
-        {% endfor %}
-    </nav>
-    <div class="grid__col--2">
-        <h5 class="heading--secondary">Welcome</h5>    
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste consequuntur delectus debitis excepturi est provident tempora omnis! Alias eius velit aliquam minima rerum libero. Dolorum tempore atque non aperiam facere!</p>
-        <p>Vitae quo accusamus quaerat deserunt libero suscipit reprehenderit recusandae sit quibusdam hic, laudantium iste quam cum, officiis officia repellat ipsam possimus quos voluptate adipisci tempore facere provident! Ullam, ut, non!</p>
-    </div>
-    <div class="grid__col--1 count__group">
-        <h5 class="heading--secondary">Current</h5>
-        {% for page in site.pages %}
-        {% if page.nav__group == 'class_groups'%}
-        <div style="margin-bottom: 1.333em;">
-            <div class="go__left">
-                <span class="group__count"></span>
-                <span class="group__ghost">{{ page.title }}</span>
-                <span class="{{ page.title | append: '__progress' }}">•</span>
-            </div>
-            {% for post in site.posts %}
-            {% for group in post.groups %}
-            {% if group contains page.title %}
-            <div class="go__right">
-                <a href="{{ post.assignment }}" style="margin-left: calc(1.333em/2);"><span class="icon icon-profile"></span></a>
-                <a href="{{ post.assignment }}" style="margin-left: calc(1.333em/2);"><span class="icon icon-pencil"></span></a>
-                <a href="{{ post.reference }}" style="margin-left: calc(1.333em/2);"><span class="icon icon-share"></span></a>
-            </div>
-            <div class="clearfix"></div>
-            {% assign post__total = site.posts | size %}
+    <div class="grid__col--current count__group">
+        <div class="current">
+            <header class="current__header">
+                <h5 class="heading--secondary">Current</h5>
+            </header>
+            <div class="current__body">
+                {% for page in site.pages %}
+                {% if page.nav__group == 'class_groups'%}
+                <div class="current__item">
+                    <div class="go__left">
+                        <span class="group__count"></span>
+                        <span class="group__ghost">{{ page.title }}</span>
+                        <span class="{{ page.title | append: '__progress' }}">•</span>
+                    </div>
+                    {% for post in site.posts %}
+                    {% for group in post.groups %}
+                    {% if group contains page.title %}
+                    <div class="go__right">
+                        <a href="{{ post.assignment }}" style="margin-left: calc(1.333em/2);"><span class="icon icon-profile"></span></a>
+                        <a href="{{ post.assignment }}" style="margin-left: calc(1.333em/2);"><span class="icon icon-pencil"></span></a>
+                        <a href="{{ post.reference }}" style="margin-left: calc(1.333em/2);"><span class="icon icon-share"></span></a>
+                    </div>
+                    <div class="clearfix"></div>
+                    {% assign post__total = site.posts | size %}
 
-            <!-- {% for post in site.posts %}
-                {% if post.next %}
-                    {% assign post__next = forloop.length %}
-                {% else %}
-                    {% assign post__next = post__total %}
+                    <!-- {% for post in site.posts %}
+                        {% if post.next %}
+                            {% assign post__next = forloop.length %}
+                        {% else %}
+                            {% assign post__next = post__total %}
+                        {% endif %}
+                    {% endfor %} -->
+
+                    <div>Progress: {{ post__next }} / {{ post__total }}</div>
+                    <!-- <p style="width: calc({{ post__next }}*100%/{{ post__total }}); height: 3px; background-color: red;"></p> -->
+                    <div>
+                        <a class="overflow-ellipsis" style="width: 100%; display: inline-block;" href="{{ post.url }}">Lesson:&nbsp;{{ post.title }}</a>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                    {% endfor %}
+                </div>
                 {% endif %}
-            {% endfor %} -->
-
-            <div>Progress: {{ post__next }} / {{ post__total }}</div>
-            <!-- <p style="width: calc({{ post__next }}*100%/{{ post__total }}); height: 3px; background-color: red;"></p> -->
-            <div>
-                <a class="overflow-ellipsis" style="width: 100%; display: inline-block;" href="{{ post.url }}">Lesson:&nbsp;{{ post.title }}</a>
+                {% endfor %}
             </div>
-            {% endif %}
-            {% endfor %}
-            {% endfor %}
         </div>
-        {% endif %}
-        {% endfor %}
     </div>
+    <div class="grid__col--content">
+        <div class="grid__row content">
+            <div class="grid__col--sidebar">
+                <nav class="sidebar">
+                    <header class="sidebar__header">
+                        <h5 class="heading--secondary">Lessons</h5>
+                    </header>
+                    <div class="sidebar__body">
+                        {% for post in site.posts reversed %}
+                        <a class="nav__link overflow-ellipsis" data-target="nav__isActive" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
+                            <span class="nav__text">{{ post.title }}</span>
+                            {% for group in post.groups %}
+                            <span class="nav__progress {{ group | append: '__progress' }}">•</span>
+                        </a>
+                        {% endfor %}
+                        {% endfor %}
+                    </div>
+                </nav>
+            </div>
+            <div class="grid__col--lesson">
+                <div class="lesson">
+                    <header class="lesson__header">
+                        <h5 class="heading--secondary">Welcome</h5>
+                    </header>
+                    <div class="lesson__body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste consequuntur delectus debitis excepturi est provident tempora omnis! Alias eius velit aliquam minima rerum libero. Dolorum tempore atque non aperiam facere!</p>
+                        <p>Vitae quo accusamus quaerat deserunt libero suscipit reprehenderit recusandae sit quibusdam hic, laudantium iste quam cum, officiis officia repellat ipsam possimus quos voluptate adipisci tempore facere provident! Ullam, ut, non!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
 </div>

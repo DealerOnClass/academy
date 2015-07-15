@@ -2,6 +2,7 @@ $(function() {
   // get page url
   var hashUrl = window.location.hash.substr(1);
   var pageUrlRaw = window.location.pathname;
+
   if ( pageUrlRaw.toLowerCase().indexOf("academy") >= 0 ) {
     var pageUrl = pageUrlRaw.substr(1, pageUrlRaw.length).split("/")[1];
   }
@@ -9,9 +10,11 @@ $(function() {
   else {
     var pageUrl = pageUrlRaw.substr(1, pageUrlRaw.length).split("/")[0];
   }
-  console.log(pageUrl);
   // for each nav
-  $('.nav__link').each(function() {
+  // var nav__link = $("[data-target='link']");
+
+
+  $('[data-target="nav__isActive"]').each(function() {
     // get href
     var navUrlRaw = $(this).attr('href').substr(1);
     if ( navUrlRaw.toLowerCase().indexOf("academy") >= 0 ) {
@@ -21,28 +24,45 @@ $(function() {
     else {
       var navUrl = $(this).attr('href').substr(1);
     }
-    console.log(navUrl);
     // compare against page url with and without the hashtag
     // without the hashtag for lessons pages
     if ( hashUrl === navUrl | pageUrl === navUrl ) {
       // add active class
       $(this).addClass('active');
     }
+    // change title on topics page
+    // $('.topics .nav__link.active').text(navUrl);
     // on click
     $(this).click(function() {
         // add active class
-        // remove active class of siblings
-        $(this).addClass('active').siblings().removeClass('active');          
+        // remove active class of siblings on nav click
+        $(this).addClass('active').siblings().removeClass('active');
+        // change title on topics page
+        $('[data-target="title__isActive"]').text(navUrl);
+        // remove ghost title on click to avoid ugliness
+        $("#topics__onload").remove();
     });
   });
 
+  // change title on topics page on page load
+  $('.topics .lesson__header [data-target="title__isActive"]').text(hashUrl);
+  // in case of page refresh remove ghost title to avoid ugliness
+  if ( $(".topics .sidebar__body .active").length != 0 ) {
+    // console.log("false");
+    $("#topics__onload").remove();
+  };
+
   // on click
-  $('.lesson__tags').click(function() {
+  $('[data-target="lesson__isActive"]').click(function() {
+    // remove ghost title on click to avoid ugliness
+    $("#topics__onload").remove();
     // get href
     var navUrl = $(this).attr('href').split('#')[1];
     // add active class
     // remove active class of siblings
-    $('.nav--secondary .nav__link.' +  navUrl).addClass('active').siblings().removeClass('active');
+    $('.sidebar__body [data-target="nav__isActive"][href="#' +  navUrl + '"]').addClass('active').siblings().removeClass('active');
+    // change title on topics page on tag click
+    $('[data-target="title__isActive"]').text(navUrl);
   });
 
 });

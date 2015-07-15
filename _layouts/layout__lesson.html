@@ -1,23 +1,29 @@
 ---
 layout: default
 ---
-<article class="grid__row">
-    <nav class="grid__col--1 [ nav--secondary ]">
-        <h5 class="heading--secondary">lessons</h5>
-        {% for post in site.posts reversed %}
-        <div class="go__parent">
-            <a class="go__left nav__link overflow-ellipsis" style="width: 80%;" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">{{ post.title }}</a>
-            {% for group in post.groups %}
-            <span class="go__right {{ group | append: '__progress' }}">•</span>
-            {% endfor %}
-        </div>
-        {% endfor %}
-    </nav>
-    <div class="grid__col--3">
+<article class="grid__row content">
+    <div class="grid__col--sidebar">
+        <nav class="sidebar">
+            <header class="sidebar__header">
+                <h5 class="heading--secondary">lessons</h5>
+            </header>
+            <div class="sidebar__body">
+                {% for post in site.posts reversed %}
+                <a class="nav__link" data-target="nav__isActive" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
+                    <span class="nav__text">{{ post.title }}</span>
+                    {% for group in post.groups %}
+                    <span class="nav__progress {{ group | append: '__progress' }}">•</span>
+                    {% endfor %}
+                </a>
+                {% endfor %}
+            </div>
+        </nav>
+    </div>
+    <div class="grid__col--lesson">
         <div class="lesson">
-            <div class="go__parent">
+            <header class="lesson__header">
                 <h5 class="heading--secondary go__left">{{ page.title }}</h5>
-                <div class="go__right">
+                <div class="lesson__nav">
                 {% for category in site.categories %}
                 {% assign catg_name = category.first %}
                     {% if catg_name == page.categories.first | downcase %}
@@ -28,38 +34,44 @@ layout: default
                     {% if post.title == page.title %}
                         {% unless forloop.last %}
                             {% assign next = catg_posts[forloop.index] %}
-                            <a href="{{ site.baseurl }}{{ next.url }}"><span class="icon icon-arrow-left"></span></a>
+                            <a href="{{ site.baseurl }}{{ next.url }}">
+                                <span class="icon icon-arrow-left"></span>
+                            </a>
                         {% endunless %}
                         {% unless forloop.first %}
-                            <a href="{{ site.baseurl }}{{ prev.url }}"><span class="icon icon-arrow-right"></span></a>
+                            <a href="{{ site.baseurl }}{{ prev.url }}">
+                                <span class="icon icon-arrow-right"></span>
+                            </a>
                         {% endunless %}
                     {% endif %}
                     {% assign prev = post %}
                 {% endfor %}
                 </div>
+            </header>
+            <div class="lesson__body">
+                <p>
+                {% for tags in page.tags %}
+                    <a href="{{ '/topics/#' | append: tags | prepend: site.baseurl | remove:' ' }}" style="margin-right: calc(1.333em/2);">{{ tags }}</a>
+                {% endfor %}
+                </p>
+                <p>
+                {% if page.assignment %}
+                    <a href="{{ page.assignment | prepend: site.baseurl }}" style="margin-right: 1.333em;">
+                        <span class="icon icon-pencil" style="margin-right: calc(1.333em/2);"></span>
+                        {{ page.assignment }}
+                    </a>
+                {% endif %}
+                {% if page.reference %}
+                    <a href="{{ page.reference }}" target="_blank">
+                        <span class="icon icon-share" style="margin-right: calc(1.333em/2);"></span>
+                        {{ page.reference | remove: 'http://www.' }}
+                    </a>
+                {% endif %}
+                </p>
+                <section>
+                {{ content }}
+                </section>
             </div>
-            <p>
-            {% for tags in page.tags %}
-                <a href="{{ '/topics/#' | append: tags | prepend: site.baseurl | remove:' ' }}" style="margin-right: calc(1.333em/2);">{{ tags }}</a>
-            {% endfor %}
-            </p>
-            <p>
-            {% if page.assignment %}
-                <a href="{{ page.assignment | prepend: site.baseurl }}" style="margin-right: 1.333em;">
-                    <span class="icon icon-pencil" style="margin-right: calc(1.333em/2);"></span>
-                    {{ page.assignment }}
-                </a>
-            {% endif %}
-            {% if page.reference %}
-                <a href="{{ page.reference }}" target="_blank">
-                    <span class="icon icon-share" style="margin-right: calc(1.333em/2);"></span>
-                    {{ page.reference | remove: 'http://www.' }}
-                </a>
-            {% endif %}
-            </p>
-            <section>
-            {{ content }}
-            </section>
         </div>
     </div>
 </article>
