@@ -16,3 +16,16 @@
     padding: 0;
     border: 0;
 }
+.lessons .tags {
+    margin-left: rhythm(.5) * -1;
+    @include rhythm-margins(.5, .25);
+}
+.lessons .tag {
+    float: none;
+    border-color: $body__color;
+    margin-left: rhythm(.5);
+    @include margin-trailer(.5);
+    &:hover, &:focus, &:active {
+        border-color: shade($body__color, 20%);
+    }
+}

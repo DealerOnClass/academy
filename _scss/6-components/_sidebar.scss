@@ -7,7 +7,8 @@
 .content {
     @extend %module__box;
 }
-.home .content {
+.home .content,
+.lessons .content {
     margin-right: $grid__gutter;
 }
 
@@ -100,7 +101,7 @@
         }
     }
 }
-.current__item {
+.current__item {    
     @include rhythm-margins(.25, .5);
     position: relative;
     &:not(:last-child) {
@@ -117,4 +118,11 @@
         width: 125%;
         background-color: $body__bg;
     }
+}
+.current__assignment,
+.current__reference {
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }

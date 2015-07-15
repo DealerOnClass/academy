@@ -29,6 +29,9 @@
         &:last-child {
             padding-right: 0;
         }
+        &.active {
+            color: complement($lesson__header__bg--start);
+        }
     }
     .nav__logo {
         padding-left: 0;

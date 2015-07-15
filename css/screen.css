@@ -45,7 +45,8 @@ a {
   speak: none;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
+  -moz-osx-font-smoothing: grayscale;
+  padding-right: .1em; }
 
 .icon-home:before {
   content: "\e02c"; }
@@ -161,10 +162,16 @@ code, pre {
   font-family: "Source Code Pro";
   line-height: 1.9995em; }
 
+.icon + .text {
+  margin-left: 0.6665em; }
+
 .highlight {
   color: white;
-  background: #181b1f;
+  background: #1b1e22;
   padding: 0.1333em 0.6665em;
+  -moz-border-radius: 0.33325em;
+  -webkit-border-radius: 0.33325em;
+  border-radius: 0.33325em;
   box-sizing: border-box;
   margin-top: 1.333em;
   margin-bottom: 2.666em;
@@ -173,16 +180,6 @@ code, pre {
     content: "";
     clear: both;
     display: block; }
-  .highlight:before {
-    content: "";
-    display: block;
-    width: 30em;
-    left: 50%;
-    margin-left: -15em;
-    height: .05em;
-    background-color: #26292d;
-    position: absolute;
-    bottom: -1.333em; }
   .highlight pre {
     white-space: normal;
     word-break: break-all; }
@@ -240,7 +237,7 @@ code, pre {
   padding-right: 1.333em;
   padding-left: 1.333em;
   margin: 0 auto;
-  max-width: 60em; }
+  max-width: 70em; }
 
 [class^="grid__col--"] {
   float: left;
@@ -282,6 +279,44 @@ code, pre {
 .group4__progress {
   color: #d74728; }
 
+.progress__container {
+  width: 100%; }
+
+.progress {
+  overflow: hidden; }
+  .progress .progress__bar {
+    width: 67.5%;
+    float: left;
+    position: relative;
+    top: 0.33325em;
+    height: 0.33325em;
+    border: 1px solid #1b1e22;
+    -moz-border-radius: 0.33325em;
+    -webkit-border-radius: 0.33325em;
+    border-radius: 0.33325em; }
+    .progress .progress__bar:after {
+      content: "";
+      background-color: #1b1e22;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      left: 0;
+      top: 0;
+      z-index: 10;
+      -moz-border-radius: 0.33325em;
+      -webkit-border-radius: 0.33325em;
+      border-radius: 0.33325em; }
+  .progress [data-target="group__progress"] {
+    height: 100%;
+    -moz-border-radius: 0.33325em;
+    -webkit-border-radius: 0.33325em;
+    border-radius: 0.33325em;
+    background-color: #76787a;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 100; }
+
 [class^="nav--"]:after, .clearfix {
   content: "";
   clear: both;
@@ -312,6 +347,8 @@ code, pre {
     padding-left: 0.6665em; }
     .nav--primary .nav__link:last-child {
       padding-right: 0; }
+    .nav--primary .nav__link.active {
+      color: #f0a337; }
   .nav--primary .nav__logo {
     padding-left: 0; }
 
@@ -350,6 +387,19 @@ code, pre {
 .topics .tag {
   padding: 0;
   border: 0; }
+
+.lessons .tags {
+  margin-left: -0.6665em;
+  margin-top: 0.6665em;
+  margin-bottom: 0.33325em; }
+
+.lessons .tag {
+  float: none;
+  border-color: #76787a;
+  margin-left: 0.6665em;
+  margin-bottom: 0.6665em; }
+  .lessons .tag:hover, .lessons .tag:focus, .lessons .tag:active {
+    border-color: #5e6062; }
 
 .filter__header, .filter__body {
   padding: 0.6665em 1.333em; }
@@ -393,7 +443,8 @@ code, pre {
   -webkit-border-radius: 0.46655em;
   border-radius: 0.46655em; }
 
-.home .content {
+.home .content,
+.lessons .content {
   margin-right: 1.333em; }
 
 .lesson {
@@ -486,6 +537,17 @@ code, pre {
     bottom: 0;
     width: 125%;
     background-color: #1b1e22; }
+
+.current__assignment,
+.current__reference {
+  display: block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden; }
+
+.heading--primary {
+  margin-top: 0.6665em;
+  margin-bottom: 0.6665em; }
 
 .heading--secondary {
   font-family: "Montserrat Webfont";

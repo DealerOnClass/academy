@@ -1,3 +1,7 @@
+.heading--primary {
+    @include rhythm-margins(.5);
+}
+
 .heading--secondary {
     font-family: "Montserrat Webfont";
     font-size: $heading--secondary__size;

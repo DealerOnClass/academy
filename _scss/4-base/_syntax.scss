@@ -6,8 +6,12 @@ $highlight__linenos: #807e7a;
 
 .highlight  {
     color: white;
-    background: shade($body__bg, 10%);
-    padding: rhythm(.1) rhythm(.5);
+    background: $body__bg;
+    padding: rhythm(.1) rhythm(.5);    
+    @include  border-radius(rhythm(.25));
+    // padding: rhythm(.1) rhythm(1);
+    // margin-left: $grid__gutter * -1;
+    // margin-right: $grid__gutter * -1;
     box-sizing: border-box;
     @include margin-leader(1);
     @include margin-trailer(2);
@@ -17,17 +21,16 @@ $highlight__linenos: #807e7a;
         clear: both;
         display: block;
     }
-    &:before {
-        content: "";
-        display: block;
-        width: ($grid__container__width * .5);
-        left: 50%;
-        margin-left: ( ($grid__container__width * .5) / 2) * -1;
-        height: .05em;
-        background-color: tint($body__bg, 5%);
-        position: absolute;
-        bottom: rhythm(1) * -1;
-    }
+    // &:before {
+    //     content: "";
+    //     display: block;
+    //     left: 50%;
+    //     width: 125%;
+    //     height: 1px;
+    //     background-color: tint($body__color, 70%);
+    //     position: absolute;
+    //     bottom: rhythm(1) * -1;
+    // }
     pre {
         white-space: normal;
         word-break: break-all;

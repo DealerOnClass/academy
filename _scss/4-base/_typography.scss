@@ -50,3 +50,6 @@ code, pre {
     font-family: "Source Code Pro";
     line-height: rhythm(1.5);
 }
+.icon + .text {
+    margin-left: rhythm(.5);
+}

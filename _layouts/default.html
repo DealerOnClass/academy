@@ -3,7 +3,12 @@
 
 {% include head.html %}    
     
-<body class="{{ page.title }}">
+{% if page.class %}
+    <body class="{{ page.class }}">
+{% else %}
+    <body class="{{ page.title }}">
+{% endif %}
+
 
 {% include nav.html %}
 

@@ -57,6 +57,37 @@ $(function() {
     $('[data-target="title__isActive"]').text(navUrl);
   });
 
+
+  // group progress
+  $('[data-target="group__progress"]').each(function() {
+
+    var group__class = $(this).attr("class");
+    var group__count = $('[data-target="' + group__class + '__count"]');
+
+    var post__count = group__count.parent().prevAll().length;
+    var post__count = post__count + 1;
+
+    var post__total = group__count.parent().siblings().length;
+    var post__total = post__total + 1;
+
+    var group__progress = post__count / post__total * 100 + "%";
+
+    $(this).width(group__progress);
+
+  });
+
+  // frustrating momment with this one
+  console.log($('#check').children().length);
+  if( $('#check').children().length == 0  ) {
+      $("#check").remove();
+  };
+
+
+  // $('[data-target="group__count"]').each(function() {    
+  //   var e = $(this);
+  //   console.log(e.attr("class"));
+  // });
+
 });
 // (function () {
 //     // get page url after the hash
