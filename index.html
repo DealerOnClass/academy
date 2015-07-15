@@ -43,7 +43,7 @@ active: home
                     </div>
 
                     <div>
-                        <a class="overflow-ellipsis" style="width: 100%; display: inline-block;" href="{{ post.url }}">{{ post.title }}</a>
+                        <a class="overflow-ellipsis" style="width: 100%; display: inline-block;" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
                     </div>
                     {% endif %}
                     {% endfor %}
