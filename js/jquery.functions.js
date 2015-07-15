@@ -77,7 +77,7 @@ $(function() {
   });
 
   // frustrating momment with this one
-  console.log($('#check').children().length);
+  // console.log($('#check').children().length);
   if( $('#check').children().length == 0  ) {
       $("#check").remove();
   };
@@ -87,6 +87,15 @@ $(function() {
   var topics__url = topics__url + "#all";
   $('.nav--primary .nav__link[href*="topics"]').attr("href", topics__url);
 
+  // if search has focus show the search container
+  // otherwise hide it.
+  $("#results-container").hide();
+  $("#search-input").focus(function() {
+    $("#results-container").show();
+  });
+  $("#search-input").focusout(function() {
+    $("#results-container").hide();
+  });
 
   // $('[data-target="group__count"]').each(function() {    
   //   var e = $(this);

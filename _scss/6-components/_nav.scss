@@ -27,8 +27,8 @@
     @include margin-trailer(2);
     .nav__link {
         float: left;
-        padding-right: rhythm(.5);
-        padding-left: rhythm(.5);
+        padding-right: rhythm(1);
+        padding-left: rhythm(1);
         &:last-child {
             padding-right: 0;
         }

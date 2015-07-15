@@ -3,6 +3,10 @@
         <div class="nav__left">
             <a class="nav__link nav__logo" href="{{ '/' | prepend: site.baseurl }}">{{ site.name }}</a>
         </div>
+        <div class="nav__left" id="search-container">
+            <input type="text" id="search-input" placeholder="search...">
+            <ul id="results-container"></ul>
+        </div>
         <div class="nav__right">
             {% if page.active == "home" %}
             <a class="nav__link active" href="{{ '/' | prepend: site.baseurl }}">home</a>
