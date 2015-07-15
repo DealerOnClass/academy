@@ -103,7 +103,7 @@ a {
   font-weight: 400;
   font-style: normal; }
 html {
-  font-size: 100%;
+  font-size: 106.25%;
   line-height: 1.333em; }
 
 body {
@@ -342,6 +342,7 @@ code, pre {
 .nav--primary {
   padding-top: 1.333em;
   padding-bottom: 1.333em;
+  margin-top: 1.333em;
   margin-bottom: 2.666em; }
   .nav--primary .nav__link {
     float: left;
