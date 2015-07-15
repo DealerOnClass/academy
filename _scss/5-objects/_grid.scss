@@ -27,6 +27,9 @@
     // padding-right: $grid__gutter;
     // padding-left: $grid__gutter;
 }
+.grid__col--half {
+    width: 50%;
+}
 %sidebar__width {
     width: 15em;
 }

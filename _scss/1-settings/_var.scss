@@ -64,8 +64,8 @@ $screen--large: $grid__container__width + 6em;
 $nav--primary__bg: #3784f0;
 $nav__link__color: tint($body__color, 30%);
 
-$sidebar__header__bg: tint($body__bg, 4%);
-$sidebar__body__bg: tint($body__bg, 8%);
+$filter__header__bg: tint($body__bg, 4%);
+$filter__body__bg: tint($body__bg, 8%);
 
 $lesson__header__color: white;
 $lesson__header__bg--start: #3784f0;
@@ -79,7 +79,7 @@ $current__header__bg--start: #9b29cb;
 $current__header__bg--end: #865bde;
 
 $current__body__color: tint($body__color, 30%);
-$current__body__bg: $sidebar__body__bg;
+$current__body__bg: $filter__body__bg;
 
 
 

@@ -39,23 +39,15 @@ $(function() {
         $(this).addClass('active').siblings().removeClass('active');
         // change title on topics page
         $('[data-target="title__isActive"]').text(navUrl);
-        // remove ghost title on click to avoid ugliness
-        $("#topics__onload").remove();
     });
   });
 
   // change title on topics page on page load
   $('.topics .lesson__header [data-target="title__isActive"]').text(hashUrl);
-  // in case of page refresh remove ghost title to avoid ugliness
-  if ( $(".topics .sidebar__body .active").length != 0 ) {
-    // console.log("false");
-    $("#topics__onload").remove();
-  };
+  // in case of page refresh remove ghost title to avoid ugliness  
 
   // on click
   $('[data-target="lesson__isActive"]').click(function() {
-    // remove ghost title on click to avoid ugliness
-    $("#topics__onload").remove();
     // get href
     var navUrl = $(this).attr('href').split('#')[1];
     // add active class

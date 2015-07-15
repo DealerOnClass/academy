@@ -1,6 +1,6 @@
 %module__box {
     overflow: hidden;
-    background-color: $sidebar__body__bg;
+    background-color: $filter__body__bg;
     @include border-radius(rhythm(.35));
 }
 
@@ -15,35 +15,6 @@
 
 
 
-%sidebar__padding {
-    padding: rhythm(.5) rhythm(1);
-}
-.sidebar__header {
-    @extend %sidebar__padding;
-    background-color: $sidebar__header__bg;
-}
-.sidebar__body {
-    @extend %sidebar__padding;
-    background-color: $sidebar__body__bg;
-    .nav__link {
-        overflow: hidden;
-        @include rhythm-margins(.25);
-    }
-    .nav__text {
-        float: left;
-        width: 80%;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-    }
-    .nav__progress {
-        float: right;
-    }
-}
-
-
-
-
 // extension to bottom when on topcis pages
 // sometimes the sidebar is taller than the 
 // lesson body
@@ -54,7 +25,7 @@
         display: block;
         position: absolute;
         top: 100%;
-        height: 200%;
+        height: 400%;
         width: 100%;
         right: 0;
         background-color: white;
@@ -84,11 +55,22 @@
     }
 }
 .lesson__item {
-    @include rhythm-margins(.25);
-}
-.topics {
-    .lesson__body {
-        @include padding-leader(1.75);
+    @include rhythm-margins(.25, .5);
+    position: relative;
+    &:after {
+        content: "";
+        clear: both;
+        display: block;
+    }
+    &:not(:last-child):before {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: rhythm(.25) * -1;
+        left: rhythm(1) * -1;
+        height: 1px;
+        width: 125%;
+        background-color: tint($body__color, 70%);
     }
 }
 
@@ -119,7 +101,7 @@
     }
 }
 .current__item {
-    @include rhythm-margins(.25);
+    @include rhythm-margins(.25, .5);
     position: relative;
     &:not(:last-child) {
         @include padding-trailer(.35);

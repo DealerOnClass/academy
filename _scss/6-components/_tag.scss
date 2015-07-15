@@ -1,0 +1,18 @@
+.tags {
+    overflow: hidden;
+    @include rhythm-margins(1);
+}
+.tag {
+    display: inline-block;
+    float: left;
+    padding: rhythm(.125) rhythm(.5); 
+    border: 1px solid tint($body__color, 70%);
+    @include border-radius(rhythm(.25));
+    &:not(:first-child) {
+        margin-left: rhythm(1);
+    }
+}
+.topics .tag {
+    padding: 0;
+    border: 0;
+}
