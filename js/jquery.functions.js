@@ -52,7 +52,7 @@ $(function() {
     var navUrl = $(this).attr('href').split('#')[1];
     // add active class
     // remove active class of siblings
-    $('.sidebar__body [data-target="nav__isActive"][href="#' +  navUrl + '"]').addClass('active').siblings().removeClass('active');
+    $('.filter__body [data-target="nav__isActive"][href="#' +  navUrl + '"]').addClass('active').siblings().removeClass('active');
     // change title on topics page on tag click
     $('[data-target="title__isActive"]').text(navUrl);
   });
