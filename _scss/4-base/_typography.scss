@@ -31,7 +31,7 @@ p, ul {
     line-height: $base-font-ratio * 1.5;
 }
 a {
-    color: inherit;
+    color: $body__color;
     &:hover, &:active, &:focus {
         color: tint($body__color, 40%);
     }
