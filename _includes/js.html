@@ -1,12 +1,2 @@
 <script src="{{ '/js/jquery.min.js' | prepend: site.baseurl }}"></script>
 <script src="{{ '/js/jquery.functions.js' | prepend: site.baseurl }}"></script>
-<script src="{{ '/js/jekyll-search.js' | prepend: site.baseurl }}"></script>
-<script>
-// https://github.com/christian-fei/Simple-Jekyll-Search
-SimpleJekyllSearch({
-  searchInput: document.getElementById('search-input'),
-  resultsContainer: document.getElementById('results-container'),
-  json: '/search.json',
-  searchResultTemplate: '<li class="search__item"><a class="nav__link" href="{url}">{title}</a></li>',
-})
-</script>

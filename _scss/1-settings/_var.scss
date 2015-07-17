@@ -3,7 +3,7 @@
 //  TYPOGRAPHY
 //
 $round-to-nearest-half-line: true;  //  ensure "visually" appealing vertical rhythm
-$base-font-size: 17px;              //  assume 16px is 100% for all devices
+$base-font-size: 18px;              //  assume 16px is 100% for all devices
 $base-font-ratio: 1.333;            //  line height - also ratio for font size
 $base-line-height: $base-font-size * $base-font-ratio;
 
@@ -19,6 +19,9 @@ $h1:              $h2 * $base-font-ratio;
 //  Color
 //
 $base__color: #1b1e22;
+
+$blue: #377ede;
+$primary__color: $blue;
 
 ////////////////////////////////
 //
@@ -51,8 +54,13 @@ $lesson__date__gutter: percentage(1/7);
 //
 //  Grid
 //
-$grid__container__width: 80em;
-$grid__gutter:  rhythm(1);
+$grid__container__width: 90em;
+$grid__gutter:  rhythm(2);
+
+$hero__bg: $body__bg;
+// $hero__bg: tint($body__bg, 10%);
+$hero__color: $body__color;
+// $hero__color: shade($body__color, 10%);
 
 //  breakpoints
 $screen--large: $grid__container__width + 6em;
@@ -61,26 +69,8 @@ $screen--large: $grid__container__width + 6em;
 //
 //  Nav
 //
-$nav--primary__bg: #3784f0;
+$nav--primary__bg: $primary__color;
+$nav--primary__color: white;
+
 $nav__link__color: tint($body__color, 30%);
 
-$filter__header__bg: tint($body__bg, 4%);
-$filter__body__bg: tint($body__bg, 8%);
-
-$lesson__header__color: white;
-$lesson__header__bg--start: #3784f0;
-$lesson__header__bg--end: #50c8f4;
-
-$lesson__body__color: tint($body__bg, 30%);
-$lesson__body__bg: white;
-
-$current__header__color: white;
-$current__header__bg--start: #9b29cb;
-$current__header__bg--end: #865bde;
-
-$current__body__color: tint($body__color, 30%);
-$current__body__bg: $filter__body__bg;
-
-
-
-$heading--secondary__size: .75em;

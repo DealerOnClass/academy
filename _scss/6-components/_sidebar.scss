@@ -1,128 +1,76 @@
-%module__box {
-    overflow: hidden;
-    background-color: $filter__body__bg;
-    @include border-radius(rhythm(.25));
-}
-
-.content {
-    @extend %module__box;
-}
-.home .content,
-.lessons .content {
-    margin-right: $grid__gutter;
+.sidebar,
+.hero {
+    @include padding-leader(2);
 }
 
 
-
-
-
-// extension to bottom when on topcis pages
-// sometimes the sidebar is taller than the 
-// lesson body
-.lesson {
-    position: relative;
-    &:after {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 100%;
-        height: 400%;
-        width: 100%;
-        right: 0;
-        background-color: white;
-    }
-}
-%lesson__padding {
-    padding: rhythm(.5) rhythm(1);
-}
-.lesson__header {
-    @extend %lesson__padding;
-    overflow: hidden;
-    color: $lesson__header__color;
-    @include background-image(linear-gradient(to right, $lesson__header__bg--start, $lesson__header__bg--end));
-}
-.lesson__nav {
-    float: right;
-    margin-bottom: $heading--secondary__size * -1;
-    position: relative;
-    top: ($heading--secondary__size / 6) * -1;
-}
-.lesson__body {
-    @extend %lesson__padding;
-    color: $lesson__body__color;
-    background-color: $lesson__body__bg;
-    a {
-        color: $lesson__header__bg--start;
-    }
-}
-.lesson__item {
-    @include rhythm-margins(.25, .5);
-    position: relative;
+%vertical__rhythm {
+    @include padding-trailer(.75);
+    @include margin-trailer(.75);
     &:after {
         content: "";
         clear: both;
         display: block;
     }
-    &:not(:last-child):before {
-        content: "";
-        display: block;
-        position: absolute;
-        bottom: rhythm(.25) * -1;
-        left: rhythm(1) * -1;
-        height: 1px;
-        width: 125%;
-        background-color: tint($body__color, 70%);
+}
+.sidebar__header,
+.hero__header {
+    @extend %vertical__rhythm;
+}
+.sidebar__body,
+.hero__body {
+    @extend %vertical__rhythm;
+}
+.sidebar__item,
+.hero__item {
+    @extend %vertical__rhythm;
+    height: rhythm(1);
+    .icon__group {
+        float: right;
     }
 }
-
-
-
-
-
-.current {
-    @extend %module__box;
+.no__height {
+    height: auto;
 }
-%current__padding {
-    padding: rhythm(.5) rhythm(1);
-}
-.current__header {
-    @extend %current__padding;
-    overflow: hidden;
-    color: $current__header__color;
-    @include background-image(linear-gradient(to right, $current__header__bg--start, $current__header__bg--end));
-}
-.current__body {
-    @extend %current__padding;
-    color: $current__body__color;
-    background-color: $current__body__bg;
-    a {
-        &:hover, &:focus, &:active, &.active {
-            color: $body__color;
-        }
-    }
-}
-.current__item {    
-    @include rhythm-margins(.25, .5);
-    position: relative;
-    &:not(:last-child) {
-        @include padding-trailer(.35);
-        @include margin-trailer(.5);
-    }
-    &:not(:last-child):after {
-        content: "";
-        display: block;
-        position: absolute;
-        height: 1px;
-        left: $grid__gutter * -1;
-        bottom: 0;
-        width: 125%;
-        background-color: $body__bg;
-    }
-}
-.current__assignment,
-.current__reference {
-    display: block;
+
+%sidebar__link {
+    display: inline-block;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
 }
+.sidebar__link {
+    @extend %sidebar__link;
+    width: 70%;
+}
+.sidebar__link--large {
+    @extend %sidebar__link;
+    width: 90%;
+}
+
+
+.category,
+.separation {
+    position: relative;
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        height: 1px;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        background-color: tint($body__bg, 10%);
+    }
+}
+.grid__row.separation:before {
+    left: rhythm(2);
+    width: calc(100% - 5.333em);
+}
+
+
+
+
+
+
+

@@ -58,17 +58,17 @@ $(function() {
   });
 
 
+  // remedy for seomthign stupid on homepage - REVISIT
+  $(".category").next().remove()
   // group progress
   $('[data-target="group__progress"]').each(function() {
 
     var group__class = $(this).attr("class");
     var group__count = $('[data-target="' + group__class + '__count"]');
 
-    var post__count = group__count.parent().prevAll().length;
-    var post__count = post__count + 1;
+    var post__count = group__count.closest(".sidebar__item").prevAll().length;
 
-    var post__total = group__count.parent().siblings().length;
-    var post__total = post__total + 1;
+    var post__total = group__count.closest(".sidebar__item").siblings().length;
 
     var group__progress = post__count / post__total * 100 + "%";
 

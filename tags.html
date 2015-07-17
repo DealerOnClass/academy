@@ -3,34 +3,39 @@ layout: default
 title: topics
 permalink: /topics/
 nav__group: "navigation"
+icon: "pricetag"
 ---
 <!-- Brilliant Solution | http://schoewilliam.fr/2015/02/10/jekyll-pro-tip-awesome-archive-page.html -->
-<div class="grid__row content">
+<div class="grid__row">
     <div class="grid__col--sidebar">
-        <nav class="filter">
-            <header class="filter__header">
-                <h5 class="heading--secondary">filter</h5>
+        <div class="sidebar">
+            <header class="sidebar__header">
+                <h5>All Topics</h5>
             </header>
-            <div class="filter__body">
-                <a class="nav__link" data-target="nav__isActive" href="#all">all</a>
+            <div class="sidebar__body">
+                <div class="sidebar__item separation">
+                    <a class="sidebar__link nav__link" data-target="nav__isActive" href="#all">all</a>
+                </div>
                 {% for tag in site.tags sort %}
-                <a class="nav__link {{ tag | first }}" data-target="nav__isActive" href="#{{ tag | first | remove:' ' }}">{{ tag | first }}</a>
+                <div class="sidebar__item">
+                    <a class="sidebar__link nav__link {{ tag | first }}" data-target="nav__isActive" href="#{{ tag | first | remove:' ' }}">{{ tag | first }}</a>
+                </div>
                 {% endfor %}
             </div>
-        </nav>
+        </div>
     </div>
-    <div class="grid__col--lesson">
-        <div class="catbloc lesson" id="all">
-            <header class="lesson__header">
-                <h5 class="heading--secondary" data-target="title__isActive">lessons</h5>
+    <div class="grid__col--hero">
+        <div class="catbloc hero" id="all">
+            <header class="hero__header">
+                <h5 data-target="title__isActive">Lessons</h5>
             </header>
-            <div class="lesson__body">
-                <div class="lesson__item">
-                    <div class="grid__col--half">Lessons</div>
-                    <div class="grid__col--half">Tags</div>
+            <div class="hero__body">
+                <div class="hero__item grid__row no__height separation">
+                    <div class="grid__col--half">&nbsp;</div>
+                    <div class="grid__col--half">&nbsp;</div>
                 </div>
                 {% for post in site.posts reversed %}
-                <div class="lesson__item">
+                <div class="hero__item grid__row no__height">
                     <div class="grid__col--half">
                         <a class="nav__link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
                     </div>
@@ -44,19 +49,19 @@ nav__group: "navigation"
             </div>
         </div>
         {% for tag in site.tags %}
-        <div class="catbloc lesson" id="{{ tag | first | remove:' ' }}">
-            <header class="lesson__header">
-                <h5 class="heading--secondary" data-target="title__isActive">lessons</h5>
+        <div class="catbloc hero" id="{{ tag | first | remove:' ' }}">
+            <header class="hero__header">
+                <h5 data-target="title__isActive">Lessons</h5>
             </header>
-            <div class="lesson__body">
-                <div class="lesson__item">
-                    <div class="grid__col--half">Lessons</div>
-                    <div class="grid__col--half">Tags</div>
+            <div class="hero__body">
+                <div class="hero__item grid__row no__height separation">
+                    <div class="grid__col--half">&nbsp;</div>
+                    <div class="grid__col--half">&nbsp;</div>
                 </div>
                 {% for posts in tag %}
                 {% for post in posts reversed %}
                 {% if post.url %}
-                <div class="lesson__item">
+                <div class="hero__item grid__row no__height">
                     <div class="grid__col--half">
                         <a class="nav__link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
                     </div>

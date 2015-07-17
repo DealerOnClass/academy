@@ -1,17 +1,19 @@
-<nav class="nav nav--primary">
+<nav class="nav--primary">
     <div class="grid__container">
-        <div class="nav__left">
-            <a class="nav__link nav__logo" href="{{ '/' | prepend: site.baseurl }}">{{ site.name }}</a>
+        <div class="nav__logo">
+            <a class="nav__link" href="{{ '/' | prepend: site.baseurl }}">{{ site.name }}</a>
         </div>
-        <div class="nav__left" id="search-container">
-            <input type="text" id="search-input" placeholder="search...">
-            <ul id="results-container"></ul>
-        </div>
-        <div class="nav__right">
+        <div class="nav__menu">
             {% if page.active == "home" %}
-            <a class="nav__link active" href="{{ '/' | prepend: site.baseurl }}">home</a>
+            <a class="nav__link active" href="{{ '/' | prepend: site.baseurl }}">
+                <span class="icon icon-home"></span>
+                home
+            </a>
             {% else %}
-            <a class="nav__link" href="{{ '/' | prepend: site.baseurl }}">home</a>
+            <a class="nav__link" href="{{ '/' | prepend: site.baseurl }}">
+                <span class="icon icon-home"></span>
+                home
+            </a>
             {% endif %}
             {% assign nav__menu = site.pages %}
             {% assign nav__group = 'navigation' %}

@@ -1,56 +1,65 @@
-[class^="nav--"]:after, .clearfix {
-    content: "";
-    clear: both;
-    display: table;
-}
-.go__parent {
-    overflow: hidden;
-}
-.nav__left, .go__left {
-    float: left;
-}
-.nav__right, .go__right {
-    float: right;
-}
-.nav__link {
-    display: block;
-    color: $nav__link__color;
-    &:hover, &:focus, &:active {
-        color: inherit;
-    }
-    &.active {
-        color: tint($body__bg, 30%);
+%nav__clear {
+    &:after {
+        content: "";
+        clear: both;
+        display: table;
     }
 }
 .nav--primary {
-    @include rhythm-padding(1);
-    @include rhythm-margins(1, 2);
+    color: $nav--primary__color;
+    background-color: $nav--primary__bg;
     .nav__link {
         float: left;
-        padding-right: rhythm(1);
-        padding-left: rhythm(1);
-        &:last-child {
-            padding-right: 0;
+        padding: rhythm(.75) rhythm(1);
+        &:not(:first-child) {
+            margin-left: rhythm(.5);
         }
         &.active {
-            color: complement($lesson__header__bg--start);
+            color: shade($nav--primary__bg, 35%);
         }
     }
-    .nav__logo {
-        padding-left: 0;
-    }
+    @extend %nav__clear;
 }
+
+
+%go__left {
+    float: left;
+}
+.nav__prev {
+    @extend %go__left;
+}
+.nav__logo {
+    @extend %go__left;
+    margin-left: rhythm(1) * -1;
+}
+
+
+%go__right {
+    float: right;
+}
+.nav__next {
+    @extend %go__right;
+}
+.nav__menu {
+    @extend %go__right;
+    margin-right: rhythm(1) * -1;
+}
+
+
+
 
 .count__group {
     counter-reset: count__group;
 }
-
-
 .group__ghost {
     visibility: hidden;
     position: absolute;
 }
 .group__count {
+    &:before,
+    &:after {
+        font-weight: 600;
+    }
     &:before {
         content: "Group ";
     }

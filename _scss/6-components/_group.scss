@@ -10,38 +10,35 @@
 .group4__progress {
     color: $group4__bg;
 }
-.progress__container {
-    width: 100%;
-}
 .progress {
     overflow: hidden;
-    .progress__bar {
-        width: 67.5%;
-        float: left;
-        position: relative;
-        top: rhythm(.25);
-        height: rhythm(.25);
-        border: 1px solid $body__bg;
-        @include border-radius(rhythm(.25));
-        &:after {
-            content: "";
-            background-color: $body__bg;
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            left: 0;
-            top: 0;
-            z-index: 10;
-            @include border-radius(rhythm(.25));
-        }
-    }
-    [data-target="group__progress"] {
-        height: 100%;
-        @include border-radius(rhythm(.25));
-        background-color: $body__color;
+}
+.progress__bar {
+    width: 100%;
+    float: left;
+    position: relative;
+    top: 0;
+    height: rhythm(.25);
+    border: 1px solid $body__bg;
+    @include border-radius(rhythm(.25));
+    &:after {
+        content: "";
+        background-color: tint($body__bg, 10%);
         position: absolute;
+        height: 100%;
+        width: 100%;
         left: 0;
         top: 0;
-        z-index: 100;
+        z-index: 10;
+        @include border-radius(rhythm(.25));
     }
+}
+[data-target="group__progress"] {
+    height: 100%;
+    @include border-radius(rhythm(.25));
+    background-color: tint($body__bg, 25%);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 100;
 }

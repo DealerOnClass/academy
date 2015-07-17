@@ -17,21 +17,21 @@
 .grid__row {
     @extend %grid__sizing;
     @extend %grid__clear;
-    // margin-right: $grid__gutter * -1;
-    // margin-left: $grid__gutter * -1;
+    margin-right: $grid__gutter * -1;
+    margin-left: $grid__gutter * -1;
 }
 [class^="grid__col--"] {
     @extend %grid__sizing;
     float: left;
     position: relative;
-    // padding-right: $grid__gutter;
-    // padding-left: $grid__gutter;
+    padding-right: $grid__gutter;
+    padding-left: $grid__gutter;
 }
 .grid__col--half {
     width: 50%;
 }
 %sidebar__width {
-    width: $grid__container__width / 4.5;
+    width: $grid__container__width / 4;
 }
 .grid__col--current {
     float: right;
@@ -39,10 +39,41 @@
 }
 .grid__col--sidebar {
     @extend %sidebar__width;
+    z-index: 30;
 }
-.grid__col--lesson,
-.grid__col--content {
+.grid__col--hero,
+.grid__col--table {    
     float: none;
     width: 10000px;
     display: table-cell;
 }
+.grid__col--hero {
+    color: $hero__color;
+    background-color: $hero__bg;
+    .hero {
+        &:before,
+        &:after {
+            content: "";
+            clear: both;
+            display: block;
+            height: 100%;
+            width: 1px;
+            position: absolute;
+            background-color: tint($body__bg,10%);            
+            top: 0;
+        }
+        &:before {
+            left: 0;
+        }
+        &:after {
+            right: 0;
+        }
+    }
+}
+.home .hero .grid__col--sidebar {
+    width: rhythm(4);
+}
+
+
+
+

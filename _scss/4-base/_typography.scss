@@ -26,14 +26,11 @@ h5 {
 h6, small {
     @include adjust-font-size-to($h6);
 }
-p {
-    @include margin-trailer(1);
+p, ul {
+    @include margin-leader(1);
 }
 a {
     color: inherit;
-}
-.active {
-    color: $link__active;
 }
 strong {
     font-weight: 600;
@@ -41,10 +38,13 @@ strong {
 em {
     font-style: italic;
 }
-.overflow-ellipsis {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+// .overflow-ellipsis {
+//     text-overflow: ellipsis;
+//     white-space: nowrap;
+//     overflow: hidden;
+// }
+.text-center {
+    text-align: center;
 }
 code, pre {
     font-family: "Source Code Pro";

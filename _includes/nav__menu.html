@@ -2,9 +2,15 @@
 {% for node in nav__menu reversed %}
     {% if nav__group == null or nav__group == node.nav__group %}
         {% if page.url == node.url %}
-        <a class="nav__link active" href="{{ node.url | prepend: site.baseurl }}">{{ node.title }}</a>
+        <a class="nav__link active" href="{{ node.url | prepend: site.baseurl }}">
+            <span class="icon icon-{{ node.icon }}"></span>
+            {{ node.title }}
+        </a>
         {% else %}
-        <a class="nav__link" href="{{ node.url | prepend: site.baseurl }}">{{ node.title }}</a>
+        <a class="nav__link" href="{{ node.url | prepend: site.baseurl }}">
+            <span class="icon icon-{{ node.icon }}"></span>
+            {{ node.title }}
+        </a>
         {% endif %}
     {% endif %}
 {% endfor %}

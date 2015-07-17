@@ -1,31 +1,16 @@
-.tags {
-    overflow: hidden;
-    @include rhythm-margins(1);
-}
+
 .tag {
     display: inline-block;
     float: left;
     padding: rhythm(.125) rhythm(.5); 
-    border: 1px solid tint($body__color, 70%);
+    border: 1px solid tint($body__bg, 10%);
     @include border-radius(rhythm(.25));
+    @include margin-trailer(.5);
     &:not(:first-child) {
-        margin-left: rhythm(1);
+        margin-left: rhythm(.5);
     }
 }
 .topics .tag {
-    padding: 0;
-    border: 0;
-}
-.lessons .tags {
-    margin-left: rhythm(.5) * -1;
-    @include rhythm-margins(.5, .25);
-}
-.lessons .tag {
-    float: none;
-    border-color: $body__color;
-    margin-left: rhythm(.5);
-    @include margin-trailer(.5);
-    &:hover, &:focus, &:active {
-        border-color: shade($body__color, 20%);
-    }
+    margin-bottom: rhythm(.25) * -1;
+    margin-top: rhythm(.25) * -1;
 }
