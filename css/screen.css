@@ -474,6 +474,10 @@ code, pre {
   left: 2.666em;
   width: calc(100% - 5.333em); }
 
+.grid__col--current .sidebar__link--large {
+  margin-top: 0.33325em;
+  margin-bottom: 0.33325em; }
+
 .footer {
   margin-top: 2.666em; }
 

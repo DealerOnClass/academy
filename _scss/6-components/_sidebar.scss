@@ -70,7 +70,11 @@
 
 
 
-
+.grid__col--current {
+    .sidebar__link--large {
+        @include rhythm-margins(.25);
+    }
+}
 
 
 
