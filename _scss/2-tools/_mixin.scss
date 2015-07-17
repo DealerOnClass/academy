@@ -8,4 +8,15 @@
             @content;
         }
     }
+    @elseif $type == medium {
+        @media screen and (min-width: $screen--medium) {
+            @content;
+        }
+    }
+    @elseif $type == small {
+        @media screen and (min-width: $screen--small) {
+            @content;
+        }
+    }
 }
+// @include media(large);

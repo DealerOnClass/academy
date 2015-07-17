@@ -63,7 +63,9 @@ $hero__bg: tint($body__bg, 30%);
 // $hero__color: shade($body__color, 10%);
 
 //  breakpoints
-$screen--large: $grid__container__width + 6em;
+$screen--large:     90em + ($base-font-ratio * 9);
+$screen--medium:    60em;
+$screen--small:     30em;
 
 ////////////////////////////////
 //

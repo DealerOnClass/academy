@@ -12,7 +12,7 @@
     padding-right: $grid__gutter;
     padding-left: $grid__gutter;
     margin: 0 auto;
-    max-width: $grid__container__width;
+    max-width: $screen--large;
 }
 .grid__row {
     @extend %grid__sizing;
@@ -31,11 +31,32 @@
     width: 50%;
 }
 %sidebar__width {
-    width: $grid__container__width / 4;
+    width: $grid__container__width / 5;
+    @include media(large) {        
+        width: $grid__container__width / 4;
+    }
 }
 .grid__col--current {
-    float: right;
-    @extend %sidebar__width;
+    float: none;
+    width: 100%;
+    @include media(large) {
+        width: $grid__container__width / 4;
+        float: right;
+    }
+    .sidebar__body {
+        // margin-left: rhythm(1) * -1;
+        // margin-right: rhythm(1) * -1;
+    }
+    .sidebar__item {
+        float: left;
+        // width: percentage(1/4);
+        // padding-left: rhythm(1);
+        // padding-right: rhythm(1);
+        // @include box-sizing(border-box);
+        @include media(large) {
+            float: none;
+        }
+    }
 }
 .grid__col--sidebar {
     @extend %sidebar__width;

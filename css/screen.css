@@ -252,7 +252,7 @@ code, pre {
   padding-right: 2.666em;
   padding-left: 2.666em;
   margin: 0 auto;
-  max-width: 90em; }
+  max-width: 101.997em; }
 
 .grid__row {
   margin-right: -2.666em;
@@ -267,11 +267,24 @@ code, pre {
 .grid__col--half {
   width: 50%; }
 
-.grid__col--current, .grid__col--sidebar {
-  width: 22.5em; }
+.grid__col--sidebar {
+  width: 18em; }
+  @media screen and (min-width: 101.997em) {
+    .grid__col--sidebar {
+      width: 22.5em; } }
 
 .grid__col--current {
-  float: right; }
+  float: none;
+  width: 100%; }
+  @media screen and (min-width: 101.997em) {
+    .grid__col--current {
+      width: 22.5em;
+      float: right; } }
+  .grid__col--current .sidebar__item {
+    float: left; }
+    @media screen and (min-width: 101.997em) {
+      .grid__col--current .sidebar__item {
+        float: none; } }
 
 .grid__col--sidebar {
   z-index: 30; }
