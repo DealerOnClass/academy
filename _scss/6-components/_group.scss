@@ -23,7 +23,7 @@
     @include border-radius(rhythm(.25));
     &:after {
         content: "";
-        background-color: tint($body__bg, 10%);
+        background-color: shade($body__bg, 10%);
         position: absolute;
         height: 100%;
         width: 100%;
@@ -36,7 +36,7 @@
 [data-target="group__progress"] {
     height: 100%;
     @include border-radius(rhythm(.25));
-    background-color: tint($body__bg, 25%);
+    background-color: shade($body__bg, 25%);
     position: absolute;
     left: 0;
     top: 0;

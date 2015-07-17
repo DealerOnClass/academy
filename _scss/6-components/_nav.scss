@@ -6,19 +6,19 @@
     }
 }
 .nav--primary {
-    color: $nav--primary__color;
     background-color: $nav--primary__bg;
     .nav__link {
+        color: $nav--primary__color;
         float: left;
         padding: rhythm(.75) rhythm(1.5);
         &:not(:first-child) {
         }
         &:hover, &:focus, &:active {
-            color: inherit;
+            color: $nav--primary__color;
             background-color: shade($nav--primary__bg, 5%);
         }
         &.active {
-            color: inherit;            
+            color: $nav--primary__color;            
             background-color: shade($nav--primary__bg, 8%);
         }
     }

@@ -6,7 +6,7 @@ $highlight__linenos: #807e7a;
 
 .highlight  {
     color: white;
-    background: $body__bg;
+    background: shade($body__bg, 80%);
     padding: rhythm(.1) rhythm(.5);    
     @include  border-radius(rhythm(.25));
     // padding: rhythm(.1) rhythm(1);

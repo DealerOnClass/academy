@@ -60,7 +60,7 @@
         width: 100%;
         left: 0;
         bottom: 0;
-        background-color: tint($body__bg, 10%);
+        background-color: shade($body__bg, 10%);
     }
 }
 .grid__row.separation:before {

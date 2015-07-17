@@ -48,7 +48,7 @@
     display: table-cell;
 }
 .grid__col--hero {
-    color: $hero__color;
+    // color: $hero__color;
     background-color: $hero__bg;
     .hero {
         &:before,
@@ -59,7 +59,7 @@
             height: 100%;
             width: 1px;
             position: absolute;
-            background-color: tint($body__bg,10%);            
+            background-color: shade($body__bg,10%);            
             top: 0;
         }
         &:before {
@@ -73,7 +73,13 @@
 .home .hero .grid__col--sidebar {
     width: rhythm(4);
 }
-
+.topics,
+.references,
+.assignments {
+    .hero:after {
+        display: none;
+    }
+}
 
 
 

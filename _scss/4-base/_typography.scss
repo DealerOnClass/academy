@@ -36,6 +36,12 @@ a {
         color: tint($body__color, 40%);
     }
 }
+.hero {
+    color: shade($body__color, 30%);
+    a {
+        color: $primary__color;
+    }
+}
 .active {
     color: tint($body__color, 40%);
 }

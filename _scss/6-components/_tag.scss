@@ -3,7 +3,7 @@
     display: inline-block;
     float: left;
     padding: rhythm(.125) rhythm(.5); 
-    border: 1px solid tint($body__bg, 10%);
+    border: 1px solid shade($body__bg, 10%);
     @include border-radius(rhythm(.25));
     @include margin-trailer(.5);
     &:not(:first-child) {

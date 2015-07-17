@@ -118,8 +118,8 @@ html {
 body {
   font-family: "Raleway Webfont";
   font-weight: 400;
-  color: #76787a;
-  background-color: #1b1e22;
+  color: #72716f;
+  background-color: #e4e1dd;
   counter-reset: lesson__count; }
 
 h1 {
@@ -154,10 +154,15 @@ p, ul {
 a {
   color: inherit; }
   a:hover, a:active, a:focus {
-    color: #adaeaf; }
+    color: #aaaaa9; }
+
+.hero {
+  color: #504f4e; }
+  .hero a {
+    color: #377ede; }
 
 .active {
-  color: #adaeaf; }
+  color: #aaaaa9; }
 
 strong {
   font-weight: 600; }
@@ -177,7 +182,7 @@ code, pre {
 
 .highlight {
   color: white;
-  background: #1b1e22;
+  background: #2e2d2c;
   padding: 0.1333em 0.6665em;
   -moz-border-radius: 0.33325em;
   -webkit-border-radius: 0.33325em;
@@ -278,8 +283,7 @@ code, pre {
   display: table-cell; }
 
 .grid__col--hero {
-  color: #76787a;
-  background-color: #1b1e22; }
+  background-color: #e4e1dd; }
   .grid__col--hero .hero:before, .grid__col--hero .hero:after {
     content: "";
     clear: both;
@@ -287,7 +291,7 @@ code, pre {
     height: 100%;
     width: 1px;
     position: absolute;
-    background-color: #323538;
+    background-color: #cdcbc7;
     top: 0; }
   .grid__col--hero .hero:before {
     left: 0; }
@@ -296,6 +300,11 @@ code, pre {
 
 .home .hero .grid__col--sidebar {
   width: 5.332em; }
+
+.topics .hero:after,
+.references .hero:after,
+.assignments .hero:after {
+  display: none; }
 
 [class^="list--"] {
   margin-bottom: 0.6665em; }
@@ -331,13 +340,13 @@ code, pre {
   position: relative;
   top: 0;
   height: 0.33325em;
-  border: 1px solid #1b1e22;
+  border: 1px solid #e4e1dd;
   -moz-border-radius: 0.33325em;
   -webkit-border-radius: 0.33325em;
   border-radius: 0.33325em; }
   .progress__bar:after {
     content: "";
-    background-color: #323538;
+    background-color: #cdcbc7;
     position: absolute;
     height: 100%;
     width: 100%;
@@ -353,7 +362,7 @@ code, pre {
   -moz-border-radius: 0.33325em;
   -webkit-border-radius: 0.33325em;
   border-radius: 0.33325em;
-  background-color: #545659;
+  background-color: #aba9a6;
   position: absolute;
   left: 0;
   top: 0;
@@ -365,16 +374,16 @@ code, pre {
   display: table; }
 
 .nav--primary {
-  color: white;
   background-color: #377ede; }
   .nav--primary .nav__link {
+    color: white;
     float: left;
     padding: 0.99975em 1.9995em; }
     .nav--primary .nav__link:hover, .nav--primary .nav__link:focus, .nav--primary .nav__link:active {
-      color: inherit;
+      color: white;
       background-color: #3478d3; }
     .nav--primary .nav__link.active {
-      color: inherit;
+      color: white;
       background-color: #3374cc; }
 
 .nav__prev, .nav__logo {
@@ -411,7 +420,7 @@ code, pre {
   display: inline-block;
   float: left;
   padding: 0.16663em 0.6665em;
-  border: 1px solid #323538;
+  border: 1px solid #cdcbc7;
   -moz-border-radius: 0.33325em;
   -webkit-border-radius: 0.33325em;
   border-radius: 0.33325em;
@@ -475,7 +484,7 @@ code, pre {
     width: 100%;
     left: 0;
     bottom: 0;
-    background-color: #323538; }
+    background-color: #cdcbc7; }
 
 .grid__row.separation:before {
   left: 2.666em;
@@ -492,4 +501,4 @@ code, pre {
   margin-top: 2.666em; }
 
 .home .lesson__title {
-  color: #d1d2d3; }
+  color: #2e2d2c; }

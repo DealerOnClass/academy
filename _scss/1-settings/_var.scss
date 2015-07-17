@@ -18,7 +18,7 @@ $h1:              $h2 * $base-font-ratio;
 //
 //  Color
 //
-$base__color: #1b1e22;
+$base__color: invert(#1b1e22);
 
 $blue: #377ede;
 $primary__color: $blue;
@@ -28,11 +28,11 @@ $primary__color: $blue;
 //  Body
 //
 $body__bg:      $base__color;
-$body__color:   tint($body__bg, 40%);
+$body__color:   shade($body__bg, 50%);
 
 // $link__active:  #31da88;
 // $link__active:  #f26e5e;
-$link__active:  tint($body__bg, 60%);
+$link__active:  shade($body__bg, 60%);
 
 ////////////////////////////////
 //
@@ -47,7 +47,7 @@ $group4__bg: #d74728;
 //
 //  Lesson
 //
-$lesson__title__color: tint($body__bg, 80%);
+$lesson__title__color: shade($body__bg, 80%);
 $lesson__date__gutter: percentage(1/7);
 
 ////////////////////////////////
@@ -58,8 +58,8 @@ $grid__container__width: 90em;
 $grid__gutter:  rhythm(2);
 
 $hero__bg: $body__bg;
-// $hero__bg: tint($body__bg, 10%);
-$hero__color: $body__color;
+// $hero__bg: shade($body__bg, 10%);
+// $hero__color: $body__color;
 // $hero__color: shade($body__color, 10%);
 
 //  breakpoints
@@ -72,5 +72,5 @@ $screen--large: $grid__container__width + 6em;
 $nav--primary__bg: $primary__color;
 $nav--primary__color: white;
 
-$nav__link__color: tint($body__color, 30%);
+$nav__link__color: shade($body__color, 30%);
 
