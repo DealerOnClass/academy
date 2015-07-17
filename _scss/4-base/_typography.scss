@@ -32,6 +32,12 @@ p, ul {
 }
 a {
     color: inherit;
+    &:hover, &:active, &:focus {
+        color: tint($body__color, 40%);
+    }
+}
+.active {
+    color: tint($body__color, 40%);
 }
 strong {
     font-weight: 600;

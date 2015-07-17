@@ -10,12 +10,16 @@
     background-color: $nav--primary__bg;
     .nav__link {
         float: left;
-        padding: rhythm(.75) rhythm(1);
+        padding: rhythm(.75) rhythm(1.5);
         &:not(:first-child) {
-            margin-left: rhythm(.5);
+        }
+        &:hover, &:focus, &:active {
+            color: inherit;
+            background-color: shade($nav--primary__bg, 5%);
         }
         &.active {
-            color: shade($nav--primary__bg, 35%);
+            color: inherit;            
+            background-color: shade($nav--primary__bg, 8%);
         }
     }
     @extend %nav__clear;
@@ -30,7 +34,7 @@
 }
 .nav__logo {
     @extend %go__left;
-    margin-left: rhythm(1) * -1;
+    margin-left: rhythm(1.5) * -1;
 }
 
 
@@ -42,7 +46,7 @@
 }
 .nav__menu {
     @extend %go__right;
-    margin-right: rhythm(1) * -1;
+    margin-right: rhythm(1.5) * -1;
 }
 
 
