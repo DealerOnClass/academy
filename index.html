@@ -19,7 +19,9 @@ active: home
                     <div class="group__item">
                         <span class="group__count"></span>
                         <span class="group__ghost">{{ page.title }}</span>
-                        <span class="{{ page.title | append: '__progress' }}">•</span>
+                        <span class="{{ page.title | append: '__progress' }}">
+                            <span>•</span>
+                        </span>
                         <div class="icon__group">
                             <div class="icon__item">
                                 <a href="{{ page.members }}" target="_blank">
@@ -63,9 +65,11 @@ active: home
                 <h5 class="sidebar__item [ category ]">
                     <strong>{{ category | first }}</strong>
                     <div class="icon__group">
-                        <a class="icon__item" href="">
-                            <span class="icon icon-minus"></span>
-                        </a>    
+                        <div class="icon__item">
+                            <a href="">
+                                <span class="icon icon-minus"></span>
+                            </a>
+                        </div>
                     </div>
                 </h5>
                 {% for posts in category %}
@@ -77,7 +81,9 @@ active: home
                     <div class="icon__group">
                         <div class="icon__item">
                             {% for group in post.groups %}
-                            <span class="nav__progress {{ group | append: '__progress' }}" data-target="{{ group | append: '__count' }}">•</span>
+                            <span class="nav__progress {{ group | append: '__progress' }}" data-target="{{ group | append: '__count' }}">
+                                <span>•</span>
+                            </span>
                             {% endfor %}
                         </div>
                         <div class="icon__item">
@@ -111,7 +117,7 @@ active: home
                 {% endfor %}
             </header>
             <div class="hero__body">
-                <h3>Welcome to Dealeron Academy</h3>
+                <h3>Dealeron Academy</h3>
                 <p><strong>Purpose</strong><br>The purpose of DealerOn Academy is to equip you with fundamental knowledge and tools to be an effective coder at home in a production environment.</p>
                 <p><strong>Goal</strong><br>Upon completion HTML & CSS will no longer be an intimidating, convuluted language, but will be a tool just as a paintbrush is to an artist.</p>
                 <p><strong>How to use this site:</strong><br>Navigate to your current lesson via the “current” sidebar or choose a lesson under the “lessons” sidebar. The following are also available throughout the site:</p>

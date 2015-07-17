@@ -77,9 +77,9 @@ a {
 
 @font-face {
   font-family: "Montserrat Webfont";
-  src: url("../fonts/montserrat-light.eot");
-  src: url("../fonts/montserrat-light.eot?#iefix") format("embedded-opentype"), url("../fonts/montserrat-light.woff2") format("woff2"), url("../fonts/montserrat-light.woff") format("woff"), url("../fonts/montserrat-light.ttf") format("truetype"), url("../fonts/montserrat-light.svg#montserratlight") format("svg");
-  font-weight: 300;
+  src: url("../fonts/montserrat-regular-webfont.eot");
+  src: url("../fonts/montserrat-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/montserrat-regular-webfont.woff") format("woff"), url("../fonts/montserrat-regular-webfont.ttf") format("truetype");
+  font-weight: 500;
   font-style: normal; }
 @font-face {
   font-family: "Raleway Webfont";
@@ -325,9 +325,18 @@ code, pre {
 .list--commas > li:not(:last-child):after {
   content: ","; }
 
+.icon__group:hover {
+  cursor: default; }
+
 .icon__item {
   width: 1.333em;
-  display: inline-block; }
+  display: inline-block;
+  position: relative;
+  top: -0.33325em;
+  margin-bottom: -0.6665em; }
+  .icon__item a {
+    display: inline-block;
+    padding: 0.33325em; }
 
 .group1__progress {
   color: #3a8dff; }
@@ -385,6 +394,8 @@ code, pre {
 
 .nav--primary {
   background-color: #377ede; }
+  .nav--primary .icon {
+    margin-right: 0.33325em; }
   .nav--primary .nav__link {
     color: white;
     float: left;
@@ -396,14 +407,30 @@ code, pre {
       color: white;
       background-color: #3374cc; }
 
+.nav__prev, .nav__next {
+  font-family: "Montserrat Webfont";
+  font-size: .75em;
+  letter-spacing: .1em;
+  text-transform: uppercase; }
+  .nav__prev .icon, .nav__next .icon {
+    font-size: 1.5em;
+    position: relative;
+    top: 0.06665em; }
+
 .nav__prev, .nav__logo {
   float: left; }
+
+.nav__prev .icon {
+  margin-right: 0.33325em; }
 
 .nav__logo {
   margin-left: -1.9995em; }
 
 .nav__next, .nav__menu {
   float: right; }
+
+.nav__next .icon {
+  margin-left: 0.33325em; }
 
 .nav__menu {
   margin-right: -1.9995em; }
@@ -501,13 +528,14 @@ code, pre {
   width: calc(100% - 5.333em); }
 
 .grid__col--current .sidebar__link--large {
-  margin-top: 0.33325em;
+  margin-top: 0em;
   margin-bottom: 0.33325em; }
 
 .category + div {
   display: none; }
 
 .footer {
+  background-color: #e4e1dd;
   border-top: 1px solid #cdcbc7;
   padding-top: 2.666em;
   padding-bottom: 5.332em; }

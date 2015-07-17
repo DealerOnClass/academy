@@ -1,7 +1,18 @@
 .icon__group {
-
+    &:hover {
+        cursor: default;
+    }
 }
+
 .icon__item {
     width: rhythm(1);
     display: inline-block;
+
+    position: relative;
+    top: rhythm(.25) * -1;
+    margin-bottom: rhythm(.5) * -1;
+    a {
+        display: inline-block;
+        padding: rhythm(.25);
+    }
 }

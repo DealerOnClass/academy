@@ -50,9 +50,11 @@ class: "lessons"
                 <h5 class="sidebar__item [ category ]">
                     <strong>{{ category | first }}</strong>
                     <div class="icon__group">
-                        <a class="icon__item" href="">
-                            <span class="icon icon-minus"></span>
-                        </a>    
+                        <div class="icon__item">
+                            <a href="">
+                                <span class="icon icon-minus"></span>
+                            </a>
+                        </div>
                     </div>
                 </h5>
                 {% for posts in category %}

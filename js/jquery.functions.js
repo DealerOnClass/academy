@@ -33,12 +33,17 @@ $(function() {
     // change title on topics page
     // $('.topics .nav__link.active').text(navUrl);
     // on click
-    $(this).click(function() {
+    $(this).click(function(e) {
         // add active class
         // remove active class of siblings on nav click
         $(this).parent().addClass('active').siblings().removeClass('active');
+
         // change title on topics page
         $('[data-target="title__isActive"]').text(navUrl);
+        // $('.catbloc#' + navUrl + '').siblings().hide();
+        // $('.catbloc#' + navUrl + '').show();
+        // console.log(navUrl);
+        // e.preventDefault();
     });
   });
 
@@ -47,7 +52,7 @@ $(function() {
   // in case of page refresh remove ghost title to avoid ugliness  
 
   // on click
-  $('[data-target="lesson__isActive"]').click(function() {
+  $('[data-target="lesson__isActive"]').click(function(e) {
     // get href
     var navUrl = $(this).attr('href').split('#')[1];
     // add active class
@@ -55,6 +60,8 @@ $(function() {
     $('.filter__body [data-target="nav__isActive"][href="#' +  navUrl + '"]').addClass('active').siblings().removeClass('active');
     // change title on topics page on tag click
     $('[data-target="title__isActive"]').text(navUrl);
+
+    // e.preventDefault();
   });
 
 
@@ -85,55 +92,13 @@ $(function() {
   };
 
   // make sure topics page always shows something
-  var topics__url = $('.nav--primary .nav__link[href*="topics"]').attr("href");
-  var topics__url = topics__url + "#all";
-  $('.nav--primary .nav__link[href*="topics"]').attr("href", topics__url);
+  // var topics__url = $('.nav--primary .nav__link[href*="topics"]').attr("href");
+  // var topics__url = topics__url + "#all";
+  // $('.nav--primary .nav__link[href*="topics"]').attr("href", topics__url);
 
-  // if search has focus show the search container
-  // otherwise hide it.
-  $("#results-container").hide();
-  $("#search-input").focus(function() {
-    $("#results-container").show();
-  });
-  $("#search-input").focusout(function() {
-    $("#results-container").hide();
-  });
+  // $(".catbloc#all").siblings().hide();
 
-  // $('[data-target="group__count"]').each(function() {    
-  //   var e = $(this);
-  //   console.log(e.attr("class"));
-  // });
+  // $(".catbloc#all").siblings().hide();
+
 
 });
-// (function () {
-//     // get page url after the hash
-//     var hashUrl = window.location.hash.substr(1);
-//     console.log(hashUrl);
-
-//     // get nav url
-//     var navItems = document.getElementsByClassName("nav__link");
-//     for (i = 0; i < navItems.length; i++) {
-
-//         var elem = navItems[i];
-
-//         // get nav url
-//         navUrl = elem.getAttribute("href").substr(1);
-//         console.log(navUrl);        
-
-//         // add class if page url is nav url
-//         if (pageUrl == navUrl) {
-//             navItems[i].setAttribute("class", "active");
-//             console.log("hallelujah!");
-//         };
-
-//         // add click event
-//         // elem.addEventListener("click", function(){
-//         //     this.setAttribute("class", "active");
-//         //     // get this parent
-//         //     // get this siblings
-//         //     // remove active class, done
-//         // });
-        
-//     };
-
-// })();

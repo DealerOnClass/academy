@@ -7,6 +7,9 @@
 }
 .nav--primary {
     background-color: $nav--primary__bg;
+    .icon {
+        margin-right: rhythm(.25);
+    }
     .nav__link {
         color: $nav--primary__color;
         float: left;
@@ -25,12 +28,26 @@
     @extend %nav__clear;
 }
 
-
+%nav__font {
+    font-family: "Montserrat Webfont";
+    font-size: .75em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    .icon {
+        font-size: 1.5em;
+        position: relative;
+        top: rhythm(.05);
+    }
+}
 %go__left {
     float: left;
 }
 .nav__prev {
     @extend %go__left;
+    @extend %nav__font;
+    .icon {
+        margin-right: rhythm(.25);
+    }
 }
 .nav__logo {
     @extend %go__left;
@@ -43,6 +60,10 @@
 }
 .nav__next {
     @extend %go__right;
+    @extend %nav__font;
+    .icon {
+        margin-left: rhythm(.25);
+    }
 }
 .nav__menu {
     @extend %go__right;
