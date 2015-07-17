@@ -51,6 +51,7 @@
     // color: $hero__color;
     background-color: $hero__bg;
     .hero {
+        @include padding-trailer(2);
         &:before,
         &:after {
             content: "";
