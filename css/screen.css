@@ -118,7 +118,7 @@ html {
 body {
   font-family: "Raleway Webfont";
   font-weight: 400;
-  color: #72716f;
+  color: #5b5a58;
   background-color: #e4e1dd;
   counter-reset: lesson__count; }
 
@@ -154,15 +154,15 @@ p, ul {
 a {
   color: inherit; }
   a:hover, a:active, a:focus {
-    color: #aaaaa9; }
+    color: #9d9c9b; }
 
 .hero {
-  color: #504f4e; }
+  color: #403f3e; }
   .hero a {
     color: #377ede; }
 
 .active {
-  color: #aaaaa9; }
+  color: #9d9c9b; }
 
 strong {
   font-weight: 600; }
@@ -298,8 +298,16 @@ code, pre {
   .grid__col--hero .hero:after {
     right: 0; }
 
+.home .hero .grid__row {
+  margin-left: 0;
+  margin-right: 0; }
+.home .hero .grid__col--sidebar,
+.home .hero .grid__col--hero {
+  padding-left: 0; }
 .home .hero .grid__col--sidebar {
-  width: 5.332em; }
+  width: 6.665em; }
+  .home .hero .grid__col--sidebar .tag {
+    float: none; }
 
 .topics .hero:after,
 .references .hero:after,

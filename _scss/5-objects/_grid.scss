@@ -70,8 +70,21 @@
         }
     }
 }
-.home .hero .grid__col--sidebar {
-    width: rhythm(4);
+.home .hero {
+    .grid__row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .grid__col--sidebar,
+    .grid__col--hero {
+        padding-left: 0;
+    }
+    .grid__col--sidebar {
+        width: rhythm(5);
+        .tag {
+            float: none;
+        }
+    }
 }
 .topics,
 .references,
