@@ -91,6 +91,34 @@ $(function() {
       $("#check").remove();
   };
 
+
+  // bootstrap collapse icon switch
+  $('[data-toggle="collapse"]').click(function() {
+    // get selector from data-target
+    var elem__id = $(this).attr("data-target").substr(1);
+    // get icon
+    var elem__icon = "#" + elem__id + "__icon";
+    // get panel link
+    var elem__class = $(this).attr("class");
+    // get panel parent
+    var elem__panel = "#" + elem__id;
+    // toggle icon function
+    $(elem__panel).on('shown.bs.collapse', function() {
+      $(elem__icon).addClass('icon-minus').removeClass('icon-plus');
+    });
+    $(elem__panel).on('hidden.bs.collapse', function() {
+      $(elem__icon).addClass('icon-plus').removeClass('icon-minus');
+    });
+  });
+
+
+  // toggle nav secondary
+  $('#nav__secondary__toggle').click(function(e) {
+    e.preventDefault();
+    $(this).parent().toggleClass("nav__secondary--isOpen");
+  });
+
+
   // make sure topics page always shows something
   // var topics__url = $('.nav--primary .nav__link[href*="topics"]').attr("href");
   // var topics__url = topics__url + "#all";

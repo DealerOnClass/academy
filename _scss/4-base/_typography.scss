@@ -31,15 +31,8 @@ p, ul {
     line-height: $base-font-ratio * 1.5;
 }
 a {
-    color: $body__color;
     &:hover, &:active, &:focus {
-        color: tint($body__color, 40%);
-    }
-}
-.hero {
-    color: shade($body__color, 30%);
-    a {
-        color: $primary__color;
+        cursor: pointer;
     }
 }
 .active {
@@ -62,7 +55,4 @@ em {
 code, pre {
     font-family: "Source Code Pro";
     line-height: rhythm(1.5);
-}
-.icon + .text {
-    margin-left: rhythm(.5);
 }

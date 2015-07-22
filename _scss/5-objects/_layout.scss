@@ -1,0 +1,8 @@
+.layout__nav {
+    float: left;
+}
+.layout__hero {
+    background-color: $layout__hero__bg;
+    display: table-cell;
+    width: 10000px;
+}

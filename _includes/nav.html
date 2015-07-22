@@ -1,23 +1,72 @@
-<nav class="nav--primary">
-    <div class="grid__container">
-        <div class="nav__logo">
-            <a class="nav__link" href="{{ '/' | prepend: site.baseurl }}">{{ site.name }}</a>
-        </div>
-        <div class="nav__menu">
-            {% if page.active == "home" %}
-            <a class="nav__link active" href="{{ '/' | prepend: site.baseurl }}">
-                <span class="icon icon-home"></span>
-                home
+<div class="nav">
+    <div class="nav__primary" id="nav__primary">
+        <!-- <a class="nav__link [ nav__toggle ]" href="">
+            <span class="nav__icon [ nav__dots ]">
+                <span class="nav__dot">.</span>
+                <span class="nav__dot">.</span>
+                <span class="nav__dot">.</span>
+            </span>
+        </a> -->
+        {% if page.active == "home" %}
+        <a class="nav__link active" href="{{ '/' | prepend: site.baseurl }}">
+            <span class="nav__icon [ icon icon-home ]"></span>
+            <span class="nav__text">home</span>
+        </a>
+        {% else %}
+        <a class="nav__link" href="{{ '/' | prepend: site.baseurl }}">
+            <span class="nav__icon [ icon icon-home ]"></span>
+            <span class="nav__text">home</span>
+        </a>
+        {% endif %}
+        {% assign nav__menu = site.pages %}
+        {% assign nav__group = 'navigation' %}
+        {% include nav__menu.html %}
+        {% for page in site.pages %}
+        {% if page.nav__group == 'class_groups' %}
+        <a class="nav__link" id="nav__link--{{ page.title }}" href="">
+            <span class="nav__icon [ group__icon group__icon--{{ page.title }} ]"></span>
+            <span class="nav__text">{{ page.title }}</span>
+        </a>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <div class="nav__secondary nav__secondary--isOpen" id="nav__secondary">
+        <a class="nav__link [ nav__toggle ]" id="nav__secondary__toggle">
+            <div>
+                <span class="nav__icon [ nav__dots ]">
+                    <span class="nav__dot">.</span>
+                    <span class="nav__dot">.</span>
+                    <span class="nav__dot">.</span>
+                </span>
+                <span class="nav__text">close menu</span>
+            </div>
+        </a>
+        <div id="nav__secondary__collapse">
+            {% for category in site.categories %}
+            {% assign first = category | first %}
+            <a class="collapse__link [ nav__link nav__collapse ]" data-toggle="collapse" data-target="{{ '#' | append: first }}">
+                <span class="nav__text">{{ category | first }}</span>
+                <span class="nav__icon [ icon icon-minus ]" id="{{ first | append: '__icon' }}"></span>
             </a>
-            {% else %}
-            <a class="nav__link" href="{{ '/' | prepend: site.baseurl }}">
-                <span class="icon icon-home"></span>
-                home
-            </a>
-            {% endif %}
-            {% assign nav__menu = site.pages %}
-            {% assign nav__group = 'navigation' %}
-            {% include nav__menu.html %}
+            <div class="progress__parent [ collapse__panel collapse in ]" id="{{ category | first }}">
+                {% for posts in category %}
+                {% for post in posts reversed %}
+                <div class="progress__child collapse__item">
+                    <a class="nav__link" data-target="nav__isActive" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
+                        <span class="nav__text">{{ post.title }}</span>
+                    </a>
+                    {% if post.groups.size != 0 %}
+                    <div class="progress__item">
+                    {% for group in post.groups %}
+                        <span class="nav__icon [ group__icon group__icon--{{ group }} ]"></span>
+                    {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+                {% endfor %}
+            </div>
+            {% endfor %}
         </div>
     </div>
-</nav>
+</div>

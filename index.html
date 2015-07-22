@@ -3,7 +3,7 @@ layout: default
 title: home
 active: home
 ---
-<div class="grid__row">
+<div class="grid__container">
     <div class="grid__col--current count__group">
         <div class="sidebar">
             <header class="sidebar__header">
@@ -56,26 +56,28 @@ active: home
         </div>
     </div>
     <div class="grid__col--sidebar">
-        <div class="sidebar">
-            <header class="sidebar__header">
+        <div class="panel">
+            <header class="panel__header">
                 <h5>All Lessons</h5>
             </header>
-            <div class="sidebar__body">
+            <div class="panel__body">
             {% for category in site.categories %}
-                <h5 class="sidebar__item [ category ]">
-                    <strong>{{ category | first }}</strong>
-                    <div class="icon__group">
-                        <div class="icon__item">
-                            <a href="">
-                                <span class="icon icon-minus"></span>
-                            </a>
-                        </div>
-                    </div>
-                </h5>
+                {% assign first = category | first %}
+                <div class="panel__item">
+                    <a class="panel__link collapse__link" data-toggle="collapse" data-target="{{ '#' | append: first }}">
+                        <strong class="overflow__ellipsis">{{ category | first }}</strong>
+                        <span class="icon__group">
+                            <span class="icon__item">
+                                <span class="icon icon-minus" id="{{ first | append: '__icon' }}"></span>
+                            </span>
+                        </span>
+                    </a>
+                </div>
+                <div class="collapse__panel collapse in" id="{{ category | first }}">
                 {% for posts in category %}
                 {% for post in posts reversed %}
-                <div class="sidebar__item">
-                    <a class="sidebar__link nav__link" data-target="nav__isActive" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
+                <div class="panel__item">
+                    <a class="panel__link nav__link overflow__ellipsis" data-target="nav__isActive" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
                         {{ post.title }}
                     </a>
                     <div class="icon__group">
@@ -100,6 +102,7 @@ active: home
                 </div>
                 {% endfor %}
                 {% endfor %}
+                </div>
             {% endfor %}
             </div>
         </div>

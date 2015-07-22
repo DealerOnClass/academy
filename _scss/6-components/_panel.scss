@@ -1,0 +1,40 @@
+.panel {
+    @include padding-leader(2);
+}
+%vertical__rhythm {
+    @include padding-trailer(.75);
+    @include margin-trailer(.75);
+    &:after {
+        content: "";
+        clear: both;
+        display: block;
+    }
+}
+.panel__header {
+    @extend %vertical__rhythm;
+}
+.panel__body {
+    @extend %vertical__rhythm;
+}
+.panel__item {
+    @extend %vertical__rhythm;
+    height: rhythm(1);
+    .icon__group {
+        float: right;
+    }
+}
+.panel__link {
+    &:hover, &:active, &:focus {
+        cursor: pointer;
+    }
+    .icon__group {
+        display: block;
+    }
+}
+.overflow__ellipsis {
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 70%;
+}

@@ -27,52 +27,42 @@ $primary__color: $blue;
 //
 //  Body
 //
-$body__bg:      $base__color;
-$body__color:   shade($body__bg, 60%);
+$body__bg:      #131416;
+$body__color:   #34383b;
 
-// $link__active:  #31da88;
-// $link__active:  #f26e5e;
-$link__active:  shade($body__bg, 60%);
+$link__active:  shade($base__color, 60%);
 
 ////////////////////////////////
 //
-//  Group
+//  Layout
 //
-$group1__bg: #3a8dff;
-$group2__bg: #dca359;
-$group3__bg: #52c66e;
-$group4__bg: #d74728;
-
-////////////////////////////////
-//
-//  Lesson
-//
-$lesson__title__color: shade($body__bg, 80%);
-$lesson__date__gutter: percentage(1/7);
+$layout__hero__bg: #e4e4e4;
 
 ////////////////////////////////
 //
 //  Grid
 //
-$grid__container__width: 90em;
-$grid__gutter:  rhythm(2);
-
-$hero__bg: tint($body__bg, 30%);
-// $hero__bg: shade($body__bg, 10%);
-// $hero__color: $body__color;
-// $hero__color: shade($body__color, 10%);
-
-//  breakpoints
-$screen--large:     90em + ($base-font-ratio * 9);
-$screen--medium:    60em;
-$screen--small:     30em;
+$grid__container__width: 60em;
+$grid__gutter:  rhythm(1);
 
 ////////////////////////////////
 //
 //  Nav
 //
-$nav--primary__bg: $primary__color;
-$nav--primary__color: white;
+$nav__secondary__width: 20em;
 
-$nav__link__color: shade($body__color, 30%);
+$nav__link__color: #737478;
+$nav__link__color--active: white;
+$nav__link__bg--hover: shade(#131416, 30%);
 
+$nav__collapse__color: #a1a6ac;
+
+
+////////////////////////////////
+//
+//  Group
+//
+$group1__bg: #3cb6ff;
+$group2__bg: #f7ad4e;
+$group3__bg: #54c56b;
+$group4__bg: #f84f28;

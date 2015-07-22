@@ -1,74 +1,360 @@
-%nav__clear {
-    &:after {
-        content: "";
-        clear: both;
-        display: table;
-    }
+$nav__vert: rhythm(1.25);
+$nav__horz: rhythm(1.5);
+////////////////////////////////
+//
+//  Nav                 Global
+//
+.nav {
+    overflow: hidden;
 }
-.nav--primary {
-    background-color: $nav--primary__bg;
-    .icon {
-        margin-right: rhythm(.25);
-    }
-    .nav__link {
-        color: $nav--primary__color;
-        float: left;
-        padding: rhythm(.75) rhythm(1.5);
-        &:not(:first-child) {
-        }
-        &:hover, &:focus, &:active {
-            color: $nav--primary__color;
-            background-color: shade($nav--primary__bg, 5%);
-        }
-        &.active {
-            color: $nav--primary__color;            
-            background-color: shade($nav--primary__bg, 8%);
-        }
-    }
-    @extend %nav__clear;
-}
-
-%nav__font {
-    font-family: "Montserrat Webfont";
-    font-size: .75em;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    .icon {
-        font-size: 1.5em;
-        position: relative;
-        top: rhythm(.05);
-    }
-}
-%go__left {
+.nav__primary,
+.nav__secondary {
     float: left;
 }
-.nav__prev {
-    @extend %go__left;
-    @extend %nav__font;
-    .icon {
-        margin-right: rhythm(.25);
+
+////////////////////////////////
+//
+//  Nav Link            Global
+//
+.nav__link {
+    color: $nav__link__color;
+    &.active {
+        color: $nav__link__color--active;
+    }
+    &:hover, &:active, &:focus {
+        background-color: $nav__link__bg--hover;
     }
 }
-.nav__logo {
-    @extend %go__left;
-    margin-left: rhythm(1.5) * -1;
+%nav__link__format {
+    display: block;
+    padding: $nav__vert $nav__horz;
+    height: 1em;
 }
 
-
-%go__right {
-    float: right;
-}
-.nav__next {
-    @extend %go__right;
-    @extend %nav__font;
-    .icon {
-        margin-left: rhythm(.25);
+////////////////////////////////
+//
+//  Nav Collapse        Global
+//
+.nav__collapse {
+    .nav__text {
+        color: $nav__collapse__color;
+        text-transform: uppercase;
+        font-weight: 700;
     }
 }
-.nav__menu {
-    @extend %go__right;
-    margin-right: rhythm(1.5) * -1;
+
+////////////////////////////////
+//
+//  Nav Primary         Local
+//
+.nav__primary {
+    .nav__link {
+        @extend %nav__link__format;
+        width: 1em;
+        &:first-child {
+            margin-top: ($nav__vert * 2) + 1;
+        }
+    }
+    // .nav__toggle {
+    //     visibility: hidden;   
+    // }
+    .nav__text {
+        display: none;
+    }
+    .nav__icon {
+        height: 1em;
+        width: 1em;
+        display: inline-block;
+    }
 }
+
+////////////////////////////////
+//
+//  Nav Secondary       Local
+//
+.nav__secondary {
+    // width: $nav__secondary__width;
+    position: relative;
+    padding-top: ($nav__vert * 2) + 1;
+    .nav__toggle {
+        @extend %nav__link__format;
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin-right: rhythm(.3);
+        .nav__text,
+        .nav__dots {
+            float: right;
+        }
+        .nav__text {
+            display: none;
+            margin-right: $nav__vert;
+        }
+    }
+    .nav__link {
+        @extend %nav__link__format;
+        &:after {
+            content: "";
+            clear: both;
+            display: block;
+        }
+    }
+    .nav__icon {
+        float: right;
+    }
+}
+
+////////////////////////////////
+//
+//  Nav Collapse         Local
+//
+.collapse__panel {
+    .nav__text {
+        padding-left: rhythm(2);
+    }
+}
+
+////////////////////////////////
+//
+//  Nav Menu Icon       Global
+//
+.nav__dots {
+    position: relative;
+    top: -.35em;
+}
+.nav__dot {
+    font-family: "Montserrat Webfont";
+    font-weight: 500;
+    font-size: 1.25em;
+    line-height: .3;
+    text-align: center;
+    display: block;
+    position: relative;
+}
+
+////////////////////////////////
+//
+//  Nav Circle Icon     Global
+//
+.group__icon {
+    position: relative;
+    &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        margin-top: -.5em;
+        left: 35%;
+        margin-left: -.5em;
+        height: 1em;
+        width: 1em;
+        border: rhythm(.1) solid;
+        @include border-radius(50%);
+    }
+}
+.group__icon--group1 { color: $group1__bg; }
+.group__icon--group2 { color: $group2__bg; }
+.group__icon--group3 { color: $group3__bg; }
+.group__icon--group4 { color: $group4__bg; }
+
+
+////////////////////////////////
+//
+//  Nav Progress Item   Global
+//
+.progress__parent {
+    position: relative;
+    &:after {
+        content: "";
+        position: absolute;
+
+        top: 0;
+        left: rhythm(1.7);
+        
+        height: 100%;
+        width: rhythm(.1);
+
+        background-color: #323337;
+    }
+}
+.progress__child {
+    position: relative;
+    &:after,
+    &:before {
+        display: none;
+
+        position: absolute;
+        content: "";
+    
+        height: .35em;
+        width: .35em;
+
+        left: rhythm(1.6125);
+        @include border-radius(50%);
+
+        background-color: #323337;
+    }
+    &:nth-child(2):before {
+        display: block;
+        top: 0;
+    }
+    &:last-child:after,
+    &:last-child:before {
+        display: block;
+        bottom: 0;
+    }
+}
+.progress__item {
+    position: absolute;
+    top: $nav__vert;
+    left: $nav__horz;
+
+    &:after {
+        content: "";
+        position: absolute;
+        z-index: 50;
+
+        top: rhythm(.1) * -1;
+        left: rhythm(.3) * -1;
+
+        height: 100%;
+        width: rhythm(.5);
+
+        display: block;
+        padding: rhythm(.2125) rhythm(.2) 0;
+
+        border: rhythm(.1) solid #323337;
+        background-color: #131416;
+        @include border-radius(rhythm(.5));
+    }
+
+    .group__icon {
+        display: block;
+        float: none;
+        position: relative;
+        top: rhythm(.2);
+        @include margin-trailer(.2);
+        &:after {
+            position: relative;
+            top: 0;
+            left: 0;
+            margin-top: 0;
+            margin-left: 0;
+            height: .4em;
+            width: .4em;
+            z-index: 100;
+        }
+    }
+    .group__icon + .group__icon {
+        margin-top: rhythm(.2);
+        margin-bottom: rhythm(.2);
+    }
+}
+
+////////////////////////////////
+//
+//  Nav S... Anim...    Global
+//
+.nav__secondary {
+    width: 0;
+    @include transform( translate3d(0, 0, 0) );
+    @include transition( width .5s ease-in-out 0s);
+}
+#nav__secondary__toggle,
+#nav__secondary__collapse {
+    height: auto;
+    width: $nav__secondary__width;
+}
+.nav__secondary--isOpen {
+    width: $nav__secondary__width;
+}
+
+// $nav__animation__width: $nav__secondary__width - 3.5;
+
+// @keyframes nav__secondary--isOpen {
+//     from {
+//         @include transform( translate3d(0, 0, 0) );
+//     }
+//     to {
+//         @include transform( translate3d(($nav__animation__width * -1), 0, 0) );
+//     }
+// }
+
+////////////////////////////////
+//
+//  Nav Old             Delete
+//
+// %nav__clear {
+//     &:after {
+//         content: "";
+//         clear: both;
+//         display: table;
+//     }
+// }
+// .nav--primary {
+//     background-color: $nav--primary__bg;
+//     .icon {
+//         margin-right: rhythm(.25);
+//     }
+//     .nav__link {
+//         color: $nav--primary__color;
+//         float: left;
+//         padding: rhythm(.75) rhythm(1.5);
+//         &:not(:first-child) {
+//         }
+//         &:hover, &:focus, &:active {
+//             color: $nav--primary__color;
+//             background-color: shade($nav--primary__bg, 5%);
+//         }
+//         &.active {
+//             color: $nav--primary__color;            
+//             background-color: shade($nav--primary__bg, 8%);
+//         }
+//     }
+//     // @extend %nav__clear;
+// }
+
+// %nav__font {
+//     font-family: "Montserrat Webfont";
+//     font-size: .75em;
+//     letter-spacing: .1em;
+//     text-transform: uppercase;
+//     .icon {
+//         font-size: 1.5em;
+//         position: relative;
+//         top: rhythm(.05);
+//     }
+// }
+// %go__left {
+//     float: left;
+// }
+// .nav__prev {
+//     @extend %go__left;
+//     @extend %nav__font;
+//     .icon {
+//         margin-right: rhythm(.25);
+//     }
+// }
+// .nav__logo {
+//     @extend %go__left;
+//     margin-left: rhythm(1.5) * -1;
+// }
+
+
+// %go__right {
+//     float: right;
+// }
+// .nav__next {
+//     @extend %go__right;
+//     @extend %nav__font;
+//     .icon {
+//         margin-left: rhythm(.25);
+//     }
+// }
+// .nav__menu {
+//     @extend %go__right;
+//     margin-right: rhythm(1.5) * -1;
+// }
 
 
 

@@ -11,7 +11,7 @@
     position: relative;
     top: rhythm(.25) * -1;
     margin-bottom: rhythm(.5) * -1;
-    a {
+    a, > .icon {
         display: inline-block;
         padding: rhythm(.25);
     }

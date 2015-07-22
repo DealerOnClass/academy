@@ -2,7 +2,9 @@
 @import "compass/css3/box-sizing";
 @import "compass/css3/border-radius";
 @import "compass/css3/images";
-
+@import "compass/css3/transition";
+@import "compass/css3/transform";
+@import "compass/css3/animation";
 
 @import "1-settings/var";
 
@@ -17,16 +19,19 @@
 @import "4-base/typography";
 @import "4-base/syntax";
 
+@import "5-objects/collapse";
+@import "5-objects/layout";
 @import "5-objects/grid";
-@import "5-objects/list";
-@import "5-objects/icon__group";
+// @import "5-objects/list";
+// @import "5-objects/icon__group";
 
-@import "6-components/group";
+// @import "6-components/group";
 @import "6-components/nav";
-@import "6-components/tag";
+// @import "6-components/tag";
 
 
-@import "6-components/sidebar";
-@import "6-components/footer";
+// @import "6-components/sidebar";
+// @import "6-components/panel";
+// @import "6-components/footer";
 
-@import "6-components/page";
+// @import "6-components/page";
