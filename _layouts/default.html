@@ -4,9 +4,9 @@
 {% include head.html %}    
     
 {% if page.class %}
-    <body class="{{ page.class }}">
+    <body class="{{ page.class }}{% for group in page.groups %} {{ group }}{% endfor %}">
 {% else %}
-    <body class="{{ page.title }}">
+    <body class="{{ page.title }}{% for group in page.groups %} {{ group }}{% endfor %}">
 {% endif %}
 
 <nav class="layout__nav">

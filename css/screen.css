@@ -597,19 +597,48 @@ ul, li + li {
   border-radius: 50%;
 }
 
-.group__icon--group1 {
+.nav__primary .group__icon--group1,
+.home .nav__secondary .group__icon--group1,
+.topics .nav__secondary .group__icon--group1,
+.references .nav__secondary .group__icon--group1,
+.assignments .nav__secondary .group__icon--group1 {
+  color: #3cb6ff;
+}
+.nav__primary .group__icon--group2,
+.home .nav__secondary .group__icon--group2,
+.topics .nav__secondary .group__icon--group2,
+.references .nav__secondary .group__icon--group2,
+.assignments .nav__secondary .group__icon--group2 {
+  color: #f7ad4e;
+}
+.nav__primary .group__icon--group3,
+.home .nav__secondary .group__icon--group3,
+.topics .nav__secondary .group__icon--group3,
+.references .nav__secondary .group__icon--group3,
+.assignments .nav__secondary .group__icon--group3 {
+  color: #54c56b;
+}
+.nav__primary .group__icon--group4,
+.home .nav__secondary .group__icon--group4,
+.topics .nav__secondary .group__icon--group4,
+.references .nav__secondary .group__icon--group4,
+.assignments .nav__secondary .group__icon--group4 {
+  color: #f84f28;
+}
+
+.group1 .nav__secondary .group__icon--group1 {
   color: #3cb6ff;
 }
 
-.group__icon--group2 {
+.group2 .nav__secondary .group__icon--group2 {
   color: #f7ad4e;
 }
 
-.group__icon--group3 {
+.group3 .nav__secondary .group__icon--group3 {
   color: #54c56b;
 }
 
-.group__icon--group4 {
+.group4 .nav__secondary .group__icon--group4 {
   color: #f84f28;
 }
 

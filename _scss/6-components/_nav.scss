@@ -200,10 +200,29 @@
         @include border-radius(50%);
     }
 }
-.group__icon--group1 { color: $group1__bg; }
-.group__icon--group2 { color: $group2__bg; }
-.group__icon--group3 { color: $group3__bg; }
-.group__icon--group4 { color: $group4__bg; }
+.nav__primary,
+.home .nav__secondary,
+.topics .nav__secondary,
+.references .nav__secondary,
+.assignments .nav__secondary {
+    .group__icon--group1 { color: $group1__bg; }
+    .group__icon--group2 { color: $group2__bg; }
+    .group__icon--group3 { color: $group3__bg; }
+    .group__icon--group4 { color: $group4__bg; }
+}
+
+.group1 .nav__secondary {
+    .group__icon--group1 { color: $group1__bg; }
+}
+.group2 .nav__secondary {
+    .group__icon--group2 { color: $group2__bg; }    
+}
+.group3 .nav__secondary {
+    .group__icon--group3 { color: $group3__bg; }    
+}
+.group4 .nav__secondary {
+    .group__icon--group4 { color: $group4__bg; }    
+}
 
 
 ////////////////////////////////
