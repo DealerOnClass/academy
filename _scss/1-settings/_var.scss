@@ -54,9 +54,16 @@ $grid__gutter:  rhythm(1);
 //
 //  Nav
 //
+$nav__vert: rhythm(1.25);
+$nav__horz: rhythm(1.5);
+
 $hero__header__color: white;
 $hero__header__bg: #2c77dd;
-$hero__header__link__bg--hover: shade(saturate(#2c77dd, 10%), 15%);
+$hero__header__link__bg--hover: shade(saturate(#2c77dd, 10%), 10%);
+
+$hero__dropdown-menu__bg: shade(saturate(#2c77dd, 10%), 15%);
+$hero__dropdown-footer__bg: shade(saturate(#2c77dd, 10%), 25%);
+$hero__dropdown-footer__bg--hover: shade(saturate(#2c77dd, 10%), 30%);
 
 $nav__secondary__width: 20em;
 

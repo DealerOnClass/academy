@@ -6,30 +6,57 @@ active: home
 <nav class="hero__nav">
     <div class="grid__container">
         <div class="nav__group">
-            <a class="nav__link">
-                <span class="nav__icon [ icon icon-pricetag ]"></span>
-                <span class="nav__text tag">tag</span>
-            </a>
-            <a class="nav__link">
-                <span class="nav__icon [ icon icon-share ]"></span>
-                <span class="nav__text">References</span>
-            </a>
-            <a class="nav__link">
-                <span class="nav__icon [ icon icon-pencil ]"></span>
-                <span class="nav__text">Assignments</span>
-            </a>
-            <a class="nav__link" data-toggle="collapse" data-target="#hero__nav__collapse">
-                <span class="nav__icon [ nav__dots ]">
-                    <span class="nav__dot">.</span>
-                    <span class="nav__dot">.</span>
-                    <span class="nav__dot">.</span>
-                </span>
-            </a>
-        </div>
-    </div>
-    <div class="grid__container [ collapse ]" id="hero__nav__collapse">
-        <div class="hero__nav__collapse">
-            <p><strong>Additional Info</strong><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur nemo tempora soluta, vitae laboriosam dolores optio mollitia illo, adipisci sit culpa. Nemo eaque, assumenda dolores amet magnam modi maiores fugit.</p>
+            <div class="dropdown [ nav__link ]">
+                <a data-toggle="dropdown">
+                    <span class="nav__icon [ icon icon-pricetag ]"></span>
+                </a>
+                <div class="dropdown-menu">
+                    <p><strong>Tag</strong></p>
+                    <p>
+                        <a class="tag">tag</a>
+                        <a class="tag">another tag</a>
+                        <a class="tag">yet another tag</a>
+                        <a class="tag">#tag</a>
+                    </p>
+                    <a class="dropdown__footer" href="{{ 'topics' | prepend: site.baseurl }}">
+                        <span class="nav__icon [ icon icon-arrow-right ]"></span>
+                        <span class="nav__text">All Tags</span>
+                    </a>
+                </div>
+            </div>
+            <div class="dropdown [ nav__link ]">
+                <a data-toggle="dropdown">
+                    <span class="nav__icon [ icon icon-share ]"></span>
+                </a>
+                <div class="dropdown-menu">
+                    <p><strong>References</strong></p>
+                    <ul class="list--bullets">
+                        <li><a href="http://www.w3schools.com/html/default.asp" target="_blank">w3schools.com/html/default.asp</a></li>
+                        <li><a href="http://www.w3schools.com/css/default.asp" target="_blank">w3schools.com/css/default.asp</a></li>
+                    </ul>
+                    <a class="dropdown__footer" href="{{ 'references' | prepend: site.baseurl }}">
+                        <span class="nav__icon [ icon icon-arrow-right ]"></span>
+                        <span class="nav__text">All References</span>
+                    </a>
+                </div>
+            </div>
+            <div class="dropdown [ nav__link ]">
+                <a data-toggle="dropdown">
+                    <span class="nav__icon [ icon icon-pencil ]"></span>
+                </a>
+                <div class="dropdown-menu">
+                    <p><strong>Assignments</strong></p>
+                    <ul class="list--bullets">
+                        <li><a target="_blank">homework</a></li>
+                        <li><a target="_blank">more homework</a></li>
+                        <li><a target="_blank">a bit more homework</a></li>
+                    </ul>
+                    <a class="dropdown__footer" href="{{ 'assignments' | prepend: site.baseurl }}">
+                        <span class="nav__icon [ icon icon-arrow-right ]"></span>
+                        <span class="nav__text">All Assignments</span>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </nav>

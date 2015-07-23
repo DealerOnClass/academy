@@ -23,7 +23,8 @@ h4 {
 h5 {
     @include adjust-font-size-to($h5);
 }
-h6, small {
+h6,
+small {
     @include adjust-font-size-to($h6);
 }
 p {

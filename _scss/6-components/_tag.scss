@@ -1,12 +1,9 @@
 .tag {
     display: inline-block;
     position: relative;
-    top: rhythm(.05) * -1;
     padding: rhythm(.05) rhythm(.5); 
     border: rhythm(.05) solid;
     @include border-radius(rhythm(.4));
-    @include margin-trailer(.5);
-    &:not(:first-child) {
-        margin-left: rhythm(.5);
-    }
+    @include margin-leader(.5);
+    margin-right: rhythm(.5);
 }

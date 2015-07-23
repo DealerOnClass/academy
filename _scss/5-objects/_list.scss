@@ -1,15 +1,19 @@
-[class^="list--"] {    
-    @include margin-trailer(.5);
+ul, li + li {    
+    @include margin-leader(.5);
 }
-.list--inline {
+.list--bullets {
     > li {
-        display: inline-block;
+        &:before {
+            content: "\2022";
+            display: inline-block;
+            padding-right: rhythm(.5);
+        }
     }
 }
-.list--commas {    
-    @extend .list--inline;
-    > li:not(:last-child):after {
-        content: ",";
-    }
-}
+// .list--commas {    
+//     @extend .list--inline;
+//     > li:not(:last-child):after {
+//         content: ",";
+//     }
+// }
 

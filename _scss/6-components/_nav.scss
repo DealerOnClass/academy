@@ -1,5 +1,3 @@
-$nav__vert: rhythm(1.25);
-$nav__horz: rhythm(1.5);
 ////////////////////////////////
 //
 //  Nav                 Global
@@ -124,11 +122,21 @@ $nav__horz: rhythm(1.5);
         padding-right: $grid__gutter;
         float: left;
         color: inherit;
+        width: 1em;
         &:hover, &:focus, &:active {
             background-color: $hero__header__link__bg--hover;
         }
-        &:last-child {
-            float: right;
+        [data-toggle="dropdown"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 1em;
+            width: 1em;
+            padding: $nav__vert $grid__gutter;
+        }
+        &.open,
+        .dropdown-menu {
+            background-color: $hero__dropdown-menu__bg;
         }
     }
     .nav__icon,
