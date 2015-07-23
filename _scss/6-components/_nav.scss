@@ -200,6 +200,11 @@
         @include border-radius(50%);
     }
 }
+
+////////////////////////////////
+//
+//  Nav Active States   Global
+//
 .nav__primary,
 .home .nav__secondary,
 .topics .nav__secondary,
@@ -211,18 +216,34 @@
     .group__icon--group4 { color: $group4__bg; }
 }
 
-.group1 .nav__secondary {
-    .group__icon--group1 { color: $group1__bg; }
+.group1 #nav__link--group1,
+.group2 #nav__link--group2,
+.group3 #nav__link--group3,
+.group4 #nav__link--group4 {
+    position: relative;
+    &:before {
+        content: "";
+        position: absolute;
+        display: block;
+        top: 50%;
+        left: 0;
+        height: rhythm(1);
+        margin-top: rhythm(.5) * -1;
+        width: rhythm(.1);
+    }
 }
-.group2 .nav__secondary {
-    .group__icon--group2 { color: $group2__bg; }    
-}
-.group3 .nav__secondary {
-    .group__icon--group3 { color: $group3__bg; }    
-}
-.group4 .nav__secondary {
-    .group__icon--group4 { color: $group4__bg; }    
-}
+
+.group1 #nav__link--group1:before { background-color: $group1__bg; }
+.group1 .nav__secondary .group__icon--group1 { color: $group1__bg; }
+
+.group2 #nav__link--group2:before { background-color: $group2__bg; }
+.group2 .nav__secondary .group__icon--group2 { color: $group2__bg; }
+
+.group3 #nav__link--group3:before { background-color: $group3__bg; }   
+.group3 .nav__secondary .group__icon--group3 { color: $group3__bg; }
+
+.group4 #nav__link--group4:before { background-color: $group4__bg; }
+.group4 .nav__secondary .group__icon--group4 { color: $group4__bg; }
 
 
 ////////////////////////////////
