@@ -3,151 +3,75 @@ layout: default
 title: home
 active: home
 ---
+<nav class="hero__nav">
+    <div class="grid__container">
+        <div class="nav__group">
+            <a class="nav__link">
+                <span class="nav__icon [ icon icon-pricetag ]"></span>
+                <span class="nav__text tag">tag</span>
+            </a>
+            <a class="nav__link">
+                <span class="nav__icon [ icon icon-share ]"></span>
+                <span class="nav__text">References</span>
+            </a>
+            <a class="nav__link">
+                <span class="nav__icon [ icon icon-pencil ]"></span>
+                <span class="nav__text">Assignments</span>
+            </a>
+            <a class="nav__link" data-toggle="collapse" data-target="#hero__nav__collapse">
+                <span class="nav__icon [ nav__dots ]">
+                    <span class="nav__dot">.</span>
+                    <span class="nav__dot">.</span>
+                    <span class="nav__dot">.</span>
+                </span>
+            </a>
+        </div>
+    </div>
+    <div class="grid__container [ collapse ]" id="hero__nav__collapse">
+        <div class="hero__nav__collapse">
+            <p><strong>Additional Info</strong><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur nemo tempora soluta, vitae laboriosam dolores optio mollitia illo, adipisci sit culpa. Nemo eaque, assumenda dolores amet magnam modi maiores fugit.</p>
+        </div>
+    </div>
+</nav>
 <div class="grid__container">
-    <div class="grid__col--current count__group">
-        <div class="sidebar">
-            <header class="sidebar__header">
-                <h5>Current Progress</h5>
-            </header>
-            <div class="sidebar__body">
-                {% for page in site.pages %}
-                {% if page.nav__group == 'class_groups'%}
-                <div class="sidebar__item no__height">
-                    {% for post in site.posts %}
-                    {% for group in post.groups %}
-                    {% if group contains page.title %}
-                    <div class="group__item">
-                        <span class="group__count"></span>
-                        <span class="group__ghost">{{ page.title }}</span>
-                        <span class="{{ page.title | append: '__progress' }}">
-                            <span>•</span>
-                        </span>
-                        <div class="icon__group">
-                            <div class="icon__item">
-                                <a href="{{ page.members }}" target="_blank">
-                                    <span class="icon icon-profile"></span>
-                                </a>
-                            </div>
-                            <div class="icon__item">
-                                <a href="{{ post.assignment }}" target="_blank">
-                                    <span class="icon icon-pencil"></span>
-                                </a>
-                            </div>
-                            <div class="icon__item">
-                                <a href="{{ post.reference }}" target="_blank">
-                                    <span class="icon icon-share"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="sidebar__link--large" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-                    <div class="progress">
-                        <div class="progress__bar">
-                            <div class="{{ group }}" data-target="group__progress"></div>
-                        </div>
-                    </div>
-                    {% endif %}
-                    {% endfor %}
-                    {% endfor %}
-                </div>
-                {% endif %}
-                {% endfor %}
-            </div>
-        </div>
-    </div>
-    <div class="grid__col--sidebar">
-        <div class="panel">
-            <header class="panel__header">
-                <h5>All Lessons</h5>
-            </header>
-            <div class="panel__body">
-            {% for category in site.categories %}
-                {% assign first = category | first %}
-                <div class="panel__item">
-                    <a class="panel__link collapse__link" data-toggle="collapse" data-target="{{ '#' | append: first }}">
-                        <strong class="overflow__ellipsis">{{ category | first }}</strong>
-                        <span class="icon__group">
-                            <span class="icon__item">
-                                <span class="icon icon-minus" id="{{ first | append: '__icon' }}"></span>
-                            </span>
-                        </span>
-                    </a>
-                </div>
-                <div class="collapse__panel collapse in" id="{{ category | first }}">
-                {% for posts in category %}
-                {% for post in posts reversed %}
-                <div class="panel__item">
-                    <a class="panel__link nav__link overflow__ellipsis" data-target="nav__isActive" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
-                        {{ post.title }}
-                    </a>
-                    <div class="icon__group">
-                        <div class="icon__item">
-                            {% for group in post.groups %}
-                            <span class="nav__progress {{ group | append: '__progress' }}" data-target="{{ group | append: '__count' }}">
-                                <span>•</span>
-                            </span>
-                            {% endfor %}
-                        </div>
-                        <div class="icon__item">
-                            <a href="{{ post.reference }}" target="_blank">
-                                <span class="icon icon-share"></span>
-                            </a>
-                        </div>
-                        <div class="icon__item">
-                            <a href="{{ post.assignment }}">
-                                <span class="icon icon-pencil"></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-                {% endfor %}
-                </div>
+    <div class="hero">
+        <!-- <header class="hero__header">
+            {% for post in site.posts %}
+            {% if post.isFirst %}
+            <a class="nav__next" href="{{ post.url | prepend: site.baseurl }}">
+                Get Started
+                <span class="icon icon-arrow-right"></span>
+            </a>
+            {% endif %}
             {% endfor %}
+        </header> -->
+        <h3>Dealeron Academy <em>Legend</em></h3>
+        <p><strong>How to use this site:</strong><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore exercitationem consectetur repudiandae dolor libero, optio est velit itaque, possimus pariatur dolorum a rem dolore quidem repellendus minus laudantium reiciendis! Necessitatibus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus ad facere vitae placeat impedit animi! Ipsam, eum. Nisi atque iusto itaque expedita quasi consequatur, ratione incidunt quae eligendi porro, inventore neque eius repellendus error libero adipisci saepe doloremque et. Sequi!</p>
+        <p>Sapiente dicta mollitia fugit sunt cum animi fugiat suscipit at, natus, officia aliquid repudiandae id provident et maiores, dignissimos tenetur harum eos dolorem modi velit quod, reprehenderit adipisci! Veritatis, maiores earum natus accusantium illo laudantium perferendis tempore nisi doloribus porro.</p>
+        <p>Ipsa rem, ex mollitia necessitatibus optio commodi neque blanditiis sed! Architecto minus voluptate neque optio eius quod asperiores, provident qui debitis dolor porro laborum odit expedita molestiae natus quasi reiciendis tempore delectus, ut ipsam. Tempore odio vitae enim, nostrum dolores.</p>
+        <div class="grid__row">
+            <div class="grid__col--sidebar text-center">
+                <p><a href="" class="tag">topic</a></p>
+            </div>
+            <div class="grid__col--table">
+                <p><strong>Topics</strong><br>Vary per lesson, a.k.a. “tags”.</p>
             </div>
         </div>
-    </div>
-    <div class="grid__col--hero">
-        <div class="hero">
-            <header class="hero__header">
-                {% for post in site.posts %}
-                {% if post.isFirst %}
-                <a class="nav__next" href="{{ post.url | prepend: site.baseurl }}">
-                    Get Started
-                    <span class="icon icon-arrow-right"></span>
-                </a>
-                {% endif %}
-                {% endfor %}
-            </header>
-            <div class="hero__body">
-                <h3>Dealeron Academy</h3>
-                <p><strong>Purpose</strong><br>The purpose of DealerOn Academy is to equip you with fundamental knowledge and tools to be an effective coder at home in a production environment.</p>
-                <p><strong>Goal</strong><br>Upon completion HTML & CSS will no longer be an intimidating, convuluted language, but will be a tool just as a paintbrush is to an artist.</p>
-                <p><strong>How to use this site:</strong><br>Navigate to your current lesson via the “current” sidebar or choose a lesson under the “lessons” sidebar. The following are also available throughout the site:</p>
-                <div class="grid__row">
-                    <div class="grid__col--sidebar text-center">
-                        <p><a href="" class="tag">topic</a></p>
-                    </div>
-                    <div class="grid__col--table">
-                        <p><strong>Topics</strong><br>Vary per lesson, a.k.a. “tags”.</p>
-                    </div>
-                </div>
-                <div class="grid__row">
-                    <div class="grid__col--sidebar text-center">
-                        <p><span class="icon icon-share"></span></p>
-                    </div>
-                    <div class="grid__col--table">
-                        <p><strong>References</strong><br>External links, mentioned in lecture.</p>
-                    </div>
-                </div>
-                <div class="grid__row">
-                    <div class="grid__col--sidebar text-center">
-                        <p><span class="icon icon-pencil"></span></p>
-                    </div>
-                    <div class="grid__col--table">
-                        <p><strong>Assignments</strong><br>Homework, welcome to school.</p>
-                    </div>
-                </div>
+        <div class="grid__row">
+            <div class="grid__col--sidebar text-center">
+                <p><span class="icon icon-share"></span></p>
+            </div>
+            <div class="grid__col--table">
+                <p><strong>References</strong><br>External links, mentioned in lecture.</p>
+            </div>
+        </div>
+        <div class="grid__row">
+            <div class="grid__col--sidebar text-center">
+                <p><span class="icon icon-pencil"></span></p>
+            </div>
+            <div class="grid__col--table">
+                <p><strong>Assignments</strong><br>Homework, welcome to school.</p>
             </div>
         </div>
     </div>    

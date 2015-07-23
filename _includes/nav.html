@@ -1,12 +1,5 @@
 <div class="nav">
     <div class="nav__primary" id="nav__primary">
-        <!-- <a class="nav__link [ nav__toggle ]" href="">
-            <span class="nav__icon [ nav__dots ]">
-                <span class="nav__dot">.</span>
-                <span class="nav__dot">.</span>
-                <span class="nav__dot">.</span>
-            </span>
-        </a> -->
         {% if page.active == "home" %}
         <a class="nav__link active" href="{{ '/' | prepend: site.baseurl }}">
             <span class="nav__icon [ icon icon-home ]"></span>
@@ -21,12 +14,19 @@
         {% assign nav__menu = site.pages %}
         {% assign nav__group = 'navigation' %}
         {% include nav__menu.html %}
+
         {% for page in site.pages %}
         {% if page.nav__group == 'class_groups' %}
-        <a class="nav__link" id="nav__link--{{ page.title }}" href="">
+
+        {% for post in site.posts %}
+        {% if post.groups contains page.title %}
+        <a class="nav__link" id="nav__link--{{ page.title }}" href="{{ post.url | prepend: site.baseurl }}">
             <span class="nav__icon [ group__icon group__icon--{{ page.title }} ]"></span>
             <span class="nav__text">{{ page.title }}</span>
         </a>
+        {% endif %}
+        {% endfor %}
+
         {% endif %}
         {% endfor %}
     </div>

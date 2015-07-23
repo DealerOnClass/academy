@@ -1,0 +1,11 @@
+.hero {
+    @include padding-leader(4);
+    ::-moz-selection {
+        color: white;
+        background: $hero__header__bg;
+    }
+    ::selection {
+        color: white;
+        background: $hero__header__bg;
+    }
+}

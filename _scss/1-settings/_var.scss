@@ -23,6 +23,11 @@ $base__color: invert(#1b1e22);
 $blue: #377ede;
 $primary__color: $blue;
 
+$group1__bg: #3cb6ff;
+$group2__bg: #f7ad4e;
+$group3__bg: #54c56b;
+$group4__bg: #f84f28;
+
 ////////////////////////////////
 //
 //  Body
@@ -42,27 +47,23 @@ $layout__hero__bg: #e4e4e4;
 //
 //  Grid
 //
-$grid__container__width: 60em;
+$grid__container__width: 40em;
 $grid__gutter:  rhythm(1);
 
 ////////////////////////////////
 //
 //  Nav
 //
+$hero__header__color: white;
+$hero__header__bg: #2c77dd;
+$hero__header__link__bg--hover: shade(saturate(#2c77dd, 10%), 15%);
+
 $nav__secondary__width: 20em;
 
 $nav__link__color: #737478;
 $nav__link__color--active: white;
+
+$nav__link__bg: #131416; 
 $nav__link__bg--hover: shade(#131416, 30%);
 
 $nav__collapse__color: #a1a6ac;
-
-
-////////////////////////////////
-//
-//  Group
-//
-$group1__bg: #3cb6ff;
-$group2__bg: #f7ad4e;
-$group3__bg: #54c56b;
-$group4__bg: #f84f28;

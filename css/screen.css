@@ -176,8 +176,8 @@ h6, small {
   line-height: 1.77689em;
 }
 
-p, ul {
-  margin-top: 1.333em;
+p {
+  margin-top: 2.666em;
   line-height: 1.9995;
 }
 
@@ -190,11 +190,12 @@ a:hover, a:active, a:focus {
 }
 
 strong {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 em {
-  font-style: italic;
+  font-style: normal;
+  font-weight: 700;
 }
 
 .text-center {
@@ -204,6 +205,16 @@ em {
 code, pre {
   font-family: "Source Code Pro";
   line-height: 1.9995em;
+}
+
+::-moz-selection {
+  color: inherit;
+  background: inherit;
+}
+
+::selection {
+  color: inherit;
+  background: inherit;
 }
 
 .highlight {
@@ -347,7 +358,7 @@ code, pre {
   padding-right: 1.333em;
   padding-left: 1.333em;
   margin: 0 auto;
-  max-width: 60em;
+  max-width: 40em;
 }
 
 .nav {
@@ -369,7 +380,7 @@ code, pre {
   background-color: #0d0e0f;
 }
 
-.nav__primary .nav__link, .nav__secondary .nav__toggle, .nav__secondary .nav__link {
+.nav__primary .nav__link, .nav__secondary .nav__toggle, .nav__secondary .nav__link, .hero__nav .nav__link {
   display: block;
   padding: 1.66625em 1.9995em;
   height: 1em;
@@ -404,7 +415,8 @@ code, pre {
   position: absolute;
   top: 0;
   right: 0;
-  margin-right: 0.3999em;
+  padding-right: 2.3994em;
+  padding-left: 2.99925em;
 }
 .nav__secondary .nav__toggle .nav__text,
 .nav__secondary .nav__toggle .nav__dots {
@@ -421,6 +433,39 @@ code, pre {
 }
 .nav__secondary .nav__icon {
   float: right;
+}
+
+.hero__nav {
+  color: white;
+  background-color: #2c77dd;
+}
+.hero__nav .nav__group {
+  margin-left: -1.333em;
+  margin-right: -1.333em;
+}
+.hero__nav .nav__link {
+  padding-left: 1.333em;
+  padding-right: 1.333em;
+  float: left;
+  color: inherit;
+}
+.hero__nav .nav__link:hover, .hero__nav .nav__link:focus, .hero__nav .nav__link:active {
+  background-color: #1b63c6;
+}
+.hero__nav .nav__link:last-child {
+  float: right;
+}
+.hero__nav .nav__icon,
+.hero__nav .nav__text {
+  display: inline-block;
+  float: left;
+}
+.hero__nav .nav__text {
+  margin-left: 0.6665em;
+}
+
+.hero__nav__collapse {
+  padding-bottom: 3.999em;
 }
 
 .collapse__panel .nav__text {
@@ -602,4 +647,31 @@ code, pre {
 
 .catbloc:not(:target) {
   display: none;
+}
+
+.hero {
+  padding-top: 5.332em;
+}
+.hero ::-moz-selection {
+  color: white;
+  background: #2c77dd;
+}
+.hero ::selection {
+  color: white;
+  background: #2c77dd;
+}
+
+.tag {
+  display: inline-block;
+  position: relative;
+  top: -0.06665em;
+  padding: 0.06665em 0.6665em;
+  border: 0.06665em solid;
+  -moz-border-radius: 0.5332em;
+  -webkit-border-radius: 0.5332em;
+  border-radius: 0.5332em;
+  margin-bottom: 0.6665em;
+}
+.tag:not(:first-child) {
+  margin-left: 0.6665em;
 }

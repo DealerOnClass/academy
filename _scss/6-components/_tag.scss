@@ -1,16 +1,12 @@
-
 .tag {
     display: inline-block;
-    float: left;
-    padding: rhythm(.125) rhythm(.5); 
-    border: 1px solid shade($body__bg, 10%);
-    @include border-radius(rhythm(.25));
+    position: relative;
+    top: rhythm(.05) * -1;
+    padding: rhythm(.05) rhythm(.5); 
+    border: rhythm(.05) solid;
+    @include border-radius(rhythm(.4));
     @include margin-trailer(.5);
     &:not(:first-child) {
         margin-left: rhythm(.5);
     }
-}
-.topics .tag {
-    margin-bottom: rhythm(.25) * -1;
-    margin-top: rhythm(.25) * -1;
 }

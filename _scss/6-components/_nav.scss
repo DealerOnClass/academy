@@ -18,6 +18,8 @@ $nav__horz: rhythm(1.5);
 //
 .nav__link {
     color: $nav__link__color;
+    // background-color: $nav__link__bg;
+    // @include transition( background-color .1s ease-in-out 0s);
     &.active {
         color: $nav__link__color--active;
     }
@@ -81,7 +83,8 @@ $nav__horz: rhythm(1.5);
         position: absolute;
         top: 0;
         right: 0;
-        margin-right: rhythm(.3);
+        padding-right: ($nav__horz * 1.2);
+        padding-left: ($nav__horz * 1.5);
         .nav__text,
         .nav__dots {
             float: right;
@@ -106,7 +109,44 @@ $nav__horz: rhythm(1.5);
 
 ////////////////////////////////
 //
-//  Nav Collapse         Local
+//  Hero Nav            Global
+//
+.hero__nav {
+    color: $hero__header__color;
+    background-color: $hero__header__bg;
+    .nav__group {
+        margin-left: $grid__gutter * -1;
+        margin-right: $grid__gutter * -1;
+    }
+    .nav__link {
+        @extend %nav__link__format;
+        padding-left: $grid__gutter;
+        padding-right: $grid__gutter;
+        float: left;
+        color: inherit;
+        &:hover, &:focus, &:active {
+            background-color: $hero__header__link__bg--hover;
+        }
+        &:last-child {
+            float: right;
+        }
+    }
+    .nav__icon,
+    .nav__text {
+        display: inline-block;
+        float: left;
+    }
+    .nav__text {
+        margin-left: $grid__gutter / 2;
+    }
+}
+.hero__nav__collapse {
+    @include padding-trailer(3);
+}
+
+////////////////////////////////
+//
+//  Nav Collapse        Local
 //
 .collapse__panel {
     .nav__text {
@@ -269,96 +309,10 @@ $nav__horz: rhythm(1.5);
     width: $nav__secondary__width;
 }
 
-// $nav__animation__width: $nav__secondary__width - 3.5;
-
-// @keyframes nav__secondary--isOpen {
-//     from {
-//         @include transform( translate3d(0, 0, 0) );
-//     }
-//     to {
-//         @include transform( translate3d(($nav__animation__width * -1), 0, 0) );
-//     }
-// }
-
 ////////////////////////////////
 //
-//  Nav Old             Delete
+//  Group Counter       Global
 //
-// %nav__clear {
-//     &:after {
-//         content: "";
-//         clear: both;
-//         display: table;
-//     }
-// }
-// .nav--primary {
-//     background-color: $nav--primary__bg;
-//     .icon {
-//         margin-right: rhythm(.25);
-//     }
-//     .nav__link {
-//         color: $nav--primary__color;
-//         float: left;
-//         padding: rhythm(.75) rhythm(1.5);
-//         &:not(:first-child) {
-//         }
-//         &:hover, &:focus, &:active {
-//             color: $nav--primary__color;
-//             background-color: shade($nav--primary__bg, 5%);
-//         }
-//         &.active {
-//             color: $nav--primary__color;            
-//             background-color: shade($nav--primary__bg, 8%);
-//         }
-//     }
-//     // @extend %nav__clear;
-// }
-
-// %nav__font {
-//     font-family: "Montserrat Webfont";
-//     font-size: .75em;
-//     letter-spacing: .1em;
-//     text-transform: uppercase;
-//     .icon {
-//         font-size: 1.5em;
-//         position: relative;
-//         top: rhythm(.05);
-//     }
-// }
-// %go__left {
-//     float: left;
-// }
-// .nav__prev {
-//     @extend %go__left;
-//     @extend %nav__font;
-//     .icon {
-//         margin-right: rhythm(.25);
-//     }
-// }
-// .nav__logo {
-//     @extend %go__left;
-//     margin-left: rhythm(1.5) * -1;
-// }
-
-
-// %go__right {
-//     float: right;
-// }
-// .nav__next {
-//     @extend %go__right;
-//     @extend %nav__font;
-//     .icon {
-//         margin-left: rhythm(.25);
-//     }
-// }
-// .nav__menu {
-//     @extend %go__right;
-//     margin-right: rhythm(1.5) * -1;
-// }
-
-
-
-
 .count__group {
     counter-reset: count__group;
 }

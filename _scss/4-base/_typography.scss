@@ -26,8 +26,8 @@ h5 {
 h6, small {
     @include adjust-font-size-to($h6);
 }
-p, ul {
-    @include margin-leader(1);
+p {
+    @include margin-leader(2);
     line-height: $base-font-ratio * 1.5;
 }
 a {
@@ -39,10 +39,11 @@ a {
     color: tint($body__color, 40%);
 }
 strong {
-    font-weight: 600;
+    font-weight: 700;
 }
 em {
-    font-style: italic;
+    font-style: normal;
+    font-weight: 700;
 }
 // .overflow-ellipsis {
 //     text-overflow: ellipsis;
@@ -55,4 +56,12 @@ em {
 code, pre {
     font-family: "Source Code Pro";
     line-height: rhythm(1.5);
+}
+::-moz-selection {
+    color: inherit;
+    background: inherit;
+}
+::selection {
+    color: inherit;
+    background: inherit;
 }
