@@ -115,10 +115,32 @@ $(function() {
   // toggle nav secondary
   $('#nav__secondary__toggle').click(function(e) {
     e.preventDefault();
-    $(this).parent().toggleClass("nav__secondary--isOpen");
+    if ( $("#nav__secondary").hasClass("nav__secondary--isOpen") == true) {
+      $("#nav__secondary").removeClass("nav__secondary--isOpen");
+      localStorage.setItem('nav__check', 'false');
+      // console.log("is closed");
+    }
+    else {
+      $("#nav__secondary").addClass("nav__secondary--isOpen");
+      localStorage.setItem('nav__check', 'true');
+      // console.log("is open");
+    }
   });
 
-
+  // toggle nav secondary cookies
+  var nav__check = localStorage.getItem('nav__check');
+  if (nav__check == 'true') {
+    $("#nav__secondary").addClass("nav__secondary--isOpen noAnimation");
+    setTimeout(function(){
+      $("#nav__secondary").removeClass("noAnimation");
+    }, 500);
+    // console.log("keep it open");
+  }
+  else {
+    $("#nav__secondary").removeClass("nav__secondary--isOpen");    
+    // console.log("keep it closed");
+  }
+  
   // make sure topics page always shows something
   // var topics__url = $('.nav--primary .nav__link[href*="topics"]').attr("href");
   // var topics__url = topics__url + "#all";

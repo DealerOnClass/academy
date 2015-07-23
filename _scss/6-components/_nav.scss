@@ -205,6 +205,18 @@
 //
 //  Nav Active States   Global
 //
+
+
+// #nav__link--group1:hover 
+// #nav__link--group2:hover 
+// #nav__link--group3:hover 
+// #nav__link--group4:hover 
+
+
+
+
+
+
 .nav__primary,
 .home .nav__secondary,
 .topics .nav__secondary,
@@ -347,6 +359,9 @@
     width: 0;
     @include transform( translate3d(0, 0, 0) );
     @include transition( width .5s ease-in-out 0s);
+}
+.noAnimation {
+    @include transition( none );    
 }
 #nav__secondary__toggle,
 #nav__secondary__collapse {
