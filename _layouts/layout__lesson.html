@@ -2,130 +2,103 @@
 layout: default
 class: "lessons"
 ---
-<article class="grid__row">
-    <div class="grid__col--current count__group">
-        <div class="sidebar">
-            <div class="sidebar__header">
-                <h5>With this Lesson</h5>
-            </div>
-            <div class="sidebar__body">
-                <div class="sidebar__item no__height separation">
+<nav class="hero__nav">
+    <div class="grid__container">
+        <div class="nav__group">
+            <div class="dropdown [ nav__link ]">
+                <a data-toggle="dropdown">
+                    <span class="nav__icon [ icon icon-pricetag ]"></span>
+                </a>
+                <div class="dropdown-menu">
+                    <p><strong>Tag</strong></p>
+                    <p>
                     {% for tags in page.tags %}
                     <a class="tag" href="{{ '/topics/#' | append: tags | prepend: site.baseurl | remove:' ' }}">{{ tags }}</a>
                     {% endfor %}
-                </div>
-                <div class="sidebar__item separation" id="check">
-                    {% for group in page.groups %}
-                        <span class="group__count"></span>
-                        <span class="group__ghost">{{ group }}</span>
-                        <span class="{{ group | append: '__progress' }}">•</span>
-                    {% endfor %}
-                </div>
-                <div class="sidebar__item separation">
-                    {% if page.assignment %}
-                    <a class="sidebar__link--large" href="{{ page.assignment | prepend: site.baseurl }}">
-                        <span class="icon icon-pencil"></span>
-                        <span class="text">{{ page.assignment }}</span>
+                    </p>
+                    <a class="dropdown__footer" href="{{ '/topics' | prepend: site.baseurl }}">
+                        <span class="nav__icon [ icon icon-arrow-right ]"></span>
+                        <span class="nav__text">All Tags</span>
                     </a>
-                    {% endif %}
-                </div>
-                <div class="sidebar__item">
-                    {% if page.reference %}
-                    <a class="sidebar__link--large" href="{{ page.reference }}" target="_blank">
-                        <span class="icon icon-share"></span>
-                        <span class="text">{{ page.reference | remove: 'http://www.' }}</span>
-                    </a>
-                    {% endif %}              
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="grid__col--sidebar">
-        <div class="sidebar">
-            <header class="sidebar__header">
-                <h5>All Lessons</h5>
-            </header>
-            <div class="sidebar__body">
-            {% for category in site.categories %}
-                <h5 class="sidebar__item [ category ]">
-                    <strong>{{ category | first }}</strong>
-                    <div class="icon__group">
-                        <div class="icon__item">
-                            <a href="">
-                                <span class="icon icon-minus"></span>
-                            </a>
-                        </div>
-                    </div>
-                </h5>
-                {% for posts in category %}
-                {% for post in posts reversed %}
-                <div class="sidebar__item">
-                    <a class="sidebar__link nav__link" data-target="nav__isActive" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
-                        {{ post.title }}
-                    </a>
-                    <div class="icon__group">
-                        <div class="icon__item">
-                            {% for group in post.groups %}
-                            <span class="nav__progress {{ group | append: '__progress' }}" data-target="{{ group | append: '__count' }}">•</span>
-                            {% endfor %}
-                        </div>
-                        <div class="icon__item">
-                            <a href="{{ post.reference }}" target="_blank">
-                                <span class="icon icon-share"></span>
-                            </a>
-                        </div>
-                        <div class="icon__item">
-                            <a href="{{ post.assignment }}">
-                                <span class="icon icon-pencil"></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-                {% endfor %}
-            {% endfor %}
-            </div>
-        </div>
-    </div>
-    <div class="grid__col--hero">
-        <div class="hero">
-            <header class="hero__header">
-            {% if page.isFirst %}
-                <a class="nav__prev" href="{{ '/' | prepend: site.baseurl }}">
-                    <span class="icon icon-arrow-left"></span>
-                    Home
+            <div class="dropdown [ nav__link ]">
+                <a data-toggle="dropdown">
+                    <span class="nav__icon [ icon icon-share ]"></span>
                 </a>
-            {% endif %}
-
-            {% for category in site.categories %}
-            {% assign catg_name = category.first %}
-                {% if catg_name == page.categories.first | downcase %}
-                    {% assign catg_posts = category.last %}
-                {% endif %}
-            {% endfor %}
-            {% for post in catg_posts %}
-                {% if post.title == page.title %}
-                    {% unless forloop.last %}
-                        {% assign next = catg_posts[forloop.index] %}
-                        <a class="nav__prev" href="{{ site.baseurl }}{{ next.url }}">
-                            <span class="icon icon-arrow-left"></span>
-                            {{ next.title }}
-                        </a>
-                    {% endunless %}
-                    {% unless forloop.first %}
-                        <a class="nav__next" href="{{ site.baseurl }}{{ prev.url }}">
-                            {{ prev.title }}
-                            <span class="icon icon-arrow-right"></span>
-                        </a>
-                    {% endunless %}
-                {% endif %}
-                {% assign prev = post %}
-            {% endfor %}
-            </header>
-            <div class="hero__body">
-                <h3>{{ page.title }}</h3>
-                {{ content }}
+                <div class="dropdown-menu">
+                    <p><strong>References</strong></p>
+                    <ul class="list--bullets">
+                        {% if page.reference %}
+                        <li><a href="{{ page.reference }}" target="_blank">{{ page.reference | remove: 'http://www.' }}</a></li>
+                        {% endif %}
+                    </ul>
+                    <a class="dropdown__footer" href="{{ '/references' | prepend: site.baseurl }}">
+                        <span class="nav__icon [ icon icon-arrow-right ]"></span>
+                        <span class="nav__text">All References</span>
+                    </a>
+                </div>
+            </div>
+            <div class="dropdown [ nav__link ]">
+                <a data-toggle="dropdown">
+                    <span class="nav__icon [ icon icon-pencil ]"></span>
+                </a>
+                <div class="dropdown-menu">
+                    <p><strong>Assignments</strong></p>
+                    <ul class="list--bullets">
+                        {% if page.assignment %}
+                        <li><a href="{{ page.assignment | prepend: site.baseurl }}">{{ page.assignment }}</a></li>
+                        {% endif %}
+                    </ul>
+                    <a class="dropdown__footer" href="{{ '/assignments' | prepend: site.baseurl }}">
+                        <span class="nav__icon [ icon icon-arrow-right ]"></span>
+                        <span class="nav__text">All Assignments</span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-</article>
+</nav>
+<div class="grid__container">
+    <div class="hero">
+
+        <div class="hero__body">
+            <h3>{{ page.title }}</h3>
+            {{ content }}
+        </div>
+
+        <header class="hero__header">
+        {% if page.isFirst %}
+            <a class="nav__prev" href="{{ '/' | prepend: site.baseurl }}">
+                <span class="icon icon-arrow-left"></span>
+                Home
+            </a>
+        {% endif %}
+
+        {% for category in site.categories %}
+        {% assign catg_name = category.first %}
+            {% if catg_name == page.categories.first | downcase %}
+                {% assign catg_posts = category.last %}
+            {% endif %}
+        {% endfor %}
+        {% for post in catg_posts %}
+            {% if post.title == page.title %}
+                {% unless forloop.last %}
+                    {% assign next = catg_posts[forloop.index] %}
+                    <a class="nav__prev" href="{{ site.baseurl }}{{ next.url }}">
+                        <span class="icon icon-arrow-left"></span>
+                        {{ next.title }}
+                    </a>
+                {% endunless %}
+                {% unless forloop.first %}
+                    <a class="nav__next" href="{{ site.baseurl }}{{ prev.url }}">
+                        {{ prev.title }}
+                        <span class="icon icon-arrow-right"></span>
+                    </a>
+                {% endunless %}
+            {% endif %}
+            {% assign prev = post %}
+        {% endfor %}
+        </header>
+    </div>
+</div>
