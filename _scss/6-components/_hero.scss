@@ -1,5 +1,5 @@
 .hero {
-    @include padding-leader(4);
+    @include rhythm-padding(4,8);
     ::-moz-selection {
         color: white;
         background: $hero__header__bg;

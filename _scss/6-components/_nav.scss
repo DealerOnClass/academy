@@ -9,6 +9,9 @@
 .nav__secondary {
     float: left;
 }
+.nav__right {
+    float: right;
+}
 
 ////////////////////////////////
 //
@@ -147,9 +150,29 @@
     .nav__text {
         margin-left: $grid__gutter / 2;
     }
+    &:after {
+        content: "";
+        clear: both;
+        display: table;
+    }
 }
 .hero__nav__collapse {
     @include padding-trailer(3);
+}
+
+.hero__nav {
+    .nav__prev,
+    .nav__next {
+        width: auto;   
+    }
+    .nav__prev {
+        .nav__text {
+            margin-left: 0;
+        }
+        .nav__icon {
+            margin-left: $grid__gutter / 2;        
+        }
+    }
 }
 
 ////////////////////////////////

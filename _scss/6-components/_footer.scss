@@ -1,5 +1,17 @@
 .footer {
-    background-color: $body__bg;
-    border-top: 1px solid shade($body__bg, 10%);
-    @include rhythm-padding(2,4);
+    display: none;
+    @include padding-trailer(8);
+    .grid__container {
+        overflow: hidden;
+    }
+    //     &:before {
+    //         content: "blahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblah";
+    //         font-size: 2em;
+    //         color: $layout__hero__bg;
+    //         text-decoration: underline;
+    //         text-decoration-style: wavy;
+    //         text-decoration-color: shade($layout__hero__bg, 5%);
+    //     }
+    //     // border-top: rhythm(.05) solid shade($layout__hero__bg, 20%);
+    // }
 }

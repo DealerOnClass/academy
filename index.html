@@ -3,7 +3,7 @@ layout: default
 title: home
 active: home
 ---
-<nav class="hero__nav">
+<header class="hero__nav">
     <div class="grid__container">
         <div class="nav__group">
             <div class="dropdown [ nav__link ]">
@@ -11,7 +11,7 @@ active: home
                     <span class="nav__icon [ icon icon-pricetag ]"></span>
                 </a>
                 <div class="dropdown-menu">
-                    <p><strong>Tag</strong></p>
+                    <p><strong>Topics</strong></p>
                     <p>
                         <a class="tag">tag</a>
                         <a class="tag">another tag</a>
@@ -57,21 +57,21 @@ active: home
                     </a>
                 </div>
             </div>
+            <div class="nav__right">
+                {% for post in site.posts %}
+                {% if post.isFirst %}
+                <a class="nav__link" href="{{ post.url | prepend: site.baseurl }}">
+                    <!-- <span class="nav__text">Get Started</span> -->
+                    <span class="nav__icon [ icon icon-arrow-right ]"></span>
+                </a>
+                {% endif %}
+                {% endfor %}
+            </div>
         </div>
     </div>
-</nav>
-<div class="grid__container">
+</header>
+<section class="grid__container">
     <div class="hero">
-        <!-- <header class="hero__header">
-            {% for post in site.posts %}
-            {% if post.isFirst %}
-            <a class="nav__next" href="{{ post.url | prepend: site.baseurl }}">
-                Get Started
-                <span class="icon icon-arrow-right"></span>
-            </a>
-            {% endif %}
-            {% endfor %}
-        </header> -->
         <h3>Dealeron Academy <em>Legend</em></h3>
         <p><strong>How to use this site:</strong><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore exercitationem consectetur repudiandae dolor libero, optio est velit itaque, possimus pariatur dolorum a rem dolore quidem repellendus minus laudantium reiciendis! Necessitatibus.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus ad facere vitae placeat impedit animi! Ipsam, eum. Nisi atque iusto itaque expedita quasi consequatur, ratione incidunt quae eligendi porro, inventore neque eius repellendus error libero adipisci saepe doloremque et. Sequi!</p>
@@ -102,4 +102,18 @@ active: home
             </div>
         </div>
     </div>    
-</div>
+</section>
+<footer class="hero__nav">
+    <div class="grid__container">
+        <div class="nav__right">
+            {% for post in site.posts %}
+            {% if post.isFirst %}
+            <a class="nav__link nav__prev" href="{{ post.url | prepend: site.baseurl }}">
+                <span class="nav__text">{{ post.title }}</span>                
+                <span class="nav__icon [ icon icon-arrow-right ]"></span>
+            </a>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</footer>

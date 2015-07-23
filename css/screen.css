@@ -220,14 +220,14 @@ code, pre {
 
 .highlight {
   color: white;
-  background: #040404;
+  background-color: #1f2022;
   padding: 0.1333em 0.6665em;
   -moz-border-radius: 0.33325em;
   -webkit-border-radius: 0.33325em;
   border-radius: 0.33325em;
   box-sizing: border-box;
   margin-top: 1.333em;
-  margin-bottom: 2.666em;
+  margin-bottom: 3.999em;
   position: relative;
 }
 .highlight:after {
@@ -238,6 +238,24 @@ code, pre {
 .highlight pre {
   white-space: normal;
   word-break: break-all;
+}
+
+.renders {
+  font-weight: 600;
+  color: #b6b6b6;
+  border-bottom: 0.06665em solid #424345;
+  background-color: #1f2022;
+  margin-top: 1.333em;
+  -moz-border-radius: 0.33325em 0.33325em 0 0;
+  -webkit-border-radius: 0.33325em;
+  border-radius: 0.33325em 0.33325em 0 0;
+  padding: 1.333em 1.9995em;
+}
+
+.renders + .highlight {
+  margin-top: 0em;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
 }
 
 .lineno {
@@ -413,13 +431,13 @@ code, pre {
   width: 10000px;
 }
 
-.grid__container {
+.grid__container, .grid__row, [class^="grid__col--"] {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-.grid__container:after {
+.grid__container:after, .grid__row:after {
   content: "";
   clear: both;
   display: table;
@@ -430,6 +448,26 @@ code, pre {
   padding-left: 1.333em;
   margin: 0 auto;
   max-width: 40em;
+}
+
+.grid__row {
+  margin-right: -1.333em;
+}
+
+[class^="grid__col--"] {
+  float: left;
+  position: relative;
+  padding-right: 1.333em;
+}
+
+.grid__col--sidebar {
+  width: 6em;
+}
+
+.grid__col--table {
+  float: none;
+  width: 10000px;
+  display: table-cell;
 }
 
 ul, li + li {
@@ -449,6 +487,10 @@ ul, li + li {
 .nav__primary,
 .nav__secondary {
   float: left;
+}
+
+.nav__right {
+  float: right;
 }
 
 .nav__link {
@@ -554,9 +596,25 @@ ul, li + li {
 .hero__nav .nav__text {
   margin-left: 0.6665em;
 }
+.hero__nav:after {
+  content: "";
+  clear: both;
+  display: table;
+}
 
 .hero__nav__collapse {
   padding-bottom: 3.999em;
+}
+
+.hero__nav .nav__prev,
+.hero__nav .nav__next {
+  width: auto;
+}
+.hero__nav .nav__prev .nav__text {
+  margin-left: 0;
+}
+.hero__nav .nav__prev .nav__icon {
+  margin-left: 0.6665em;
 }
 
 .collapse__panel .nav__text {
@@ -814,6 +872,7 @@ ul, li + li {
 
 .hero {
   padding-top: 5.332em;
+  padding-bottom: 10.664em;
 }
 .hero ::-moz-selection {
   color: white;
@@ -822,6 +881,14 @@ ul, li + li {
 .hero ::selection {
   color: white;
   background: #2c77dd;
+}
+
+.footer {
+  display: none;
+  padding-bottom: 10.664em;
+}
+.footer .grid__container {
+  overflow: hidden;
 }
 
 .tag {

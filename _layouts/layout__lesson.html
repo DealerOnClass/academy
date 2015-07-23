@@ -2,7 +2,7 @@
 layout: default
 class: "lessons"
 ---
-<nav class="hero__nav">
+<header class="hero__nav">
     <div class="grid__container">
         <div class="nav__group">
             <div class="dropdown [ nav__link ]">
@@ -10,7 +10,7 @@ class: "lessons"
                     <span class="nav__icon [ icon icon-pricetag ]"></span>
                 </a>
                 <div class="dropdown-menu">
-                    <p><strong>Tag</strong></p>
+                    <p><strong>Topics</strong></p>
                     <p>
                     {% for tags in page.tags %}
                     <a class="tag" href="{{ '/topics/#' | append: tags | prepend: site.baseurl | remove:' ' }}">{{ tags }}</a>
@@ -56,10 +56,43 @@ class: "lessons"
                     </a>
                 </div>
             </div>
+            <div class="nav__right">
+                {% if page.isFirst %}
+                    <a class="nav__link" href="{{ '/' | prepend: site.baseurl }}">
+                        <span class="nav__icon [ icon icon-arrow-left ]"></span>
+                        <!-- <span class="nav__text">Home</span> -->
+                    </a>
+                {% endif %}
+                
+                {% for category in site.categories %}
+                {% assign catg_name = category.first %}
+                    {% if catg_name == page.categories.first | downcase %}
+                        {% assign catg_posts = category.last %}
+                    {% endif %}
+                {% endfor %}
+                {% for post in catg_posts %}
+                    {% if post.title == page.title %}
+                        {% unless forloop.last %}
+                            {% assign next = catg_posts[forloop.index] %}
+                            <a class="nav__link" href="{{ site.baseurl }}{{ next.url }}">
+                                <span class="nav__icon [ icon icon-arrow-left ]"></span>
+                                <!-- <span class="nav__text">{{ next.title }}</span> -->
+                            </a>
+                        {% endunless %}
+                        {% unless forloop.first %}
+                            <a class="nav__link" href="{{ site.baseurl }}{{ prev.url }}">
+                                <!-- <span class="nav__text">{{ prev.title }}</span> -->
+                                <span class="nav__icon [ icon icon-arrow-right ]"></span>
+                            </a>
+                        {% endunless %}
+                    {% endif %}
+                    {% assign prev = post %}
+                {% endfor %}
+            </div>
         </div>
     </div>
-</nav>
-<div class="grid__container">
+</header>
+<section class="grid__container">
     <div class="hero">
 
         <div class="hero__body">
@@ -67,14 +100,20 @@ class: "lessons"
             {{ content }}
         </div>
 
-        <header class="hero__header">
+        
+        
+
+    </div>
+</section>
+<footer class="hero__nav">
+    <div class="grid__container">
         {% if page.isFirst %}
-            <a class="nav__prev" href="{{ '/' | prepend: site.baseurl }}">
-                <span class="icon icon-arrow-left"></span>
-                Home
+            <a class="nav__link nav__next" href="{{ '/' | prepend: site.baseurl }}">
+                <span class="nav__icon [ icon icon-arrow-left ]"></span>
+                <span class="nav__text">Home</span>
             </a>
         {% endif %}
-
+        
         {% for category in site.categories %}
         {% assign catg_name = category.first %}
             {% if catg_name == page.categories.first | downcase %}
@@ -85,20 +124,22 @@ class: "lessons"
             {% if post.title == page.title %}
                 {% unless forloop.last %}
                     {% assign next = catg_posts[forloop.index] %}
-                    <a class="nav__prev" href="{{ site.baseurl }}{{ next.url }}">
-                        <span class="icon icon-arrow-left"></span>
-                        {{ next.title }}
+                    <a class="nav__link nav__next" href="{{ site.baseurl }}{{ next.url }}">
+                        <span class="nav__icon [ icon icon-arrow-left ]"></span>
+                        <span class="nav__text">{{ next.title }}</span>
                     </a>
                 {% endunless %}
                 {% unless forloop.first %}
-                    <a class="nav__next" href="{{ site.baseurl }}{{ prev.url }}">
-                        {{ prev.title }}
-                        <span class="icon icon-arrow-right"></span>
-                    </a>
+                    <div class="nav__right">
+                        <a class="nav__link nav__prev" href="{{ site.baseurl }}{{ prev.url }}">
+                            <span class="nav__text">{{ prev.title }}</span>
+                            <span class="nav__icon [ icon icon-arrow-right ]"></span>
+                        </a>
+                    </div>
                 {% endunless %}
             {% endif %}
             {% assign prev = post %}
         {% endfor %}
-        </header>
+        </div>
     </div>
-</div>
+</footer>
