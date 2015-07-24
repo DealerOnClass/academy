@@ -46,7 +46,63 @@ $(function() {
         // e.preventDefault();
     });
   });
+
+  // //  Scroll
+  // var heroTop = $(".lessons .hero").offset().top;
+  // // console.log(heroTop);
+
+  // $(document).scroll(function() {
+
+  //   var distanceTop = $(document).scrollTop();
+  //   // console.log(distanceTop);
+
+  //   if(distanceTop > heroTop) {
+  //       console.log("Animate Header Start");
+  //   } else {
+  //       console.log("Animate Header Stop");
+  //   }
+
+  // });
+
 });
+
+
+// https://github.com/codrops/AnimatedHeader/blob/master/js/classie.js
+// var cbpAnimatedHeader = (function() {
+
+//   var docElem = document.documentElement,
+//     header = document.querySelector( '.lessons .layout__hero' ),
+//     didScroll = false,
+//     changeHeaderOn = 300;
+
+//   function init() {
+//     window.addEventListener( 'scroll', function( event ) {
+//       if( !didScroll ) {
+//         didScroll = true;
+//         setTimeout( scrollPage, 250 );
+//       }
+//     }, false );
+//   }
+
+//   function scrollPage() {
+//     var sy = scrollY();
+//     if ( sy >= changeHeaderOn ) {
+//       classie.add( header, 'isSticky' );
+//     }
+//     else {
+//       classie.remove( header, 'isSticky' );
+//     }
+//     didScroll = false;
+//   }
+
+//   function scrollY() {
+//     return window.pageYOffset || docElem.scrollTop;
+//   }
+
+//   init();
+
+// })();
+
 
   // // change title on topics page on page load
   // $('.topics .lesson__header [data-target="title__isActive"]').text(hashUrl);

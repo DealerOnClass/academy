@@ -86,6 +86,10 @@ a:focus {
   content: "\e087";
 }
 
+.icon-arrow-up:before {
+  content: "\e08b";
+}
+
 .icon-arrow-right:before {
   content: "\e08c";
 }
@@ -425,7 +429,10 @@ code, pre {
 }
 
 .layout__nav {
+  background-color: #131416;
   float: left;
+  position: relative;
+  z-index: 1500;
 }
 
 .layout__hero {
@@ -492,7 +499,8 @@ ul, li + li {
 }
 
 .nav__primary,
-.nav__secondary {
+.nav__secondary,
+.nav__left {
   float: left;
 }
 
@@ -510,7 +518,8 @@ ul, li + li {
   background-color: #0d0e0f;
 }
 
-.nav__primary .nav__link, .nav__secondary .nav__toggle, .nav__secondary .nav__link, .hero__nav .nav__link {
+.nav__primary .nav__link, .nav__secondary .nav__toggle, .nav__secondary .nav__link, .hero__nav .nav__link, .hero__sticky__right .nav__title,
+.hero__sticky__left .nav__title {
   display: block;
   padding: 1.66625em 1.9995em;
   height: 1em;
@@ -613,6 +622,10 @@ ul, li + li {
   padding-bottom: 3.999em;
 }
 
+.hero__nav {
+  position: relative;
+  z-index: 1000;
+}
 .hero__nav .nav__prev,
 .hero__nav .nav__next {
   width: auto;
@@ -622,6 +635,42 @@ ul, li + li {
 }
 .hero__nav .nav__prev .nav__icon {
   margin-left: 0.6665em;
+}
+
+.hero__sticky__right {
+  right: 1.333em;
+}
+
+.hero__sticky__left {
+  left: 5.66525em;
+}
+
+.hero__sticky__right,
+.hero__sticky__left {
+  color: #a0a0a0;
+  background-color: #e4e4e4;
+  position: fixed;
+  top: -0.06665em;
+  z-index: 500;
+}
+.hero__sticky__right .nav__group,
+.hero__sticky__left .nav__group {
+  overflow: hidden;
+}
+.hero__sticky__right .nav__title,
+.hero__sticky__left .nav__title {
+  position: relative;
+  top: -0.1333em;
+}
+.hero__sticky__right .nav__link:hover, .hero__sticky__right .nav__link:active, .hero__sticky__right .nav__link:focus,
+.hero__sticky__left .nav__link:hover,
+.hero__sticky__left .nav__link:active,
+.hero__sticky__left .nav__link:focus {
+  background-color: #dbdbdb;
+}
+
+section.grid__container {
+  z-index: 250;
 }
 
 .collapse__panel .nav__text {

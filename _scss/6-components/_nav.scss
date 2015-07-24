@@ -6,7 +6,8 @@
     overflow: hidden;
 }
 .nav__primary,
-.nav__secondary {
+.nav__secondary,
+.nav__left {
     float: left;
 }
 .nav__right {
@@ -162,6 +163,8 @@
 }
 
 .hero__nav {
+    position: relative;
+    z-index: 1000;
     .nav__prev,
     .nav__next {
         width: auto;   
@@ -175,6 +178,45 @@
         }
     }
 }
+
+
+////////////////////////////////
+//
+//  Nav Sticky          Global
+//
+.hero__sticky__right {
+    right: $grid__gutter;
+}
+.hero__sticky__left {
+    left: ($nav__horz * 1.5) + ($grid__gutter * 2);
+}
+.hero__sticky__right,
+.hero__sticky__left {
+    .nav__group {
+        overflow: hidden;
+    }
+    .nav__title {
+        @extend %nav__link__format;
+        position: relative;
+        top: rhythm(.1) * -1;
+    }
+    color: shade($layout__hero__bg,30%);
+    background-color: $layout__hero__bg;
+    // border-bottom: rhythm(.05) solid shade($layout__hero__bg,15%);
+    // border-left: rhythm(.05) solid shade($layout__hero__bg,15%);
+    position: fixed;
+    top: rhythm(.05) * -1;
+    z-index: 500;
+    .nav__link {
+        &:hover, &:active, &:focus {
+            background-color: shade($layout__hero__bg,4%);
+        }
+    }
+}
+section.grid__container {
+    z-index: 250;
+}
+
 
 ////////////////////////////////
 //
