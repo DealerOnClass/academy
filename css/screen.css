@@ -241,7 +241,7 @@ code, pre {
 }
 
 .renders {
-  font-weight: 600;
+  font-weight: 500;
   color: #b6b6b6;
   border-bottom: 0.06665em solid #424345;
   background-color: #1f2022;
@@ -250,6 +250,9 @@ code, pre {
   -webkit-border-radius: 0.33325em;
   border-radius: 0.33325em 0.33325em 0 0;
   padding: 1.333em 1.9995em;
+}
+.renders h1, .renders h2, .renders h3, .renders h4, .renders h5, .renders h6 {
+  font-weight: 500;
 }
 
 .renders + .highlight {

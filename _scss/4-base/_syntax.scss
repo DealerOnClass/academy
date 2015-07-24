@@ -39,7 +39,10 @@ $highlight__linenos: #807e7a;
 
 
 .renders {
-    font-weight: 600;
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: 500;
+    }
+    font-weight: 500;
     color: shade($layout__hero__bg, 20%);
     border-bottom: rhythm(.05) solid tint($body__bg, 20%);
     background-color: tint($body__bg, 5%);
