@@ -6,76 +6,56 @@ icon: "pricetag"
 ---
 <!-- nav__group: "navigation" -->
 <!-- Brilliant Solution | http://schoewilliam.fr/2015/02/10/jekyll-pro-tip-awesome-archive-page.html -->
-<div class="grid__row">
-    <div class="grid__col--sidebar">
-        <div class="sidebar">
-            <header class="sidebar__header">
-                <h5>All Topics</h5>
-            </header>
-            <div class="sidebar__body">
-                <div class="sidebar__item separation">
-                    <a class="sidebar__link nav__link" data-target="nav__isActive" href="#all">all</a>
-                </div>
-                {% for tag in site.tags sort %}
-                <div class="sidebar__item">
-                    <a class="sidebar__link nav__link {{ tag | first }}" data-target="nav__isActive" href="#{{ tag | first | remove:' ' }}">{{ tag | first }}</a>
-                </div>
-                {% endfor %}
-            </div>
+<header class="hero__nav">
+    <div class="grid__container">
+        <div class="nav__group">
+            <a class="nav__link active" href="{{ '/topics' | prepend: site.baseurl }}">
+                <span class="nav__icon [ icon icon-pricetag ]"></span>
+            </a>
+            <a class="nav__link" href="{{ '/references' | prepend: site.baseurl }}">
+                <span class="nav__icon [ icon icon-share ]"></span>
+            </a>
+            <a class="nav__link" href="{{ '/assignments' | prepend: site.baseurl }}">
+                <span class="nav__icon [ icon icon-pencil ]"></span>
+            </a>
         </div>
     </div>
-    <div class="grid__col--hero">
-        <div class="catbloc hero" id="all">
-            <header class="hero__header">
-                <h5 data-target="title__isActive">all</h5>
-            </header>
-            <div class="hero__body">
-                <div class="hero__item grid__row no__height separation">
-                    <div class="grid__col--half">&nbsp;</div>
-                    <div class="grid__col--half">&nbsp;</div>
-                </div>
-                {% for post in site.posts reversed %}
-                <div class="hero__item grid__row no__height">
-                    <div class="grid__col--half">
-                        <a class="nav__link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-                    </div>
-                    <div class="grid__col--half">
-                        {% for tag in post.tags %}
-                        <a class="nav__link tag" data-target="lesson__isActive" href="{{ '/topics/#' | append: tag | prepend: site.baseurl | remove:' ' }}">{{ tag }}</a>
-                        {% endfor %}
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-        {% for tag in site.tags %}
-        <div class="catbloc hero" id="{{ tag | first | remove:' ' }}">
-            <header class="hero__header">
-                <h5 data-target="title__isActive">Lessons</h5>
-            </header>
-            <div class="hero__body">
-                <div class="hero__item grid__row no__height separation">
-                    <div class="grid__col--half">&nbsp;</div>
-                    <div class="grid__col--half">&nbsp;</div>
-                </div>
+</header>
+<section class="grid__container">
+    <div class="hero">
+        <h3>Lessons <strong>by Tag</strong></h3>
+        {% assign sorted_tags = (site.tags | sort:0) %}
+        {% for tag in sorted_tags %}
+        <div class="panel" id="{{ tag | first | append: '__parent' }}">
+            <a class="panel__header [ nav__link nav__collapse ]" data-toggle="collapse" data-target="{{ tag | first | prepend: '#' | append: '__collapse' }}">
+                <strong class="nav__text">{{ tag | first | capitalize }}</strong>
+                <span class="nav__icon [ icon icon-minus ]" id="{{ tag | first | append: '__icon' }}"></span>
+            </a>
+            <div class="panel__body [ collapse in ]" id="{{ tag | first | append: '__collapse' }}">
+                <ul>
                 {% for posts in tag %}
                 {% for post in posts reversed %}
                 {% if post.url %}
-                <div class="hero__item grid__row no__height">
-                    <div class="grid__col--half">
-                        <a class="nav__link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-                    </div>
-                    <div class="grid__col--half">
+                <li class="grid__row">
+                    <a class="grid__col--third nav__link" href="{{ post.url | prepend: site.baseurl }}">
+                        <!-- {% for group in post.groups %}
+                        <span class="nav__icon [ group__icon group__icon--{{ group }} ]"></span>
+                        {% endfor %} -->
+                        {{ post.title }}
+                    </a>
+                    <div class="grid__col--table">
+                        <span class="nav__icon [ icon icon-pricetag ]"></span>                        
                         {% for tag in post.tags %}
-                        <a class="nav__link tag" data-target="lesson__isActive" href="{{ '/topics/#' | append: tag | prepend: site.baseurl | remove:' ' }}">{{ tag }}</a>
+                        <a class="tag" data-target="lesson__isActive" href="{{ '/topics/#' | append: tag | append: '__parent' | prepend: site.baseurl | remove:' ' }}">{{ tag }}</a>
                         {% endfor %}
                     </div>
-                </div>
+                </li>
                 {% endif %}
                 {% endfor %}
                 {% endfor %}
+                </ul>
             </div>
         </div>
         {% endfor %}
     </div>
-</div>
+</section>

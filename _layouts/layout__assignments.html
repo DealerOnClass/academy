@@ -1,7 +1,58 @@
 ---
 layout: default
 ---
-<article class="grid__row">
+<header class="hero__nav">
+    <div class="grid__container">
+        <div class="nav__group">
+            <a class="nav__link" href="{{ '/topics' | prepend: site.baseurl }}">
+                <span class="nav__icon [ icon icon-pricetag ]"></span>
+            </a>
+            <a class="nav__link" href="{{ '/references' | prepend: site.baseurl }}">
+                <span class="nav__icon [ icon icon-share ]"></span>
+            </a>
+            <a class="nav__link active" href="{{ '/assignments' | prepend: site.baseurl }}">
+                <span class="nav__icon [ icon icon-pencil ]"></span>
+            </a>
+        </div>
+    </div>
+</header>
+<section class="grid__container">
+    <div class="hero">
+        <h3>Assignments <strong>by Category</strong></h3>
+        {% assign sorted_categories = (site.categories | sort: 0) %}
+        {% for lesson in sorted_categories %}
+        <div class="panel" id="{{ lesson | first | append: '__parent' }}">
+            <a class="panel__header [ nav__link nav__collapse ]" data-toggle="collapse" data-target="{{ lesson | first | prepend: '#' | append: '__collapse' }}">
+                <strong class="nav__text">{{ lesson | first | capitalize }}</strong>
+                <span class="nav__icon [ icon icon-minus ]" id="{{ lesson | first | append: '__icon' }}"></span>
+            </a>
+            <div class="panel__body [ collapse in ]" id="{{ lesson | first | append: '__collapse' }}">
+                <ul>
+                {% for posts in lesson %}
+                {% for post in posts reversed %}
+                {% if post.url %}
+                <li class="grid__row">
+                    <a class="grid__col--third nav__link" href="{{ post.url | prepend: site.baseurl }}">
+                        <!-- {% for group in post.groups %}
+                        <span class="nav__icon [ group__icon group__icon--{{ group }} ]"></span>
+                        {% endfor %} -->
+                        {{ post.title }}
+                    </a>
+                    <a class="grid__col--table nav__link" href="{{ post.assignment }}">
+                        <span class="nav__icon [ icon icon-pencil ]"></span>
+                        <span class="nav__text">{{ post.assignment }}</span>
+                    </a>
+                </li>
+                {% endif %}
+                {% endfor %}
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+<!-- <article class="grid__row">
     <div class="grid__col--sidebar">
         <div class="sidebar">
             <header class="sidebar__header">
@@ -63,4 +114,4 @@ layout: default
             </div>
         </div>
     </div>
-</article>
+</article> -->

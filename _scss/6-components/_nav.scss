@@ -24,7 +24,7 @@
     &.active {
         color: $nav__link__color--active;
     }
-    &:hover, &:active, &:focus {
+    &:hover, &:focus, &:active {
         background-color: $nav__link__bg--hover;
     }
 }
@@ -125,7 +125,7 @@
         padding-right: $grid__gutter;
         float: left;
         color: inherit;
-        width: 1em;
+        width: 1em;        
         &:hover, &:focus, &:active {
             background-color: $hero__header__link__bg--hover;
         }
@@ -137,6 +137,7 @@
             width: 1em;
             padding: $nav__vert $grid__gutter;
         }
+        &.active,
         &.open,
         .dropdown-menu {
             background-color: $hero__dropdown-menu__bg;
@@ -228,16 +229,6 @@
 //
 //  Nav Active States   Global
 //
-
-
-// #nav__link--group1:hover 
-// #nav__link--group2:hover 
-// #nav__link--group3:hover 
-// #nav__link--group4:hover 
-
-
-
-
 
 
 .nav__primary,

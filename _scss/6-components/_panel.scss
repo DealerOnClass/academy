@@ -1,40 +1,75 @@
 .panel {
-    @include padding-leader(2);
-}
-%vertical__rhythm {
-    @include padding-trailer(.75);
-    @include margin-trailer(.75);
-    &:after {
-        content: "";
-        clear: both;
-        display: block;
+    margin: $nav__vert 0;
+    border: rhythm(.05) solid shade($layout__hero__bg,15%);
+    @include border-radius(rhythm(.25));
+    overflow: hidden;
+    ul, li + li {
+        margin-top: 0;
+    }
+    .nav__link {
+        color: $primary__color;
+        padding: ($nav__vert / 2) $grid__gutter;            
+        @include border-radius( rhythm(.25) );
+        &:hover, &:focus, &:active {
+            background-color: transparent;
+            color: tint($primary__color,30%);
+        }
+    }
+    .tag {
+        color: tint($body__color,60%);
+        border-color: tint($body__color,60%);
+        &:hover, &:focus, &:active {
+            background-color: transparent;
+            color: tint($body__color,70%);
+            border-color: tint($body__color,70%);
+        }
+    }
+    .nav__text,
+    .nav__icon {
+        color: $body__color;
+    }
+    .nav__text {
+        text-transform: capitalize;
+    }
+    .grid__col--table {
+        padding-left: $grid__gutter;
     }
 }
-.panel__header {
-    @extend %vertical__rhythm;
+
+
+%panel__header {
+    display: block;
+    padding: ($nav__vert / 2) $grid__gutter;
+    background-color: shade($layout__hero__bg,2%);    
+    @include border-radius( rhythm(.25) rhythm(.25) 0 0);    
+    &:hover, &:focus, &:active {
+        background-color: shade($layout__hero__bg,4%);
+    }
 }
-.panel__body {
-    @extend %vertical__rhythm;
-}
-.panel__item {
-    @extend %vertical__rhythm;
-    height: rhythm(1);
-    .icon__group {
+.panel .panel__header,
+.topics .panel .panel__header.nav__link
+.references .panel .panel__header.nav__link {
+    @extend %panel__header;    
+    .nav__icon {
         float: right;
     }
 }
-.panel__link {
-    &:hover, &:active, &:focus {
-        cursor: pointer;
+
+
+.panel__body {
+    border-top: rhythm(.05) solid shade($layout__hero__bg,15%);        
+    .nav__text,
+    .nav__icon {
+        color: inherit;
     }
-    .icon__group {
-        display: block;
+    .nav__icon {
+        margin-right: $grid__gutter / 2;
     }
 }
-.overflow__ellipsis {
-    display: inline-block;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    width: 70%;
+
+
+.topics .panel__body {
+    .nav__icon {
+        color: tint($body__color,60%);
+    }
 }

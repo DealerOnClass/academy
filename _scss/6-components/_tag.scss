@@ -1,6 +1,5 @@
 .tag {
     display: inline-block;
-    position: relative;
     padding: rhythm(.05) rhythm(.5); 
     border: rhythm(.05) solid;
     @include border-radius(rhythm(.4));
