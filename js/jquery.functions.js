@@ -47,6 +47,25 @@ $(function() {
     });
   });
 
+
+  // count total posts in lessons page
+  var lesson__category = $("#count__category").attr("data-category");
+  var lesson__category = "#" + lesson__category;
+  // console.log(lesson__category);
+  var lesson__count = $("#nav__secondary__collapse " + lesson__category).children().length;
+  var lesson__count = lesson__count - 1;
+  // console.log(lesson__count);
+  var lesson__siblings = $("#nav__secondary__collapse .nav__link.active").parent().prevAll().length;
+  // console.log(lesson__siblings);
+  $("#count__siblings").html(lesson__siblings);
+  $("#count__category").html(lesson__count);
+
+
+
+
+
+
+
   // //  Scroll
   // var heroTop = $(".lessons .hero").offset().top;
   // // console.log(heroTop);
@@ -176,12 +195,14 @@ $('#nav__secondary__toggle').click(function(e) {
   e.preventDefault();
   if ( $("#nav__secondary").hasClass("nav__secondary--isOpen") == true) {
     $("#nav__secondary").removeClass("nav__secondary--isOpen");
+    $("#body").removeClass("nav--isOpen");
 
     localStorage.setItem('nav__check', 'false');
     console.log("is closed");
   }
   else {
     $("#nav__secondary").addClass("nav__secondary--isOpen");
+    $("#body").addClass("nav--isOpen");
 
     localStorage.setItem('nav__check', 'true');
     console.log("is open");
@@ -192,6 +213,7 @@ $('#nav__secondary__toggle').click(function(e) {
 var nav__check = localStorage.getItem('nav__check');
 if (nav__check == 'true') {
   $("#nav__secondary").addClass("nav__secondary--isOpen noAnimation");
+  $("#body").addClass("nav--isOpen");
   setTimeout(function(){
     $("#nav__secondary").removeClass("noAnimation");
   }, 500);
@@ -200,6 +222,7 @@ if (nav__check == 'true') {
 }
 else {
   $("#nav__secondary").removeClass("nav__secondary--isOpen");    
+  $("#body").removeClass("nav--isOpen");    
 
   console.log("keep it closed");
 }

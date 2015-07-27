@@ -74,11 +74,12 @@ class: "lessons"
                     {% if post.title == page.title %}
                         {% unless forloop.last %}
                             {% assign next = catg_posts[forloop.index] %}
-                            <a class="nav__link" href="{{ site.baseurl }}{{ next.url }}">
+                            <a class="nav__link nav__link--right" href="{{ site.baseurl }}{{ next.url }}">
                                 <span class="nav__icon [ icon icon-arrow-left ]"></span>
                                 <!-- <span class="nav__text">{{ next.title }}</span> -->
                             </a>
                         {% endunless %}
+                            
                         {% unless forloop.first %}
                             <a class="nav__link" href="{{ site.baseurl }}{{ prev.url }}">
                                 <!-- <span class="nav__text">{{ prev.title }}</span> -->
@@ -92,14 +93,14 @@ class: "lessons"
         </div>
     </div>
 </header>
-<div class="hero__nav hero__sticky__right">        
+<div class="hero__nav hero__sticky__right">
     <div class="nav__group">
         <div class="nav__right">
-            <a class="nav__link" href="{{ '/' | prepend: site.baseurl }}">
+            <a class="nav__link nav__link--home" href="{{ '/' | prepend: site.baseurl }}">
                 <span class="nav__icon [ icon icon-home ]"></span>
             </a>
             {% if page.isFirst %}
-                <a class="nav__link" href="{{ '/' | prepend: site.baseurl }}">
+                <a class="nav__link nav__link--right" href="{{ '/' | prepend: site.baseurl }}">
                     <span class="nav__icon [ icon icon-arrow-left ]"></span>
                     <!-- <span class="nav__text">Home</span> -->
                 </a>
@@ -115,7 +116,7 @@ class: "lessons"
                 {% if post.title == page.title %}
                     {% unless forloop.last %}
                         {% assign next = catg_posts[forloop.index] %}
-                        <a class="nav__link" href="{{ site.baseurl }}{{ next.url }}">
+                        <a class="nav__link nav__link--right" href="{{ site.baseurl }}{{ next.url }}">
                             <span class="nav__icon [ icon icon-arrow-left ]"></span>
                             <!-- <span class="nav__text">{{ next.title }}</span> -->
                         </a>
@@ -145,7 +146,14 @@ class: "lessons"
 <section class="grid__container">
     <div class="hero">
         <div class="hero__body">
-            <h3>{{ page.title }}</h3>
+            <div class="lesson__meta">
+                <span class="lesson__category">{% for category in page.categories %}{{ category | upcase }}{% endfor %}</span>
+                <span class="lesson__increment" id="count__siblings"></span>
+                <span class="lesson__total" id="count__category" data-category="{% for category in page.categories %}{{ category }}{% endfor %}"></span>
+            </div>
+            <h3 class="post__total">
+                {{ page.title }}
+            </h3>
             {{ content }}
         </div>
     </div>

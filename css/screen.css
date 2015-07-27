@@ -577,6 +577,8 @@ ul, li + li {
 .hero__nav {
   color: white;
   background-color: #2c77dd;
+  position: relative;
+  z-index: 1000;
 }
 .hero__nav .nav__group {
   margin-left: -1.333em;
@@ -612,20 +614,6 @@ ul, li + li {
 .hero__nav .nav__text {
   margin-left: 0.6665em;
 }
-.hero__nav:after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-.hero__nav__collapse {
-  padding-bottom: 3.999em;
-}
-
-.hero__nav {
-  position: relative;
-  z-index: 1000;
-}
 .hero__nav .nav__prev,
 .hero__nav .nav__next {
   width: auto;
@@ -635,6 +623,26 @@ ul, li + li {
 }
 .hero__nav .nav__prev .nav__icon {
   margin-left: 0.6665em;
+}
+.hero__nav .nav__right {
+  position: relative;
+}
+.hero__nav .nav__link--right {
+  position: absolute;
+  right: 3.666em;
+}
+.hero__nav .nav__link--home {
+  position: absolute;
+  right: 7.332em;
+}
+.hero__nav:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.hero__nav__collapse {
+  padding-bottom: 3.999em;
 }
 
 .hero__sticky__right {
@@ -653,9 +661,11 @@ ul, li + li {
   top: -0.06665em;
   z-index: 500;
 }
-.hero__sticky__right .nav__group,
-.hero__sticky__left .nav__group {
-  overflow: hidden;
+.hero__sticky__right .nav__group:after,
+.hero__sticky__left .nav__group:after {
+  content: "";
+  clear: both;
+  display: table;
 }
 .hero__sticky__right .nav__title,
 .hero__sticky__left .nav__title {
@@ -667,6 +677,10 @@ ul, li + li {
 .hero__sticky__left .nav__link:active,
 .hero__sticky__left .nav__link:focus {
   background-color: #dbdbdb;
+}
+
+.nav--isOpen .hero__sticky__left {
+  left: 25.66525em;
 }
 
 section.grid__container {
@@ -1039,4 +1053,26 @@ section.grid__container {
 
 .topics .panel__body .nav__icon {
   color: #aeafb1;
+}
+
+.lesson__meta {
+  overflow: hidden;
+  font-family: "Montserrat Webfont";
+  font-size: .8em;
+  margin-bottom: 0.6665em;
+}
+
+.lesson__category, .lesson__increment, .lesson__total {
+  float: left;
+  display: inline-block;
+}
+
+.lesson__category {
+  margin-right: 0.6665em;
+}
+
+.lesson__increment:after {
+  content: "of";
+  display: inline-block;
+  padding: 0 0.33325em;
 }

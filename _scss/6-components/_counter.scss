@@ -1,0 +1,29 @@
+.lesson__meta {
+    overflow: hidden;
+    font-family: "Montserrat Webfont";
+    font-size: .8em;
+    // color: $blue;
+    @include margin-trailer(.5);
+}
+
+%lesson__format {
+    float: left;
+    display: inline-block;
+}
+.lesson__category {
+    @extend %lesson__format;
+    margin-right: rhythm(.5);
+    
+}
+.lesson__increment {
+    @extend %lesson__format;
+    &:after {
+        content: "of";
+        display: inline-block;
+        padding: 0 rhythm(.25);
+    }    
+}
+.lesson__total {
+    @extend %lesson__format;
+    
+}
