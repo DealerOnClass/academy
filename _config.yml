@@ -2,8 +2,8 @@ name: DealerOn Academy
 highlighter: pygments # or rouge or null
 exclude: ["node_modules", "gulpfile.js", "package.json"]
 
-baseurl: "" # use for local
-# baseurl: "/academy" # use for github
+# baseurl: "" # use for local
+baseurl: "/academy" # use for github
 # url: ""
 
 # Build settings
