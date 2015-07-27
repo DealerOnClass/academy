@@ -142,11 +142,11 @@ html {
 }
 
 body {
+  min-width: 1000px;
   font-family: "Raleway Webfont";
   font-weight: 400;
   color: #34383b;
   background-color: #131416;
-  counter-reset: lesson__count;
 }
 
 h1 {
@@ -725,32 +725,29 @@ section.grid__container {
   border-radius: 50%;
 }
 
-.nav__primary .group__icon--group1,
-.home .nav__secondary .group__icon--group1,
-.topics .nav__secondary .group__icon--group1,
-.references .nav__secondary .group__icon--group1,
-.assignments .nav__secondary .group__icon--group1 {
+.nav__primary .group__icon--group1 {
   color: #3cb6ff;
 }
-.nav__primary .group__icon--group2,
-.home .nav__secondary .group__icon--group2,
-.topics .nav__secondary .group__icon--group2,
-.references .nav__secondary .group__icon--group2,
-.assignments .nav__secondary .group__icon--group2 {
+.nav__primary .group__icon--group2 {
   color: #f7ad4e;
 }
-.nav__primary .group__icon--group3,
-.home .nav__secondary .group__icon--group3,
-.topics .nav__secondary .group__icon--group3,
-.references .nav__secondary .group__icon--group3,
-.assignments .nav__secondary .group__icon--group3 {
+.nav__primary .group__icon--group3 {
   color: #54c56b;
 }
-.nav__primary .group__icon--group4,
-.home .nav__secondary .group__icon--group4,
-.topics .nav__secondary .group__icon--group4,
-.references .nav__secondary .group__icon--group4,
-.assignments .nav__secondary .group__icon--group4 {
+.nav__primary .group__icon--group4 {
+  color: #f84f28;
+}
+
+.home .nav__secondary .group__icon--group1, .topics .nav__secondary .group__icon--group1, .references .nav__secondary .group__icon--group1, .assignments .nav__secondary .group__icon--group1 {
+  color: #3cb6ff;
+}
+.home .nav__secondary .group__icon--group2, .topics .nav__secondary .group__icon--group2, .references .nav__secondary .group__icon--group2, .assignments .nav__secondary .group__icon--group2 {
+  color: #f7ad4e;
+}
+.home .nav__secondary .group__icon--group3, .topics .nav__secondary .group__icon--group3, .references .nav__secondary .group__icon--group3, .assignments .nav__secondary .group__icon--group3 {
+  color: #54c56b;
+}
+.home .nav__secondary .group__icon--group4, .topics .nav__secondary .group__icon--group4, .references .nav__secondary .group__icon--group4, .assignments .nav__secondary .group__icon--group4 {
   color: #f84f28;
 }
 
