@@ -65,6 +65,9 @@ $highlight__linenos: #807e7a;
     //     border-bottom: rhythm(.05) solid tint($body__bg, 20%);
     //     background-color: tint($body__bg, 5%);
     // }
+    p {
+        margin-top: 0;
+    }
 }
 .renders + .highlight {
     @include margin-leader(0);

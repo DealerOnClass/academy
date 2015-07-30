@@ -1,29 +1,33 @@
 .lesson__meta {
-    overflow: hidden;
-    font-family: "Montserrat Webfont";
-    font-size: .8em;
+    overflow: hidden;    
     // color: $blue;
     @include margin-trailer(.5);
 }
 
 %lesson__format {
-    float: left;
+    font-family: "Montserrat Webfont";
+    font-size: .8em;
     display: inline-block;
 }
 .lesson__category {
     @extend %lesson__format;
-    margin-right: rhythm(.5);
-    
 }
 .lesson__increment {
     @extend %lesson__format;
     &:after {
         content: "of";
         display: inline-block;
-        padding: 0 rhythm(.25);
+        padding: 0 0 0 rhythm(.25);
     }    
 }
 .lesson__total {
     @extend %lesson__format;
     
 }
+// .hero__nav {
+//     .lesson__total {
+//         &:after {
+//             content: ":";
+//         }
+//     }
+// }

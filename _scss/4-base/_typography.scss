@@ -5,6 +5,7 @@ body {
     font-weight: 400;
     color: $body__color;
     background-color: $body__bg;
+    @include transform( translate3d(0, 0, 0) );
 }
 h1 {
     @include adjust-font-size-to($h1);
@@ -45,17 +46,19 @@ em {
     font-style: normal;
     font-weight: 700;
 }
-// .overflow-ellipsis {
-//     text-overflow: ellipsis;
-//     white-space: nowrap;
-//     overflow: hidden;
-// }
 .text-center {
     text-align: center;
 }
 code, pre {
     font-family: "Source Code Pro";
     line-height: rhythm(1.5);
+}
+.overflow-ellipsis {
+    display: block;
+    width: 95%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 ::-moz-selection {
     color: inherit;

@@ -49,7 +49,7 @@ $(function() {
 
 
   // count total posts in lessons page
-  var lesson__category = $("#count__category").attr("data-category");
+  var lesson__category = $(".count__category").attr("data-category");
   var lesson__category = "#" + lesson__category;
   // console.log(lesson__category);
   var lesson__count = $("#nav__secondary__collapse " + lesson__category).children().length;
@@ -57,8 +57,8 @@ $(function() {
   // console.log(lesson__count);
   var lesson__siblings = $("#nav__secondary__collapse .nav__link.active").parent().prevAll().length;
   // console.log(lesson__siblings);
-  $("#count__siblings").html(lesson__siblings);
-  $("#count__category").html(lesson__count);
+  $(".count__siblings").html(lesson__siblings);
+  $(".count__category").html(lesson__count);
 
 
 
@@ -196,6 +196,8 @@ $('#nav__secondary__toggle').click(function(e) {
   if ( $("#nav__secondary").hasClass("nav__secondary--isOpen") == true) {
     $("#nav__secondary").removeClass("nav__secondary--isOpen");
     $("#body").removeClass("nav--isOpen");
+    //test
+    // $("#nav__secondary").animate({ "width": "0em"}, "slow", "swing");
 
     localStorage.setItem('nav__check', 'false');
     console.log("is closed");
@@ -203,6 +205,8 @@ $('#nav__secondary__toggle').click(function(e) {
   else {
     $("#nav__secondary").addClass("nav__secondary--isOpen");
     $("#body").addClass("nav--isOpen");
+    //test
+    // $("#nav__secondary").animate({ "width": "20em"}, "slow", "swing");
 
     localStorage.setItem('nav__check', 'true');
     console.log("is open");
@@ -214,15 +218,19 @@ var nav__check = localStorage.getItem('nav__check');
 if (nav__check == 'true') {
   $("#nav__secondary").addClass("nav__secondary--isOpen noAnimation");
   $("#body").addClass("nav--isOpen");
+  //test
+  // $("#nav__secondary").attr("style","width: 20em;");
   setTimeout(function(){
     $("#nav__secondary").removeClass("noAnimation");
-  }, 500);
+  }, 50);
 
   console.log("keep it open");
 }
 else {
   $("#nav__secondary").removeClass("nav__secondary--isOpen");    
   $("#body").removeClass("nav--isOpen");    
+  //test
+  // $("#nav__secondary").attr("style","width: 0em;");
 
   console.log("keep it closed");
 }

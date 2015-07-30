@@ -20,8 +20,6 @@
 //
 .nav__link {
     color: $nav__link__color;
-    // background-color: $nav__link__bg;
-    // @include transition( background-color .1s ease-in-out 0s);
     &.active {
         color: $nav__link__color--active;
     }
@@ -59,9 +57,6 @@
             margin-top: ($nav__vert * 2) + 1;
         }
     }
-    // .nav__toggle {
-    //     visibility: hidden;   
-    // }
     .nav__text {
         display: none;
     }
@@ -77,7 +72,6 @@
 //  Nav Secondary       Local
 //
 .nav__secondary {
-    // width: $nav__secondary__width;
     position: relative;
     padding-top: ($nav__vert * 2) + 1;
     .nav__toggle {
@@ -214,8 +208,6 @@
     }
     color: shade($layout__hero__bg,30%);
     background-color: $layout__hero__bg;
-    // border-bottom: rhythm(.05) solid shade($layout__hero__bg,15%);
-    // border-left: rhythm(.05) solid shade($layout__hero__bg,15%);
     position: fixed;
     top: rhythm(.05) * -1;
     z-index: 500;
@@ -432,7 +424,7 @@ section.grid__container {
 //
 .nav__secondary {
     width: 0;
-    @include transform( translate3d(0, 0, 0) );
+    // @include transform( translate3d(0, 0, 0) );
     @include transition( width .5s ease-in-out 0s);
 }
 .noAnimation {
@@ -443,61 +435,7 @@ section.grid__container {
     height: auto;
     width: $nav__secondary__width;
 }
+.nav--isOpen .nav__secondary,
 .nav__secondary--isOpen {
     width: $nav__secondary__width;
 }
-
-////////////////////////////////
-//
-//  Group Counter       Global
-//
-.count__group {
-    counter-reset: count__group;
-}
-.group__ghost {
-    visibility: hidden;
-    position: absolute;
-}
-.group__count {
-    &:before,
-    &:after {
-        font-weight: 600;
-    }
-    &:before {
-        content: "Group ";
-    }
-    &:after {
-        content: counter(count__group);
-        counter-increment: count__group;
-    }
-}
-
-
-
-.catbloc:not(:target) {
-    display: none;
-}
-// .catbloc:target {
-//     animation: slidedown 3s 1;
-//     -webkit-animation: slidedown 3s 1;
-// }
-// @keyframes slidedown {
-//     from {
-//         opacity: 0;
-//         // transform: translate(0, -50px);
-//     }
-//     to {
-//         opacity: 1;
-//         // transform: translate(0);
-//     }
-// }
-// @-webkit-keyframes slidedown {
-//     from {
-//         opacity: 0;
-//         // -webkit-transform: translate(0, -50px);
-//     }
-//     to {
-//         opacity: 1;
-//         // -webkit-transform: translate(0);
-//     }
-// }

@@ -29,9 +29,9 @@ class: "lessons"
                 <div class="dropdown-menu">
                     <p><strong>References</strong></p>
                     <ul class="list--bullets">
-                        {% if page.reference %}
-                        <li><a href="{{ page.reference }}" target="_blank">{{ page.reference | remove: 'http://www.' }}</a></li>
-                        {% endif %}
+                        {% for references in page.references %}
+                        <li class="overflow-ellipsis"><a href="{{ references }}" target="_blank">{{ references }}</a></li>
+                        {% endfor %}
                     </ul>
                     <a class="dropdown__footer" href="{{ '/references' | prepend: site.baseurl }}">
                         <span class="nav__icon [ icon icon-arrow-right ]"></span>
@@ -136,10 +136,12 @@ class: "lessons"
 <div class="hero__nav hero__sticky__left">
     <div class="nav__group">
         <div class="nav__title">
-            {% for category in page.categories %}
-                <strong>{{ category | append: ':' | upcase }}</strong>
-            {% endfor %}
-            {{ page.title }}
+            <div class="lesson__meta">
+                <span class="lesson__category">{% for category in page.categories %}{{ category | upcase }}{% endfor %}</span>
+                <span class="lesson__increment count__siblings"></span>
+                <span class="lesson__total count__category" data-category="{% for category in page.categories %}{{ category }}{% endfor %}"></span>
+                <span class="lesson__title">{{ page.title }}</span>
+            </div>
         </div>
     </div>
 </div>
@@ -148,8 +150,8 @@ class: "lessons"
         <div class="hero__body">
             <div class="lesson__meta">
                 <span class="lesson__category">{% for category in page.categories %}{{ category | upcase }}{% endfor %}</span>
-                <span class="lesson__increment" id="count__siblings"></span>
-                <span class="lesson__total" id="count__category" data-category="{% for category in page.categories %}{{ category }}{% endfor %}"></span>
+                <span class="lesson__increment count__siblings"></span>
+                <span class="lesson__total count__category" data-category="{% for category in page.categories %}{{ category }}{% endfor %}"></span>
             </div>
             <h3 class="post__total">
                 {{ page.title }}

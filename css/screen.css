@@ -147,6 +147,10 @@ body {
   font-weight: 400;
   color: #34383b;
   background-color: #131416;
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
 h1 {
@@ -212,6 +216,14 @@ code, pre {
   line-height: 1.9995em;
 }
 
+.overflow-ellipsis {
+  display: block;
+  width: 95%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 ::-moz-selection {
   color: inherit;
   background: inherit;
@@ -257,6 +269,9 @@ code, pre {
 }
 .renders h1, .renders h2, .renders h3, .renders h4, .renders h5, .renders h6 {
   font-weight: 500;
+}
+.renders p {
+  margin-top: 0;
 }
 
 .renders + .highlight {
@@ -885,10 +900,6 @@ section.grid__container {
 
 .nav__secondary {
   width: 0;
-  -moz-transform: translate3d(0, 0, 0);
-  -ms-transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
   -moz-transition: width 0.5s ease-in-out 0s;
   -o-transition: width 0.5s ease-in-out 0s;
   -webkit-transition: width 0.5s ease-in-out;
@@ -909,32 +920,9 @@ section.grid__container {
   width: 20em;
 }
 
+.nav--isOpen .nav__secondary,
 .nav__secondary--isOpen {
   width: 20em;
-}
-
-.count__group {
-  counter-reset: count__group;
-}
-
-.group__ghost {
-  visibility: hidden;
-  position: absolute;
-}
-
-.group__count:before, .group__count:after {
-  font-weight: 600;
-}
-.group__count:before {
-  content: "Group ";
-}
-.group__count:after {
-  content: counter(count__group);
-  counter-increment: count__group;
-}
-
-.catbloc:not(:target) {
-  display: none;
 }
 
 .hero {
@@ -1054,22 +1042,17 @@ section.grid__container {
 
 .lesson__meta {
   overflow: hidden;
-  font-family: "Montserrat Webfont";
-  font-size: .8em;
   margin-bottom: 0.6665em;
 }
 
 .lesson__category, .lesson__increment, .lesson__total {
-  float: left;
+  font-family: "Montserrat Webfont";
+  font-size: .8em;
   display: inline-block;
-}
-
-.lesson__category {
-  margin-right: 0.6665em;
 }
 
 .lesson__increment:after {
   content: "of";
   display: inline-block;
-  padding: 0 0.33325em;
+  padding: 0 0 0 0.33325em;
 }
