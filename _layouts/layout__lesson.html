@@ -169,12 +169,10 @@ class: "lessons"
                     </a>
                 {% endunless %}
                 {% unless forloop.first %}
-                    <div class="nav__right">
-                        <a class="nav__link nav__prev" href="{{ site.baseurl }}{{ prev.url }}">
-                            <span class="nav__text">{{ prev.title }}</span>
-                            <span class="nav__icon [ icon icon-arrow-right ]"></span>
-                        </a>
-                    </div>
+                    <a class="nav__link nav__prev" href="{{ site.baseurl }}{{ prev.url }}">
+                        <span class="nav__icon [ icon icon-arrow-right ]"></span>
+                        <span class="nav__text">{{ prev.title }}</span>
+                    </a>
                 {% endunless %}
             {% endif %}
             {% assign prev = post %}

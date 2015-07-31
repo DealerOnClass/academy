@@ -68,6 +68,8 @@
         float: left;
         @include media(large) {
             float: none;
+            padding-left: $nav__horz;
+            padding-right: $nav__horz;
             &:first-child {
                 margin-top: ($nav__vert * 2) + 1;
             }
@@ -208,17 +210,28 @@ footer.hero__nav {
             padding-left: $grid__gutter;
         }
     }
-    .nav__prev .nav__icon {
-        margin-left: 0;
-        @include media(medium) {
-            margin-left: $grid__gutter / 2;
+    .nav__next,
+    .nav__prev {
+        @include box-sizing(border-box);
+        width: 50%;
+        height: auto;
+    }
+    .nav__prev {
+        float: right;
+        .nav__text,
+        .nav__icon {
+            float: right;
+        }
+        .nav__text {
+            text-align: right;
         }
     }
     .nav__text {
-        display: none;
-        @include media(medium) {
-            display: inherit;
-        }
+        display: block;
+        width: 70%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
     }
 }
 
@@ -239,7 +252,7 @@ footer.hero__nav {
     z-index: 500;
     .nav__link {
         float: none;
-        @include media(largest) {
+        @include media(large) {
             float: left;
         }
         padding-top: rhythm(.75);
