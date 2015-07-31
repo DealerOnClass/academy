@@ -32,11 +32,11 @@ $highlight__linenos: #807e7a;
     //     position: absolute;
     //     bottom: rhythm(1) * -1;
     // }
+    overflow-x: auto;
     pre {
-        overflow-x: auto;
         // text-overflow: ellipsis;
         word-break: break-all;
-        white-space: nowrap;
+        white-space: pre;
     }
     pre,
     code {

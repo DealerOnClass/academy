@@ -246,6 +246,7 @@ code, pre {
   margin-top: 1.333em;
   margin-bottom: 3.999em;
   position: relative;
+  overflow-x: auto;
 }
 .highlight:after {
   content: "";
@@ -253,9 +254,8 @@ code, pre {
   display: block;
 }
 .highlight pre {
-  overflow-x: auto;
   word-break: break-all;
-  white-space: nowrap;
+  white-space: pre;
 }
 .highlight pre,
 .highlight code {
