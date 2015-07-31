@@ -8,6 +8,8 @@
 }
 .layout__hero {
     background-color: $layout__hero__bg;
-    display: table-cell;
-    width: 10000px;
+    @include media(large) {
+        display: table-cell;
+        width: 10000px;
+    }
 }

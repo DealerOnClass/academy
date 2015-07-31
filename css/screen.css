@@ -454,8 +454,12 @@ code, pre {
 
 .layout__hero {
   background-color: #e4e4e4;
-  display: table-cell;
-  width: 10000px;
+}
+@media screen and (min-width: 49em) {
+  .layout__hero {
+    display: table-cell;
+    width: 10000px;
+  }
 }
 
 .grid__container, .grid__row, [class^="grid__col--"] {
