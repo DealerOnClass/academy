@@ -1,4 +1,11 @@
-@include establish-baseline;
+// @include establish-baseline;
+html {
+    font-size: 100%;
+    line-height: $base-font-ratio;
+    @include media(large) {
+        font-size: (($base-font-size / 1px) / 16) * 100%;
+    }
+}
 body {
     // min-width: 1000px;
     font-family: "Raleway Webfont";    

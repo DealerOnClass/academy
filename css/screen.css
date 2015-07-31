@@ -137,8 +137,13 @@ a:focus {
   font-style: normal;
 }
 html {
-  font-size: 106.25%;
-  line-height: 1.333em;
+  font-size: 100%;
+  line-height: 1.333;
+}
+@media screen and (min-width: 49em) {
+  html {
+    font-size: 106.25%;
+  }
 }
 
 body {
@@ -573,6 +578,8 @@ ul, li + li {
   }
 }
 .nav__primary .nav__link {
+  padding-left: 1.333em;
+  padding-right: 1.333em;
   width: 1em;
   float: left;
 }

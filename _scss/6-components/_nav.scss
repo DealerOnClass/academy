@@ -62,6 +62,8 @@
     }
     .nav__link {
         @extend %nav__link__format;
+        padding-left: $grid__gutter;
+        padding-right: $grid__gutter;
         width: 1em;
         float: left;
         @include media(large) {
