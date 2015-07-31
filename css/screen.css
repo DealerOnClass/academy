@@ -256,7 +256,7 @@ code, pre {
 }
 .highlight pre,
 .highlight code {
-  line-height: 1;
+  line-height: 1.333em;
 }
 
 .renders {
