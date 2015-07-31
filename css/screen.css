@@ -238,7 +238,7 @@ code, pre {
 .highlight {
   color: white;
   background-color: #1f2022;
-  padding: 0.1333em 0.6665em 1.333em;
+  padding: 1.333em 0.6665em 1.333em;
   -moz-border-radius: 0.33325em;
   -webkit-border-radius: 0.33325em;
   border-radius: 0.33325em;
@@ -253,8 +253,10 @@ code, pre {
   display: block;
 }
 .highlight pre {
-  white-space: pre-wrap;
+  overflow-x: auto;
+  text-overflow: ellipsis;
   word-break: break-all;
+  white-space: nowrap;
 }
 .highlight pre,
 .highlight code {

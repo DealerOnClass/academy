@@ -7,7 +7,8 @@ $highlight__linenos: #807e7a;
 .highlight  {
     color: white;
     background-color: tint($body__bg, 5%);
-    padding: rhythm(.1) ($grid__gutter / 2) rhythm(1);
+    // padding: rhythm(.1) ($grid__gutter / 2) rhythm(1);
+    padding: rhythm(1) ($grid__gutter / 2) rhythm(1);
     @include  border-radius(rhythm(.25));
     // padding: rhythm(.1) rhythm(1);
     // margin-left: $grid__gutter * -1;
@@ -32,8 +33,10 @@ $highlight__linenos: #807e7a;
     //     bottom: rhythm(1) * -1;
     // }
     pre {
-        white-space: pre-wrap;
+        overflow-x: auto;
+        text-overflow: ellipsis;
         word-break: break-all;
+        white-space: nowrap;
     }
     pre,
     code {
