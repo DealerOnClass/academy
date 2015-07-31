@@ -254,7 +254,6 @@ code, pre {
 }
 .highlight pre {
   overflow-x: auto;
-  text-overflow: ellipsis;
   word-break: break-all;
   white-space: nowrap;
 }
