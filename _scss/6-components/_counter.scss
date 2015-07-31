@@ -3,7 +3,6 @@
     // color: $blue;
     @include margin-trailer(.5);
 }
-
 %lesson__format {
     font-family: "Montserrat Webfont";
     font-size: .8em;
@@ -22,12 +21,4 @@
 }
 .lesson__total {
     @extend %lesson__format;
-    
 }
-// .hero__nav {
-//     .lesson__total {
-//         &:after {
-//             content: ":";
-//         }
-//     }
-// }

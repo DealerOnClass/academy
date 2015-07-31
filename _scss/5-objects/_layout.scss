@@ -1,6 +1,8 @@
 .layout__nav {
     background-color: $body__bg;
-    float: left;
+    @include media(large) {
+        float: left;
+    }
     position: relative;
     z-index: 1500;
 }

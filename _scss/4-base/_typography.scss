@@ -1,11 +1,10 @@
 @include establish-baseline;
 body {
-    min-width: 1000px;
+    // min-width: 1000px;
     font-family: "Raleway Webfont";    
     font-weight: 400;
     color: $body__color;
     background-color: $body__bg;
-    @include transform( translate3d(0, 0, 0) );
 }
 h1 {
     @include adjust-font-size-to($h1);

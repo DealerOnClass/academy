@@ -12,7 +12,10 @@
     padding-right: $grid__gutter;
     padding-left: $grid__gutter;
     margin: 0 auto;
-    max-width: $grid__container__width;
+    max-width: $grid__container__width * 1.25;
+    @include media(large) {
+        max-width: $grid__container__width;
+    }
 }
 .grid__row {
     @extend %grid__sizing;

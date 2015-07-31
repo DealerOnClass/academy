@@ -94,56 +94,40 @@ class: "lessons"
     </div>
 </header>
 <div class="hero__nav hero__sticky__right">
-    <div class="nav__group">
-        <div class="nav__right">
-            <a class="nav__link nav__link--home" href="{{ '/' | prepend: site.baseurl }}">
-                <span class="nav__icon [ icon icon-home ]"></span>
-            </a>
-            {% if page.isFirst %}
-                <a class="nav__link nav__link--right" href="{{ '/' | prepend: site.baseurl }}">
+    <a class="nav__link nav__link--home" href="{{ '/' | prepend: site.baseurl }}">
+        <span class="nav__icon [ icon icon-home ]"></span>
+    </a>
+    {% if page.isFirst %}
+        <a class="nav__link nav__link--right" href="{{ '/' | prepend: site.baseurl }}">
+            <span class="nav__icon [ icon icon-arrow-left ]"></span>
+            <!-- <span class="nav__text">Home</span> -->
+        </a>
+    {% endif %}
+    
+    {% for category in site.categories %}
+    {% assign catg_name = category.first %}
+        {% if catg_name == page.categories.first | downcase %}
+            {% assign catg_posts = category.last %}
+        {% endif %}
+    {% endfor %}
+    {% for post in catg_posts %}
+        {% if post.title == page.title %}
+            {% unless forloop.last %}
+                {% assign next = catg_posts[forloop.index] %}
+                <a class="nav__link nav__link--right" href="{{ site.baseurl }}{{ next.url }}">
                     <span class="nav__icon [ icon icon-arrow-left ]"></span>
-                    <!-- <span class="nav__text">Home</span> -->
+                    <!-- <span class="nav__text">{{ next.title }}</span> -->
                 </a>
-            {% endif %}
-            
-            {% for category in site.categories %}
-            {% assign catg_name = category.first %}
-                {% if catg_name == page.categories.first | downcase %}
-                    {% assign catg_posts = category.last %}
-                {% endif %}
-            {% endfor %}
-            {% for post in catg_posts %}
-                {% if post.title == page.title %}
-                    {% unless forloop.last %}
-                        {% assign next = catg_posts[forloop.index] %}
-                        <a class="nav__link nav__link--right" href="{{ site.baseurl }}{{ next.url }}">
-                            <span class="nav__icon [ icon icon-arrow-left ]"></span>
-                            <!-- <span class="nav__text">{{ next.title }}</span> -->
-                        </a>
-                    {% endunless %}
-                    {% unless forloop.first %}
-                        <a class="nav__link" href="{{ site.baseurl }}{{ prev.url }}">
-                            <!-- <span class="nav__text">{{ prev.title }}</span> -->
-                            <span class="nav__icon [ icon icon-arrow-right ]"></span>
-                        </a>
-                    {% endunless %}
-                {% endif %}
-                {% assign prev = post %}
-            {% endfor %}
-        </div>
-    </div>
-</div>
-<div class="hero__nav hero__sticky__left">
-    <div class="nav__group">
-        <div class="nav__title">
-            <div class="lesson__meta">
-                <span class="lesson__category">{% for category in page.categories %}{{ category | upcase }}{% endfor %}</span>
-                <span class="lesson__increment count__siblings"></span>
-                <span class="lesson__total count__category" data-category="{% for category in page.categories %}{{ category }}{% endfor %}"></span>
-                <span class="lesson__title">{{ page.title }}</span>
-            </div>
-        </div>
-    </div>
+            {% endunless %}
+            {% unless forloop.first %}
+                <a class="nav__link" href="{{ site.baseurl }}{{ prev.url }}">
+                    <!-- <span class="nav__text">{{ prev.title }}</span> -->
+                    <span class="nav__icon [ icon icon-arrow-right ]"></span>
+                </a>
+            {% endunless %}
+        {% endif %}
+        {% assign prev = post %}
+    {% endfor %}
 </div>
 <section class="grid__container">
     <div class="hero">

@@ -49,15 +49,23 @@ $layout__hero__bg: #e4e4e4;
 //
 //  Grid
 //
-$grid__container__width: 40em;
-$grid__gutter:  rhythm(1);
+$grid__container__width: 40em;  //  40
+$grid__gutter:  rhythm(1);      //  2.666
+
+$nav__vert: rhythm(1.25);       //  1.66625
+$nav__horz: rhythm(1.5);        //  1.9995
+
+////////////////////////////////
+//
+//  Screen Sizes
+//
+$screen--large: 49em;           //
+$screen--largest: 66em;           //
 
 ////////////////////////////////
 //
 //  Nav
 //
-$nav__vert: rhythm(1.25);
-$nav__horz: rhythm(1.5);
 
 $hero__header__color: white;
 $hero__header__bg: #2c77dd;

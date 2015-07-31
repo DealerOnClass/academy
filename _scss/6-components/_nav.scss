@@ -50,11 +50,25 @@
 //  Nav Primary         Local
 //
 .nav__primary {
+    width: 100%;
+    @include media(large) {
+        width: auto;
+    }
+    .nav__link.nav__toggle {
+        float: right;
+        @include media(large) {
+            display: none;
+        }
+    }
     .nav__link {
         @extend %nav__link__format;
         width: 1em;
-        &:first-child {
-            margin-top: ($nav__vert * 2) + 1;
+        float: left;
+        @include media(large) {
+            float: none;
+            &:first-child {
+                margin-top: ($nav__vert * 2) + 1;
+            }
         }
     }
     .nav__text {
@@ -73,7 +87,14 @@
 //
 .nav__secondary {
     position: relative;
-    padding-top: ($nav__vert * 2) + 1;
+    @include media(large) {
+        padding-top: ($nav__vert * 2) + 1;
+        // undo collapse element
+        &.collapse {
+            height: auto!important;
+            display: block;
+        }
+    }
     .nav__toggle {
         @extend %nav__link__format;
         position: absolute;
@@ -88,6 +109,10 @@
         .nav__text {
             display: none;
             margin-right: $nav__vert;
+        }
+        display: none;
+        @include media(large) {
+            display: block;
         }
     }
     .nav__link {
@@ -163,14 +188,6 @@
     .nav__right {
         position: relative;
     }
-    .nav__link--right {
-        position: absolute;
-        right: ($grid__gutter * 2) + 1;
-    }
-    .nav__link--home {
-        position: absolute;        
-        right: ($grid__gutter * 4) + 2;
-    }
     &:after {
         content: "";
         clear: both;
@@ -187,39 +204,27 @@
 //  Nav Sticky          Global
 //
 .hero__sticky__right {
-    right: $grid__gutter;
-}
-.hero__sticky__left {
-    left: ($nav__horz * 1.5) + ($grid__gutter * 2);
-}
-.hero__sticky__right,
-.hero__sticky__left {
-    .nav__group {
-        &:after {
-            content: "";
-            clear: both;
-            display: table;
-        }
-    }
-    .nav__title {
-        @extend %nav__link__format;
-        position: relative;
-        top: rhythm(.1) * -1;
-    }
+    right: 0;
+    // border-left: rhythm(.05) solid shade($layout__hero__bg,10%);
+    // border-bottom: rhythm(.05) solid shade($layout__hero__bg,10%);
+    @include border-radius(0 0 0 rhythm(.5));
     color: shade($layout__hero__bg,30%);
     background-color: $layout__hero__bg;
+    overflow: hidden;
     position: fixed;
     top: rhythm(.05) * -1;
     z-index: 500;
     .nav__link {
+        float: none;
+        @include media(largest) {
+            float: left;
+        }
+        padding-top: rhythm(.75);
+        padding-bottom: rhythm(.75);
         &:hover, &:active, &:focus {
             background-color: shade($layout__hero__bg,4%);
         }
     }
-}
-
-.nav--isOpen .hero__sticky__left {
-    left: ($nav__horz * 1.5) + ($grid__gutter * 2) + $nav__secondary__width;
 }
 
 section.grid__container {
@@ -304,11 +309,19 @@ section.grid__container {
         content: "";
         position: absolute;
         display: block;
-        top: 50%;
-        left: 0;
-        height: rhythm(1);
-        margin-top: rhythm(.5) * -1;
-        width: rhythm(.1);
+        top: 0;
+        left: 50%;
+        margin-left: rhythm(.5) * -1;
+        height: rhythm(.1);
+        width: rhythm(1);
+        @include media(large) {
+            top: 50%;
+            left: 0;
+            height: rhythm(1);
+            margin-top: rhythm(.5) * -1;
+            margin-left: 0;
+            width: rhythm(.1);
+        }
     }
 }
 
@@ -324,6 +337,12 @@ section.grid__container {
 .group4 #nav__link--group4:before { background-color: $group4__bg; }
 .group4 .nav__secondary .group__icon--group4 { color: $group4__bg; }
 
+.progress__child:hover {
+    .group__icon--group1 { color: $group1__bg; }
+    .group__icon--group2 { color: $group2__bg; }
+    .group__icon--group3 { color: $group3__bg; }
+    .group__icon--group4 { color: $group4__bg; }
+}
 
 ////////////////////////////////
 //
@@ -401,6 +420,7 @@ section.grid__container {
         position: relative;
         top: rhythm(.2);
         @include margin-trailer(.2);
+        @include transition( color .5s ease-in-out 0s);        
         &:after {
             position: relative;
             top: 0;
@@ -423,9 +443,13 @@ section.grid__container {
 //  Nav S... Anim...    Global
 //
 .nav__secondary {
-    width: 0;
     // @include transform( translate3d(0, 0, 0) );
-    @include transition( width .5s ease-in-out 0s);
+    width: 100%;
+    @include media(large) {
+        @include transition( width .5s ease-in-out 0s);
+        width: 0;
+    }
+
 }
 .noAnimation {
     @include transition( none );    
@@ -433,9 +457,13 @@ section.grid__container {
 #nav__secondary__toggle,
 #nav__secondary__collapse {
     height: auto;
-    width: $nav__secondary__width;
+    @include media(large) {
+        width: $nav__secondary__width;
+    }
 }
 .nav--isOpen .nav__secondary,
 .nav__secondary--isOpen {
-    width: $nav__secondary__width;
+    @include media(large) {
+        width: $nav__secondary__width;
+    }
 }

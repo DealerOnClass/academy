@@ -29,8 +29,18 @@
 
         {% endif %}
         {% endfor %}
+        <a href="#nav__secondary" class="nav__link [ nav__toggle ]" id="nav__primary__toggle" data-toggle="collapse">
+            <div>
+                <span class="nav__icon [ nav__dots ]">
+                    <span class="nav__dot">.</span>
+                    <span class="nav__dot">.</span>
+                    <span class="nav__dot">.</span>
+                </span>
+                <span class="nav__text">close menu</span>
+            </div>
+        </a>
     </div>
-    <div class="nav__secondary" id="nav__secondary">
+    <div class="collapse [ nav__secondary ]" id="nav__secondary">
         <a class="nav__link [ nav__toggle ]" id="nav__secondary__toggle">
             <div>
                 <span class="nav__icon [ nav__dots ]">
