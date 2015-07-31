@@ -199,7 +199,28 @@
 .hero__nav__collapse {
     @include padding-trailer(3);
 }
-
+footer.hero__nav {
+    .grid__container {
+        padding-right: 0;
+        padding-left: 0;
+        @include media(large) {
+            padding-right: $grid__gutter;
+            padding-left: $grid__gutter;
+        }
+    }
+    .nav__prev .nav__icon {
+        margin-left: 0;
+        @include media(medium) {
+            margin-left: $grid__gutter / 2;
+        }
+    }
+    .nav__text {
+        display: none;
+        @include media(medium) {
+            display: inherit;
+        }
+    }
+}
 
 ////////////////////////////////
 //

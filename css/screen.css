@@ -708,6 +708,33 @@ ul, li + li {
   padding-bottom: 3.999em;
 }
 
+footer.hero__nav .grid__container {
+  padding-right: 0;
+  padding-left: 0;
+}
+@media screen and (min-width: 49em) {
+  footer.hero__nav .grid__container {
+    padding-right: 1.333em;
+    padding-left: 1.333em;
+  }
+}
+footer.hero__nav .nav__prev .nav__icon {
+  margin-left: 0;
+}
+@media screen and (min-width: 30em) {
+  footer.hero__nav .nav__prev .nav__icon {
+    margin-left: 0.6665em;
+  }
+}
+footer.hero__nav .nav__text {
+  display: none;
+}
+@media screen and (min-width: 30em) {
+  footer.hero__nav .nav__text {
+    display: inherit;
+  }
+}
+
 .hero__sticky__right {
   right: 0;
   -moz-border-radius: 0 0 0 0.6665em;
