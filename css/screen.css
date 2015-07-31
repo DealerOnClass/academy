@@ -253,6 +253,7 @@ code, pre {
   display: block;
 }
 .highlight pre {
+  white-space: pre-wrap;
   word-break: break-all;
 }
 .highlight pre,

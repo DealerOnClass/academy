@@ -32,7 +32,7 @@ $highlight__linenos: #807e7a;
     //     bottom: rhythm(1) * -1;
     // }
     pre {
-        // white-space: normal;
+        white-space: pre-wrap;
         word-break: break-all;
     }
     pre,
