@@ -720,6 +720,10 @@ footer.hero__nav .grid__container {
     padding-left: 1.333em;
   }
 }
+footer.hero__nav .nav__link {
+  padding-top: 1.66625em;
+  padding-bottom: 1.333em;
+}
 footer.hero__nav .nav__next,
 footer.hero__nav .nav__prev {
   -moz-box-sizing: border-box;

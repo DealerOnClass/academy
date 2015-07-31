@@ -105,15 +105,13 @@ active: home
 </section>
 <footer class="hero__nav">
     <div class="grid__container">
-        <div class="nav__right">
-            {% for post in site.posts %}
-            {% if post.isFirst %}
-            <a class="nav__link nav__prev" href="{{ post.url | prepend: site.baseurl }}">
-                <span class="nav__text">{{ post.title }}</span>                
-                <span class="nav__icon [ icon icon-arrow-right ]"></span>
-            </a>
-            {% endif %}
-            {% endfor %}
-        </div>
+        {% for post in site.posts %}
+        {% if post.isFirst %}
+        <a class="nav__link nav__prev" href="{{ post.url | prepend: site.baseurl }}">
+            <span class="nav__icon [ icon icon-arrow-right ]"></span>
+            <span class="nav__text">{{ post.title }}</span>                
+        </a>
+        {% endif %}
+        {% endfor %}
     </div>
 </footer>

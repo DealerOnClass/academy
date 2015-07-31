@@ -210,6 +210,10 @@ footer.hero__nav {
             padding-left: $grid__gutter;
         }
     }
+    .nav__link {
+        padding-top: $nav__vert;
+        padding-bottom: $nav__vert * .8;
+    }
     .nav__next,
     .nav__prev {
         @include box-sizing(border-box);
