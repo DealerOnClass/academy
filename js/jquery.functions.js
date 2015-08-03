@@ -55,7 +55,7 @@ $(function() {
 
 
 // bootstrap collapse icon switch
-$('[data-toggle="collapse"]').click(function() {
+$('[class^="collapse__link"][data-toggle="collapse"]').click(function() {
   // get selector from data-target
   var elem__id = $(this).attr("data-target").substr(1);
   // get icon
