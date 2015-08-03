@@ -1,16 +1,5 @@
 <div class="nav">
     <div class="nav__primary" id="nav__primary">
-        {% if page.active == "home" %}
-        <a class="nav__link active" href="{{ '/' | prepend: site.baseurl }}">
-            <span class="nav__icon [ icon icon-home ]"></span>
-            <span class="nav__text">home</span>
-        </a>
-        {% else %}
-        <a class="nav__link" href="{{ '/' | prepend: site.baseurl }}">
-            <span class="nav__icon [ icon icon-home ]"></span>
-            <span class="nav__text">home</span>
-        </a>
-        {% endif %}
         {% assign nav__menu = site.pages %}
         {% assign nav__group = 'navigation' %}
         {% include nav__menu.html %}
