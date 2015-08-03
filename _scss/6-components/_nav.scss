@@ -300,6 +300,7 @@ section.grid__container {
 .nav__dots {
     position: relative;
     top: -.6em;
+	margin-bottom: -0.325em;
 }
 .nav__dot {
     font-family: "Montserrat Webfont";
@@ -387,7 +388,7 @@ section.grid__container {
 
 .group4 #nav__link--group4:before { background-color: $group4__bg; }
 .group4 .nav__secondary .group__icon--group4 { color: $group4__bg; }
-
+                                        
 .progress__child:hover {
     .group__icon--group1 { color: $group1__bg; }
     .group__icon--group2 { color: $group2__bg; }
