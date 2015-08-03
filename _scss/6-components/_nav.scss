@@ -120,7 +120,7 @@
         }
     }
     .nav__link {
-        @extend %nav__link__format;
+        @extend %nav__link__format;        
         &:after {
             content: "";
             clear: both;
@@ -129,6 +129,17 @@
     }
     .nav__icon {
         float: right;
+    }
+    #nav__secondary__collapse {
+        padding-bottom: $nav__vert;
+        .nav__link {
+            padding-left: $grid__gutter;
+            padding-right: $grid__gutter;
+            @include media(large) {
+                padding-left: $nav__horz;
+                padding-right: $nav__horz;
+            }
+        }    
     }
 }
 
