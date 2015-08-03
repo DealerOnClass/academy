@@ -1,5 +1,8 @@
 .hero {
-    @include rhythm-padding(4,8);
+    @include rhythm-padding(2,8);
+    @include media(large) {
+        @include padding-leader(4);
+    }
     ::-moz-selection {
         color: white;
         background: $hero__header__bg;
