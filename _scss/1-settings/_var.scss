@@ -78,7 +78,7 @@ $hero__dropdown-footer__bg--hover: shade(saturate(#2c77dd, 10%), 30%);
 
 $nav__secondary__width: 20em;
 
-$nav__link__color: #737478;
+$nav__link__color: tint(#737478, 30%);
 $nav__link__color--active: white;
 
 $nav__link__bg: #131416; 
