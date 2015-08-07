@@ -120,7 +120,7 @@
         }
     }
     .nav__link {
-        @extend %nav__link__format;        
+        @extend %nav__link__format;
         &:after {
             content: "";
             clear: both;
@@ -139,7 +139,7 @@
                 padding-left: $nav__horz;
                 padding-right: $nav__horz;
             }
-        }    
+        }
     }
 }
 
@@ -162,7 +162,7 @@
         padding-right: $grid__gutter;
         float: left;
         color: inherit;
-        width: 1em;        
+        width: 1em;
         &:hover, &:focus, &:active {
             background-color: $hero__header__link__bg--hover;
         }
@@ -190,14 +190,14 @@
     }
     .nav__prev,
     .nav__next {
-        width: auto;   
+        width: auto;
     }
     .nav__prev {
         .nav__text {
             margin-left: 0;
         }
         .nav__icon {
-            margin-left: $grid__gutter / 2;        
+            margin-left: $grid__gutter / 2;
         }
     }
     .nav__right {
@@ -388,7 +388,7 @@ section.grid__container {
 
 .group4 #nav__link--group4:before { background-color: $group4__bg; }
 .group4 .nav__secondary .group__icon--group4 { color: $group4__bg; }
-                                        
+
 .progress__child:hover {
     .group__icon--group1 { color: $group1__bg; }
     .group__icon--group2 { color: $group2__bg; }
@@ -408,7 +408,7 @@ section.grid__container {
 
         top: 0;
         left: rhythm(1.7);
-        
+
         height: 100%;
         width: rhythm(.1);
 
@@ -423,7 +423,7 @@ section.grid__container {
 
         position: absolute;
         content: "";
-    
+
         height: .35em;
         width: .35em;
 
@@ -472,7 +472,7 @@ section.grid__container {
         position: relative;
         top: rhythm(.2);
         @include margin-trailer(.2);
-        @include transition( color .5s ease-in-out 0s);        
+        @include transition( color .5s ease-in-out 0s);
         &:after {
             position: relative;
             top: 0;
@@ -504,7 +504,7 @@ section.grid__container {
 
 }
 .noAnimation {
-    @include transition( none );    
+    @include transition( none );
 }
 #nav__secondary__toggle,
 #nav__secondary__collapse {
